@@ -1,0 +1,2133 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Workshop Top" />
+    <title>Workshop Top - PC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --base-bg: #ffffff;
+            --base-white: #ffffff;
+            --corp: #ded08e;
+            --accent: #2f3f66;
+            --point: #17875e;
+            --text: #333333;
+            --line: #c9c9c9;
+            --placeholder: #cfcfcf;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--base-bg);
+            color: var(--text);
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            padding: 32px 28px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 36px;
+            background: transparent;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            letter-spacing: 0.06em;
+        }
+
+        .logo,
+        .menu,
+        .side-sub {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu {
+            list-style: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .side-sub {
+            margin-top: 36px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .content {
+            padding-bottom: 48px;
+        }
+
+        .hero-wrap {
+            position: relative;
+        }
+
+        .sp-header {
+            display: none;
+        }
+
+        .sp-logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .sp-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sp-menu-btn {
+            width: 49px;
+            height: 38px;
+            border: 0;
+            background: transparent;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .sp-menu-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .sp-drawer {
+            display: none;
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 1018px;
+            height: 527px;
+            margin: 0 auto;
+            background: var(--placeholder);
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            letter-spacing: 0.06em;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 28px 24px 0;
+        }
+
+        h1,
+        h2 {
+            font-family: "Cormorant", serif;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-align: center;
+            margin: 0;
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin: 70px 0 61px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin: 70px 0 34px;
+        }
+
+        h3 {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0 0 30px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .feature h3 {
+            line-height: 1.35;
+        }
+
+        .copy {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        .lead-area,
+        .lead-area-pc,
+        .lead-area-sp {
+            max-width: 760px;
+            margin: 30px auto 62px;
+            text-align: center;
+        }
+
+        .lead-area-sp {
+            display: none;
+        }
+
+        .lead-slider {
+            width: 888px;
+            margin: 0 auto 26px;
+        }
+
+        .lead-track {
+            display: block;
+        }
+
+        .lead-nav {
+            display: none;
+        }
+
+        .lead-nav-group {
+            display: none;
+        }
+
+        .h2-lead-area {
+            max-width: 760px;
+            margin: 34px auto 68px;
+            text-align: center;
+        }
+
+        .h2-lead-area-pc {
+            display: block;
+        }
+
+        .h2-lead-area-sp {
+            display: none;
+        }
+
+        .lead-section {
+            width: 100%;
+            max-width: 888px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+            align-items: center;
+            margin: 0 auto 26px;
+        }
+
+        .img-placeholder {
+            width: 250px;
+            height: 250px;
+            background: var(--placeholder);
+            display: grid;
+            place-items: center;
+            letter-spacing: 0.06em;
+            color: var(--text);
+        }
+
+        .lead-section-left-photo,
+        .lead-section-right-photo {
+            width: 412px;
+            height: 303px;
+            background: var(--placeholder);
+            display: grid;
+            place-items: center;
+            letter-spacing: 0.06em;
+            color: var(--text);
+        }
+
+        .lead-section-right-text,
+        .lead-section-left-text {
+            width: 412px;
+        }
+
+        .center-note,
+        .center-note-pc,
+        .center-note-sp {
+            text-align: center;
+            margin: 70px 0 33px;
+        }
+
+        .center-note-sp {
+            display: none;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 42px;
+        }
+
+        .button-row .btn-text-arrow {
+            position: relative;
+            width: 230px;
+            height: auto;
+            min-width: 0;
+            padding: 0 30px 8px 8px;
+            border: none;
+            border-bottom: 1px solid #9aa1b2;
+            background: transparent;
+            color: var(--text);
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .button-row .btn-text-arrow::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            width: 0;
+            height: 0;
+            border-left: 14px solid #8c8c8c;
+            border-top: 14px solid transparent;
+        }
+
+        .btn {
+            width: 186px;
+            height: 48px;
+            min-width: 186px;
+            border: 1px solid #aeb4c2;
+            background: var(--base-white);
+            color: var(--text);
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            margin-top: 21px;
+        }
+
+        .feature {
+            max-width: 760px;
+            margin: 0 auto 52px;
+            text-align: center;
+        }
+
+        .special {
+            width: 100%;
+            max-width: 719px;
+            margin: 96px auto 0;
+        }
+
+        .short {
+            margin-top: 63px;
+        }
+
+        .feature .img-placeholder {
+            min-height: 300px;
+            margin-bottom: 12px;
+        }
+
+        .img-placeholder-special {
+            width: 556px;
+            height: 371px;
+            min-height: 0;
+            margin: 0 auto 30px;
+        }
+
+        .img-placeholder-special img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 10px 0 16px;
+        }
+
+        .spec {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 8px 4px;
+        }
+
+        .short-slider {
+            display: block;
+            width: 890px;
+            max-width: 890px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .short-track {
+            display: grid;
+            grid-template-columns: repeat(3, 250px);
+            gap: 70px;
+            width: 100%;
+            margin: 18px auto 58px;
+        }
+
+        .short-nav-group,
+        .short-nav {
+            display: none;
+        }
+
+        .card-2row {
+            display: block;
+            width: 100%;
+            max-width: 448px;
+            height: 49px;
+            margin: 18px auto 24px;
+        }
+
+        .card-2row .btn {
+            width: 100%;
+            max-width: 448px;
+            height: 49px;
+            min-width: 0;
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .course-track {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 448px;
+            margin: 18px auto 12px;
+        }
+
+        .course-track p {
+            margin: 4px 0;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card p {
+            margin: 4px 0;
+        }
+
+        .card .img-placeholder {
+            min-height: 160px;
+            margin-bottom: 8px;
+        }
+
+        .card .btn {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .product-name {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
+            row-gap: 0;
+            width: 100%;
+            max-width: 890px;
+            margin-top: 115px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews>h2,
+        .reviews>.h2-lead-area-pc,
+        .reviews>.h2-lead-area-sp {
+            grid-column: 1 / -1;
+        }
+
+        .reviews>h2 {
+            margin: 0 0 34px;
+        }
+
+        .reviews>.h2-lead-area-pc,
+        .reviews>.h2-lead-area-sp {
+            margin: 0 auto 68px;
+        }
+
+        .reviews>p,
+        .reviews>a.btn {
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+
+        .review-slider {
+            grid-column: 1 / -1;
+            width: 890px;
+            max-width: 890px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .review-track {
+            display: grid;
+            grid-template-columns: repeat(3, 250px);
+            justify-content: center;
+            column-gap: 70px;
+            row-gap: 55px;
+            width: 100%;
+        }
+
+        .review-nav-group,
+        .review-nav {
+            display: none;
+        }
+
+        .reviews>p {
+            margin: 65px 0 6px;
+        }
+
+        .reviews>a.btn {
+            margin-top: 0;
+        }
+
+        .btn-instagram {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid #8f8d8d;
+            margin-top: 0;
+        }
+
+        .review-card {
+            width: 250px;
+        }
+
+        .review-card .img-placeholder {
+            min-height: 170px;
+            margin-bottom: 8px;
+        }
+
+        .review-card>p,
+        .review-card>div:not(.img-placeholder) {
+            width: 250px;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            max-width: 920px;
+            margin: 115px auto 0;
+        }
+
+        .faq>h2 {
+            margin: 65px 0 34px;
+        }
+
+        .faq .faq-accordion {
+            width: 719px;
+            margin: 0;
+            border-top: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq .faq-accordion:first-of-type {
+            border-top: 1px solid #9aa1b2;
+        }
+
+        .faq .faq-accordion+.faq-accordion {
+            margin-top: -1px;
+        }
+
+        .faq .faq-accordion .head {
+            padding: 12px 16px;
+        }
+
+        .faq .faq-accordion .body {
+            padding: 10px 16px 14px;
+        }
+
+        .accordion {
+            margin: 30px 0;
+            border: 1px solid #9aa1b2;
+            background: transparent;
+        }
+
+        .accordion .head {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #9aa1b2;
+            background: transparent;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            color: var(--text);
+            font: inherit;
+            text-align: left;
+        }
+
+        .accordion .head .symbol {
+            font-size: 30px;
+            line-height: 1;
+            color: var(--accent);
+            margin-left: 12px;
+            font-weight: 400;
+        }
+
+        .accordion .body {
+            padding: 16px 20px 18px;
+        }
+
+        .accordion .title {
+            margin: 16px 0 4px;
+            font-weight: 500;
+        }
+
+        .accordion .title:first-child {
+            margin-top: 0;
+        }
+
+        .accordion .detail {
+            margin: 0;
+        }
+
+        .access {
+            max-width: 920px;
+            margin: 115px auto 0;
+            text-align: center;
+        }
+
+        .access .img-placeholder {
+            width: 100%;
+            max-width: 890px;
+            height: 354px;
+            min-height: 0;
+            margin-top: 16px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .access .img-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .footer {
+            width: 100%;
+            margin-top: 44px;
+            height: 44px;
+            position: relative;
+            z-index: 2;
+            background: var(--corp);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            .page {
+                width: 100%;
+                grid-template-columns: 220px 1fr;
+            }
+
+            .hero {
+                width: 100%;
+                max-width: 1018px;
+                height: auto;
+                aspect-ratio: 1018 / 527;
+            }
+
+            .container {
+                max-width: 920px;
+            }
+
+            .lead-section {
+                width: 100%;
+                max-width: 888px;
+            }
+
+            .lead-section-left-photo,
+            .lead-section-right-photo,
+            .lead-section-right-text,
+            .lead-section-left-text,
+            .special,
+            .faq .faq-accordion,
+            .access .img-placeholder,
+            .reviews {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1281px) {
+            .page {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: max(0px, calc((100vw - 1440px) / 2));
+                width: 280px;
+                height: 100vh;
+                overflow: auto;
+                z-index: 1;
+                background: var(--base-bg);
+            }
+
+            .content {
+                width: min(1160px, calc(100vw - 280px));
+                margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .page {
+                display: block;
+                width: 100%;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .sp-header {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .sp-drawer {
+                position: absolute;
+                top: 72px;
+                right: 12px;
+                z-index: 3;
+                display: block;
+                width: fit-content;
+                max-width: calc(100vw - 24px);
+                padding: 16px 18px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid #d9d9d9;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-12px);
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            }
+
+            .sp-drawer.is-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .sp-drawer .menu li {
+                margin-bottom: 12px;
+                white-space: nowrap;
+            }
+
+            .sp-drawer .side-sub {
+                margin-top: 20px;
+            }
+
+            .sp-header .sp-menu-btn {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .hero {
+                width: 100%;
+                max-width: none;
+            }
+
+            .hero-wrap {
+                margin-bottom: 70px;
+            }
+
+            .container {
+                max-width: 760px;
+                padding: 20px 20px 0;
+            }
+
+            .lead-area-pc {
+                display: none;
+            }
+
+            .lead-area-sp {
+                display: block;
+                margin-bottom: 70px;
+            }
+
+            h1 {
+                font-size: 40px;
+                margin: 0 0 61px;
+            }
+
+            h2 {
+                font-size: 36px;
+                margin: 58px 0 26px;
+            }
+
+            .reviews>h2 {
+                margin: 65px 0 34px;
+            }
+
+            h3,
+            .copy {
+                font-size: 20px;
+            }
+
+            .lead-area,
+            .lead-area-pc,
+            .lead-area-sp,
+            .h2-lead-area {
+                margin: 22px auto 42px;
+            }
+
+            .lead-area-sp {
+                margin-bottom: 70px;
+            }
+
+            .lead-area,
+            .lead-area-pc,
+            .lead-area-sp,
+            .h2-lead-area,
+            .lead-section-left-text,
+            .lead-section-right-text,
+            .center-note,
+            .center-note-pc,
+            .center-note-sp,
+            .special>p,
+            .reviews>.h2-lead-area-pc,
+            .reviews>.h2-lead-area-sp,
+            .reviews>p,
+            .review-card>p,
+            .review-card>div:not(.img-placeholder),
+            .faq .faq-accordion .body,
+            .access .h2-lead-area {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .review-card>p,
+            .review-card>div:not(.img-placeholder) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .lead-section {
+                grid-template-columns: 1fr;
+                gap: 38px;
+                margin: 0;
+                flex: 0 0 100%;
+            }
+
+            .lead-section:nth-of-type(2) .lead-section-left-text {
+                order: 2;
+            }
+
+            .lead-section:nth-of-type(2) .lead-section-right-photo {
+                order: 1;
+            }
+
+            .lead-section-left-photo,
+            .lead-section-right-photo,
+            .lead-section-left-text,
+            .lead-section-right-text {
+                width: 100%;
+            }
+
+            .lead-section-left-photo,
+            .lead-section-right-photo {
+                height: auto;
+            }
+
+            .lead-track .lead-section .lead-section-left-photo,
+            .lead-track .lead-section .lead-section-right-photo {
+                width: calc(100% - 40px);
+                max-width: 332px;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .lead-track .lead-section .lead-section-left-photo img,
+            .lead-track .lead-section .lead-section-right-photo img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .lead-section .copy {
+                text-align: center;
+                margin: 0 0 30px;
+            }
+
+            .lead-section-left-text p,
+            .lead-section-right-text p {
+                margin: 0;
+            }
+
+            .lead-slider {
+                position: relative;
+                width: 100%;
+                max-width: 888px;
+                overflow: hidden;
+                margin-bottom: 24px;
+            }
+
+            .lead-track {
+                display: flex;
+                transition: transform 0.3s ease;
+                will-change: transform;
+            }
+
+            .lead-nav-group {
+                position: absolute;
+                top: 50%;
+                left: calc(50% - 50vw + 20px);
+                right: calc(50% - 50vw + 20px);
+                transform: translateY(-50%);
+                width: auto;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .lead-nav {
+                position: relative;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .lead-nav::before,
+            .lead-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .lead-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .lead-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .lead-nav.prev::before,
+            .lead-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .lead-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .lead-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .center-note,
+            .center-note-pc,
+            .center-note-sp {
+                margin: 75px 0 24px;
+            }
+
+            .center-note-pc {
+                display: none;
+            }
+
+            .center-note-sp {
+                display: block;
+                margin: 75px 0 30px;
+            }
+
+            .reviews .h2-lead-area-pc {
+                display: none;
+            }
+
+            .reviews .h2-lead-area-sp {
+                display: block;
+                text-align: center;
+            }
+
+            .button-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                margin-bottom: 34px;
+            }
+
+            .button-row .btn-text-arrow {
+                width: min(340px, 100%);
+            }
+
+            .special {
+                margin-top: 75px;
+            }
+
+            .special h3 {
+                margin-bottom: 30px;
+            }
+
+            .special .accordion {
+                margin: 30px 0;
+            }
+
+            .short {
+                margin-top: 52px;
+            }
+
+            .short .feature h3 {
+                margin: 80px 0 30px;
+            }
+
+            .short .feature {
+                margin-bottom: 30px;
+            }
+
+            .course-track {
+                width: 100%;
+                max-width: 448px;
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .img-placeholder-special {
+                display: grid;
+                width: 250px;
+                height: 250px;
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+                margin: 30px auto;
+            }
+
+            .img-placeholder-special img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover;
+            }
+
+            .card-2row {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                max-width: 448px;
+                height: auto;
+                margin: 40px auto 24px;
+            }
+
+            .card-2row .btn {
+                width: 362px;
+                max-width: 362px;
+                height: 49px;
+            }
+
+            .card .img-placeholder {
+                width: 100%;
+                max-width: 320px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .review-card .img-placeholder {
+                width: 250px;
+                max-width: 250px;
+                height: 250px;
+                min-height: 0;
+                margin-bottom: 17px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .review-card .img-placeholder img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .short-slider {
+                position: relative;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .short-slider .short-track {
+                display: flex;
+                gap: 0;
+                width: 100%;
+                max-width: none;
+                margin: 0 auto 44px;
+                transition: transform 0.3s ease;
+                will-change: transform;
+            }
+
+            .short-slider .short-track>.card {
+                flex: 0 0 100%;
+            }
+
+            .short-slider .short-track .card .img-placeholder {
+                width: 250px;
+                max-width: 250px;
+                height: 250px;
+            }
+
+            .short-slider .short-track .card .img-placeholder img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .short-slider .short-track .card .btn {
+                width: 186px;
+                max-width: 186px;
+                min-width: 186px;
+                height: 49px;
+            }
+
+            .short-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .short-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .short-nav::before,
+            .short-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .short-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .short-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .short-nav.prev::before,
+            .short-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .short-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .short-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .reviews {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-top: 72px;
+                row-gap: 26px;
+            }
+
+            .reviews>.h2-lead-area-pc,
+            .reviews>.h2-lead-area-sp {
+                margin-bottom: 26px;
+            }
+
+            .reviews>.h2-lead-area-sp {
+                margin-bottom: 21px;
+            }
+
+            .reviews>p {
+                margin: 21px 0 0;
+            }
+
+            .reviews>a.btn {
+                margin-top: -7px;
+            }
+
+            .reviews>a.btn.btn-instagram {
+                width: 184px;
+                max-width: 184px;
+                min-width: 184px;
+                height: 49px;
+            }
+
+            .faq .faq-accordion:first-of-type {
+                margin-top: 47px;
+            }
+
+            .review-card {
+                width: 100%;
+            }
+
+            .review-slider {
+                position: relative;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .review-track {
+                display: flex;
+                gap: 0;
+                column-gap: 0;
+                row-gap: 0;
+                grid-template-columns: none;
+                justify-content: flex-start;
+                width: 100%;
+                transition: transform 0.3s ease;
+                will-change: transform;
+            }
+
+            .review-track>.review-card {
+                flex: 0 0 100%;
+            }
+
+            .review-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .review-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .review-nav::before,
+            .review-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .review-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .review-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .review-nav.prev::before,
+            .review-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .review-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .review-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .faq {
+                margin-top: 72px;
+            }
+
+            .access {
+                margin-top: 72px;
+            }
+
+            .access>h2 {
+                margin: 65px 0 34px;
+            }
+
+            .access .img-placeholder {
+                height: 230px;
+                margin-top: 47px;
+                margin-bottom: 47px;
+            }
+
+            .footer {
+                margin-top: 32px;
+                height: auto;
+                min-height: 44px;
+                padding: 10px 12px;
+            }
+
+            .footer p {
+                font-size: 16px;
+                text-align: center;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 520px) {
+            body {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
+            .container {
+                padding: 14px 20px 0;
+            }
+
+            .sp-header {
+                top: 10px;
+                left: 12px;
+                right: 12px;
+            }
+
+            h1 {
+                font-size: 40px;
+                margin: 0 0 61px;
+            }
+
+            h2 {
+                font-size: 36px;
+                margin: 54px 0 20px;
+            }
+
+            h3 {
+                font-size: 20px;
+                margin-bottom: 18px;
+            }
+
+            .copy {
+                font-size: 20px;
+            }
+
+            .lead-area,
+            .lead-area-pc,
+            .lead-area-sp,
+            .h2-lead-area {
+                margin: 12px auto 26px;
+            }
+
+            .lead-area-sp {
+                margin-bottom: 70px;
+            }
+
+            .center-note,
+            .center-note-pc,
+            .center-note-sp {
+                margin: 75px 0 20px;
+            }
+
+            .center-note-sp {
+                margin: 75px 0 30px;
+            }
+
+            .button-row .btn-text-arrow {
+                font-size: 18px;
+                width: 84%;
+                padding-right: 26px;
+            }
+
+            .special {
+                margin-top: 75px;
+            }
+
+            .special h3 {
+                margin-bottom: 30px;
+            }
+
+            .short {
+                margin-top: 40px;
+            }
+
+            .short .feature h3 {
+                margin: 80px 0 30px;
+            }
+
+            .short .feature {
+                margin-bottom: 30px;
+            }
+
+            .card-2row {
+                display: flex;
+                justify-content: center;
+                height: auto;
+            }
+
+            .btn,
+            .card-2row .btn {
+                width: 100%;
+                max-width: 260px;
+                min-width: 0;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .card-2row .btn {
+                width: 362px;
+                max-width: 362px;
+                height: 49px;
+            }
+
+            .reviews>a.btn.btn-instagram {
+                width: 184px;
+                max-width: 184px;
+                min-width: 184px;
+                height: 49px;
+                font-size: 18px;
+            }
+
+            .card .img-placeholder {
+                max-width: 180px;
+                min-height: 0;
+            }
+
+            .product-name {
+                font-size: 22px;
+            }
+
+            .faq .faq-accordion .head {
+                padding: 10px 12px;
+            }
+
+            .faq .faq-accordion .body {
+                padding: 8px 12px 12px;
+            }
+
+            .accordion .head .symbol {
+                font-size: 30px;
+            }
+
+            .access .img-placeholder {
+                height: 190px;
+            }
+
+            .hero {
+                height: 493px;
+                aspect-ratio: auto;
+            }
+
+            .lead-nav-group {
+                left: calc(50% - 50vw + 20px);
+                right: calc(50% - 50vw + 20px);
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+            <ul class="menu">
+                <li>ブランド</li>
+                <li>ワークショップ</li>
+                <li>ショッピング</li>
+                <li>よみもの</li>
+                <li>c-corpについて</li>
+            </ul>
+            <div class="side-sub">
+                <div>メールマガジン登録</div>
+                <div>公式Instagram</div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="hero-wrap">
+                <div class="sp-header">
+                    <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+                    <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+                        aria-controls="sp-drawer">
+                        <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
+                    </button>
+                </div>
+                <div class="sp-drawer" id="sp-drawer">
+                    <ul class="menu">
+                        <li>ブランド</li>
+                        <li>ワークショップ</li>
+                        <li>ショッピング</li>
+                        <li>よみもの</li>
+                        <li>c-corpについて</li>
+                    </ul>
+                    <div class="side-sub">
+                        <div>メールマガジン登録</div>
+                        <div>公式Instagram</div>
+                    </div>
+                </div>
+                <section class="hero">
+                    <img src="image/Perfume_Top.png" alt="ワークショップイメージ">
+                </section>
+            </div>
+
+            <div class="container">
+                <h1>Workshop</h1>
+                <section class="lead-area-pc">
+                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――<br>
+                        その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。</p>
+                    <p>香りづくりを気軽に体験したい方も、より自由に表現したい方も<br>
+                        今の気分に合わせて選べる2つのコースをご用意しました</p>
+                </section>
+                <section class="lead-area-sp">
+                    <p>香りを重ねるたびに、<br>
+                        印象がゆるやかに移ろう――<br>
+                        その繊細な調和を楽しむ、<br>
+                        オートクチュールフレグランス・<br>
+                        ワークショップです。</p>
+                    <p>香りづくりを気軽に体験したい方も、<br>
+                        より自由に表現したい方も<br>
+                        今の気分に合わせて選べる<br>
+                        2つのコースをご用意しました</p>
+                </section>
+
+                <section class="lead-slider" aria-label="ワークショップ特徴スライダー">
+                    <div class="lead-track">
+                        <section class="lead-section">
+                            <div class="lead-section-left-photo"><img src="image/Feature_1.png" alt="調香のプロがサポート"></div>
+                            <div class="lead-section-right-text">
+                                <p class="copy">調香のプロが<br>ひとつひとつ丁寧にサポート</p>
+                                <p>あなたの「こんな香りにしたい」という想いを丁寧にくみ取り、最適な組み合わせをご提案します。思わず笑みがこぼれる仕上がりとなるよう、調香のプロが寄り添います。</p>
+                            </div>
+                        </section>
+
+                        <section class="lead-section">
+                            <div class="lead-section-left-text">
+                                <p class="copy">静かに整えられた空間で<br>香りと向き合う特別な時間</p>
+                                <p>日常の喧騒を離れ、落ち着きに包まれたひととき。 五感を澄ませながら香りと向き合う時間が、感性をより深く研ぎ澄ませます。</p>
+                            </div>
+                            <div class="lead-section-right-photo"><img src="image/Feature_2.png" alt="静かに整えられた空間"></div>
+                        </section>
+
+                        <section class="lead-section">
+                            <div class="lead-section-left-photo"><img src="image/Feature_3.png" alt="世界に一つだけの香り"></div>
+                            <div class="lead-section-right-text">
+                                <p class="copy">世界に一つだけの香りを、<br>あなたの手で</p>
+                                <p>幾通りもの重なりから導かれるのは、誰とも重なることのないあなただけの香り。 それは、あなたの感性の結晶です。</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="lead-nav-group" aria-hidden="false">
+                        <button class="lead-nav prev" type="button" aria-label="前へ"></button>
+                        <button class="lead-nav next" type="button" aria-label="次へ"></button>
+                    </div>
+                </section>
+
+                <p class="center-note-pc">気軽に楽しめる30分の香りのショートセッションと、<br>じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
+                <p class="center-note-sp">気軽に楽しめる30分の香りのショートセッションと、じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
+
+                <section class="button-row">
+                    <a class="btn btn-text-arrow" href="#short">ショートセッション</a>
+                    <a class="btn btn-text-arrow" href="#special">フレグランス調香体験</a>
+                </section>
+
+                <section class="special" id="special">
+                    <h3>【要予約】フレグランス調香体験</h3>
+                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、土・日・祝日限定のオートクチュールフレグランス・ワークショップです。</p>
+                    <p>ベーシックコースでは、12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。初めての方にも安心してご参加いただけます。</p>
+                    <p>スペシャルコースでは、20種類以上の香りから4種類を選択。およそ4,800通りにもおよぶ組み合わせの中から、より奥行きのある、あなただけの香りをかたちにしていただけます。</p>
+                    <p>限られた日程でのみ出会える特別な調香体験を、ぜひこの機会にご体感ください。</p>
+                    <div class="accordion">
+                        <button class="head" type="button" aria-expanded="false" aria-controls="ws-flow-body">
+                            <span>ワークショップ当日の流れ</span>
+                            <span class="symbol" aria-hidden="true">+</span>
+                        </button>
+                        <div class="body" id="ws-flow-body" hidden>
+                            <p class="title">Step 1｜受付・カウンセリング</p>
+                            <p class="detail">ご予約内容を確認後、お好みや使用シーンをヒアリング。</p>
+                            <p class="title">Step 2｜香りを試す</p>
+                            <p class="detail">気になる香りを好きなだけ、ムエットでお試しください。</p>
+                            <p class="title">Step 3｜4種を選ぶ</p>
+                            <p class="detail">あなたの心に響く4種類の香りをセレクト。</p>
+                            <p class="title">Step 4｜ブレンド</p>
+                            <p class="detail">アドバイザーと相談しながら理想のバランスを探していきます。</p>
+                            <p class="title">Step 5｜完成・お持ち帰り</p>
+                            <p class="detail">完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
+                        </div>
+                    </div>
+                    <div class="img-placeholder-special"><img src="image/Perfume_productshot.png" alt="プロダクトイメージ">
+                    </div>
+                    <section class="course-track">
+                        <article class="card">
+                            <p>【要予約】<br>所要時間目安：60分</p>
+                            <p>12種類の香りから4種選ぶ<br>スタンダードコース</p>
+                            <p class="copy">10ml 5000円（税込）</p>
+                        </article>
+                        <article class="card">
+                            <p>【要予約】<br>所要時間目安：60分</p>
+                            <p>20種の香りから4種選ぶ<br>スペシャルコース</p>
+                            <p class="copy">10ml 6000円（税込）</p>
+                        </article>
+                    </section>
+                    <section class="card-2row">
+                        <a class="btn btn-primary" href="#">詳しくみる</a>
+                    </section>
+                </section>
+
+                <section class="short" id="short">
+                    <section class="feature">
+                        <h3>当日参加OK！<br>お手軽ワークショップもご用意</h3>
+                        <section class="lead-area">
+                            <p>日常に寄り添うファブリックミスト、<br>軽やかに香りを纏うオードトワレ、<br>空間をやわらかく満たすディフューザー</p>
+                            <p>3つのワークショップは予約不要で、いつでも気軽にお楽しみいただけます。</p>
+                            <p>その日の気分に合わせて香りを選び、その場でブレンド。<br>思い立った瞬間に、あなただけの香りをお持ち帰りください。</p>
+                        </section>
+                    </section>
+                    <section class="short-slider" aria-label="ショートセッションスライダー">
+                        <section class="short-track">
+                            <article class="card">
+                                <div class="img-placeholder"><img src="image/Mist_square.png" alt="ファブリックミスト"></div>
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">ファブリックミスト</p>
+                                <p class="copy">100ml 1000円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                            <article class="card">
+                                <div class="img-placeholder"><img src="image/EDT_square.png" alt="オードトワレ"></div>
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">オードトワレ</p>
+                                <p class="copy">10ml 1500円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                            <article class="card">
+                                <div class="img-placeholder"><img src="image/Diffuser_square.png" alt="ディフューザー"></div>
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">ディフューザー</p>
+                                <p class="copy">100ml 3000円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                        </section>
+                        <div class="short-nav-group" aria-hidden="false">
+                            <button class="short-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="short-nav next" type="button" aria-label="次へ"></button>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="reviews">
+                    <h2>User Reviews</h2>
+                    <section class="h2-lead-area-pc">
+                        <p>「思っていたより楽しかった」「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
+                    </section>
+                    <section class="h2-lead-area-sp">
+                        <p>「思っていたより楽しかった」<br>「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
+                    </section>
+                    <section class="review-slider" aria-label="レビュースライダー">
+                        <section class="review-track">
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真"></div>
+                                <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
+                            </article>
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真"></div>
+                                <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
+                            </article>
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Male30.png" alt="レビュー写真"></div>
+                                <p>スタッフの方が丁寧に香りの特徴を説明してくださり、的確なアドバイスもいただけたので、楽しく香水作りができました。終始和やかな雰囲気で、心地よい時間でした。（30代男性）
+                                </p>
+                            </article>
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真"></div>
+                                <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）
+                                </p>
+                            </article>
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Male20.png" alt="レビュー写真"></div>
+                                <div>
+                                    友人と参加しましたが、選ぶ香りによって完成した香りの印象が大きく異なり、とても興味深かったです。調香の奥深さを実感しました。比べるのも楽しく、思い出に残る体験でした。（20代男性）
+                                </div>
+                            </article>
+                            <article class="review-card">
+                                <div class="img-placeholder"><img src="image/Review_Family.png" alt="レビュー写真"></div>
+                                <div>中学生の子ども2人を連れて参加しましたが、スタッフの方が優しくフォローしてくださり、安心して体験できました。子どもたちも大満足だったようです。（30代女性）
+                                </div>
+                            </article>
+                        </section>
+                        <div class="review-nav-group" aria-hidden="false">
+                            <button class="review-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="review-nav next" type="button" aria-label="次へ"></button>
+                        </div>
+                    </section>
+                    <p>＼ 最新情報をお届け！ ／</p>
+                    <a class="btn btn-instagram" href="#">公式Instagram</a>
+                </section>
+
+                <section class="faq">
+                    <h2>FAQ</h2>
+                    <section class="h2-lead-area">体験内容やご予約に関するご質問をまとめました。</section>
+                    <div class="accordion faq-accordion">
+                        <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-1">
+                            <span>ご参加について</span>
+                            <span class="symbol" aria-hidden="true">+</span>
+                        </button>
+                        <div class="body" id="faq-body-1" hidden>
+                            <p class="detail">Q. 所要時間を教えてください。<br>A.
+                                フレグランス（香水）調香体験は約60分です。ファブリックミスト・オードトワレ・ディフューザーは約30分でお楽しみいただけます。
+                            </p>
+                            <p>Q. 1人でも体験できますか。<br>
+                                A. はい、お一人様でのご参加も歓迎しております。落ち着いた空間で、ゆっくりと香り選びをお楽しみいただけます。</p>
+                            <p>Q. 何歳から参加できますか。<br>
+                                A. 小学生3年生以上の方にご参加いただけます。小さなお子様は保護者の方とご一緒にご参加ください。</p>
+                            <p>Q. 初めてでも大丈夫ですか。<br>A. はい、専門知識は必要ありません。調香師が丁寧にサポートいたします。</p>
+                        </div>
+                    </div>
+                    <div class="accordion faq-accordion">
+                        <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-2">
+                            <span>予約・キャンセルについて</span>
+                            <span class="symbol" aria-hidden="true">+</span>
+                        </button>
+                        <div class="body" id="faq-body-2" hidden>
+                            <p class="detail">Q. 予約は必要ですか。<br>A.
+                                フレグランス（香水）調香体験は予約制です。ファブリックミスト・オードトワレ・ディフューザー作りは予約不要でご参加いただけます。</p>
+                            <p>Q. フレグランス（香水）調香体験の当日予約は可能ですか。<br>A. 前日18時までのご予約が必要です。</p>
+                            <p>Q. キャンセルはできますか。<br>A. キャンセルは所定の期限内で承っております。詳細は予約ページをご確認ください。</p>
+                        </div>
+                    </div>
+                    <div class="accordion faq-accordion">
+                        <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-3">
+                            <span>体験内容について</span>
+                            <span class="symbol" aria-hidden="true">+</span>
+                        </button>
+                        <div class="body" id="faq-body-3" hidden>
+                            <p class="detail">Q. どのように香りを選びますか。A. 複数の香料を実際にお試しいただきながら、お好みの香りを選び、ブレンドしていきます。</p>
+                            <p>Q. 失敗しないか不安です。<br>A. 調香師がバランスを確認しながら進めますので、安心してお楽しみいただけます。</p>
+                            <p>Q. 香りが強すぎないか心配です。<br>A. 香りの強さは調整可能です。ご希望をお聞かせください。</p>
+                            <p>Q. 作った香りはその日に持ち帰れますか。<br>A. はい、その日のうちにお持ち帰りいただけます。</p>
+                        </div>
+                    </div>
+                    <div class="accordion faq-accordion">
+                        <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-4">
+                            <span>お支払い</span>
+                            <span class="symbol" aria-hidden="true">+</span>
+                        </button>
+                        <div class="body" id="faq-body-4" hidden>
+                            <p class="detail">Q. 支払い方法を教えてください。<br>A. 現金のほか、各種キャッシュレス決済をご利用いただけます。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="access">
+                    <h2>Access</h2>
+                    <section class="h2-lead-area">ご来店前に、店舗までのアクセス方法をご確認ください。</section>
+                    <div class="img-placeholder">
+                        <iframe
+                            src="https://www.google.com/maps?q=%E3%80%92110-0015%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%9D%B1%E4%B8%8A%E9%87%8E%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%20%E6%9B%BD%E6%88%91%E3%83%93%E3%83%AB&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map">
+                        </iframe>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+    <footer class="footer">
+        <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+    <script>
+        (function () {
+            var menuButton = document.querySelector(".sp-menu-btn");
+            var drawer = document.querySelector(".sp-drawer");
+
+            if (!menuButton || !drawer) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove("is-open");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+
+            menuButton.addEventListener("click", function () {
+                if (!isSp()) return;
+                var willOpen = !drawer.classList.contains("is-open");
+                drawer.classList.toggle("is-open", willOpen);
+                menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!isSp()) return;
+                if (!drawer.classList.contains("is-open")) return;
+                if (drawer.contains(event.target) || menuButton.contains(event.target)) return;
+                closeDrawer();
+            });
+
+            window.addEventListener("resize", function () {
+                if (!isSp()) {
+                    closeDrawer();
+                }
+            });
+        })();
+
+        document.querySelectorAll(".accordion .head").forEach(function (head) {
+            head.addEventListener("click", function () {
+                var bodyId = head.getAttribute("aria-controls");
+                var body = bodyId ? document.getElementById(bodyId) : null;
+                if (!body) return;
+
+                var expanded = head.getAttribute("aria-expanded") === "true";
+                head.setAttribute("aria-expanded", String(!expanded));
+                body.hidden = expanded;
+
+                var symbol = head.querySelector(".symbol");
+                if (symbol) {
+                    symbol.textContent = expanded ? "+" : "-";
+                }
+            });
+        });
+
+        (function () {
+            var slider = document.querySelector(".lead-slider");
+            var track = slider ? slider.querySelector(".lead-track") : null;
+            var slides = track ? track.querySelectorAll(".lead-section") : [];
+            var navGroup = slider ? slider.querySelector(".lead-nav-group") : null;
+            var prev = slider ? slider.querySelector(".lead-nav.prev") : null;
+            var next = slider ? slider.querySelector(".lead-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "50%";
+                    return;
+                }
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector(".lead-section-left-photo, .lead-section-right-photo") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".short-slider");
+            var track = slider ? slider.querySelector(".short-track") : null;
+            var slides = track ? track.querySelectorAll(".card") : [];
+            var navGroup = slider ? slider.querySelector(".short-nav-group") : null;
+            var prev = slider ? slider.querySelector(".short-nav.prev") : null;
+            var next = slider ? slider.querySelector(".short-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "0";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".review-slider");
+            var track = slider ? slider.querySelector(".review-track") : null;
+            var slides = track ? track.querySelectorAll(".review-card") : [];
+            var navGroup = slider ? slider.querySelector(".review-nav-group") : null;
+            var prev = slider ? slider.querySelector(".review-nav.prev") : null;
+            var next = slider ? slider.querySelector(".review-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "0";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+    </script>
+</body>
+
+</html>
