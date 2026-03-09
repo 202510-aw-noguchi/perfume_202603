@@ -37,8 +37,15 @@
       line-height: 1.7;
     }
 
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     .page {
-      width: 1440px;
+      width: 100%;
+      max-width: 1440px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 280px 1fr;
@@ -121,7 +128,8 @@
     }
 
     .hero {
-      width: 1018px;
+      width: 100%;
+      max-width: 1018px;
       height: 527px;
       margin: 0 auto;
       background: var(--placeholder);
@@ -186,10 +194,33 @@
       color: var(--text);
     }
 
-    .lead-area {
+    .lead-area,
+    .lead-area-pc,
+    .lead-area-sp {
       max-width: 760px;
       margin: 30px auto 62px;
       text-align: center;
+    }
+
+    .lead-area-sp {
+      display: none;
+    }
+
+    .lead-slider {
+      width: 888px;
+      margin: 0 auto 26px;
+    }
+
+    .lead-track {
+      display: block;
+    }
+
+    .lead-nav {
+      display: none;
+    }
+
+    .lead-nav-group {
+      display: none;
     }
 
     .h2-lead-area {
@@ -198,8 +229,17 @@
       text-align: center;
     }
 
+    .h2-lead-area-pc {
+      display: block;
+    }
+
+    .h2-lead-area-sp {
+      display: none;
+    }
+
     .lead-section {
-      width: 888px;
+      width: 100%;
+      max-width: 888px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 26px;
@@ -233,9 +273,15 @@
       width: 412px;
     }
 
-    .center-note {
+    .center-note,
+    .center-note-pc,
+    .center-note-sp {
       text-align: center;
       margin: 70px 0 33px;
+    }
+
+    .center-note-sp {
+      display: none;
     }
 
     .button-row {
@@ -304,7 +350,8 @@
     }
 
     .special {
-      width: 719px;
+      width: 100%;
+      max-width: 719px;
       margin: 96px auto 0;
     }
 
@@ -317,11 +364,17 @@
       margin-bottom: 12px;
     }
 
-    .special .feature-main-image {
+    .img-placeholder-special {
       width: 556px;
       height: 371px;
       min-height: 0;
       margin: 0 auto 30px;
+    }
+
+    .img-placeholder-special img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .spec-grid {
@@ -341,36 +394,58 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      width: 890px;
+      width: 100%;
+      max-width: 890px;
       margin: 18px 0 58px;
       margin-left: auto;
       margin-right: auto;
     }
 
+    .short-slider {
+      display: block;
+    }
+
+    .short-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      max-width: 890px;
+      margin: 18px auto 58px;
+    }
+
+    .short-nav-group,
+    .short-nav {
+      display: none;
+    }
+
     .card-2row {
       display: block;
-      width: 448px;
+      width: 100%;
+      max-width: 448px;
       height: 49px;
       margin: 18px auto 24px;
     }
 
     .card-2row .btn {
-      width: 448px;
+      width: 100%;
+      max-width: 448px;
       height: 49px;
       min-width: 0;
       margin-top: 0;
       font-size: 18px;
     }
 
-    .course-row {
+    .course-track {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      width: 448px;
+      width: 100%;
+      max-width: 448px;
       margin: 18px auto 12px;
     }
 
-    .course-row p {
+    .course-track p {
       margin: 4px 0;
     }
 
@@ -406,14 +481,17 @@
       grid-template-columns: repeat(3, 1fr);
       column-gap: 20px;
       row-gap: 0;
-      width: 890px;
+      width: 100%;
+      max-width: 890px;
       margin-top: 115px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .reviews>h2,
-    .reviews>.h2-lead-area {
+    .reviews>.h2-lead-area,
+    .reviews>.h2-lead-area-pc,
+    .reviews>.h2-lead-area-sp {
       grid-column: 1 / -1;
     }
 
@@ -421,7 +499,9 @@
       margin: 0 0 34px;
     }
 
-    .reviews>.h2-lead-area {
+    .reviews>.h2-lead-area,
+    .reviews>.h2-lead-area-pc,
+    .reviews>.h2-lead-area-sp {
       margin: 0 auto 68px;
     }
 
@@ -429,6 +509,24 @@
     .reviews>a.btn {
       grid-column: 1 / -1;
       justify-self: center;
+    }
+
+    .review-slider {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .review-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      row-gap: 55px;
+      width: 100%;
+    }
+
+    .review-nav-group,
+    .review-nav {
+      display: none;
     }
 
     .reviews>p {
@@ -450,10 +548,6 @@
       width: 250px;
     }
 
-    .reviews>.review-card:nth-of-type(n + 4) {
-      margin-top: 55px;
-    }
-
     .review-card .img-placeholder {
       min-height: 170px;
       margin-bottom: 8px;
@@ -461,12 +555,18 @@
 
     .review-card>p,
     .review-card>div:not(.img-placeholder) {
-      margin: 0;
+      width: 250px;
+      max-width: 250px;
+      margin: 0 auto;
     }
 
     .faq {
       max-width: 920px;
       margin: 115px auto 0;
+    }
+
+    .faq>h2 {
+      margin: 65px 0 34px;
     }
 
     .faq .faq-accordion {
@@ -546,7 +646,8 @@
     }
 
     .access .img-placeholder {
-      width: 890px;
+      width: 100%;
+      max-width: 890px;
       height: 354px;
       min-height: 0;
       margin-top: 16px;
@@ -616,9 +717,10 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1280px) {
       .page {
         display: block;
+        width: 100%;
       }
 
       .sidebar {
@@ -652,35 +754,87 @@
         max-width: none;
       }
 
+      .hero-wrap {
+        margin-bottom: 70px;
+      }
+
       .container {
         max-width: 760px;
-        padding: 20px 18px 0;
+        padding: 20px 20px 0;
+      }
+
+      .lead-area-pc {
+        display: none;
+      }
+
+      .lead-area-sp {
+        display: block;
+        margin-bottom: 70px;
       }
 
       h1 {
-        font-size: 34px;
-        margin: 44px 0 36px;
+        font-size: 40px;
+        margin: 0 0 61px;
       }
 
       h2 {
-        font-size: 32px;
+        font-size: 36px;
         margin: 58px 0 26px;
+      }
+
+      .reviews>h2 {
+        margin: 65px 0 34px;
       }
 
       h3,
       .copy {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .lead-area,
+      .lead-area-pc,
+      .lead-area-sp,
       .h2-lead-area {
         margin: 22px auto 42px;
       }
 
+      .lead-area-sp {
+        margin-bottom: 70px;
+      }
+
+      .lead-area,
+      .lead-area-pc,
+      .lead-area-sp,
+      .h2-lead-area,
+      .lead-section-left-text,
+      .lead-section-right-text,
+      .center-note,
+      .center-note-pc,
+      .center-note-sp,
+      .special>p,
+      .reviews>.h2-lead-area,
+      .reviews>.h2-lead-area-pc,
+      .reviews>.h2-lead-area-sp,
+      .reviews>p,
+      .review-card>p,
+      .review-card>div:not(.img-placeholder),
+      .faq .faq-accordion .body,
+      .access .h2-lead-area {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .review-card>p,
+      .review-card>div:not(.img-placeholder) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
       .lead-section {
         grid-template-columns: 1fr;
-        gap: 14px;
-        margin-bottom: 24px;
+        gap: 38px;
+        margin: 0;
+        flex: 0 0 100%;
       }
 
       .lead-section:nth-of-type(2) .lead-section-left-text {
@@ -703,14 +857,139 @@
         height: auto;
       }
 
-      .center-note {
-        margin: 44px 0 24px;
+      .lead-track .lead-section .lead-section-left-photo,
+      .lead-track .lead-section .lead-section-right-photo {
+        width: calc(100% - 40px);
+        max-width: 332px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .lead-track .lead-section .lead-section-left-photo img,
+      .lead-track .lead-section .lead-section-right-photo img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .lead-section .copy {
+        text-align: center;
+        margin: 0 0 30px;
+      }
+
+      .lead-section-left-text p,
+      .lead-section-right-text p {
+        margin: 0;
+      }
+
+      .lead-slider {
+        position: relative;
+        width: 100%;
+        max-width: 888px;
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+
+      .lead-track {
+        display: flex;
+        transition: transform 0.3s ease;
+        will-change: transform;
+      }
+
+      .lead-nav-group {
+        position: absolute;
+        top: 50%;
+        left: calc(50% - 50vw + 20px);
+        right: calc(50% - 50vw + 20px);
+        transform: translateY(-50%);
+        width: auto;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: auto;
+        z-index: 5;
+      }
+
+      .lead-nav {
+        position: relative;
+        width: 21px;
+        height: 39px;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        pointer-events: auto;
+        font-size: 0;
+      }
+
+      .lead-nav::before,
+      .lead-nav::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 28px;
+        height: 1px;
+        background: #333333;
+        transform-origin: left center;
+      }
+
+      .lead-nav.next::before {
+        top: 1px;
+        transform: rotate(44deg);
+      }
+
+      .lead-nav.next::after {
+        bottom: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .lead-nav.prev::before,
+      .lead-nav.prev::after {
+        left: auto;
+        right: 0;
+        transform-origin: right center;
+      }
+
+      .lead-nav.prev::before {
+        top: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .lead-nav.prev::after {
+        bottom: 1px;
+        transform: rotate(44deg);
+      }
+
+      .center-note,
+      .center-note-pc,
+      .center-note-sp {
+        margin: 75px 0 24px;
+      }
+
+      .center-note-pc {
+        display: none;
+      }
+
+      .center-note-sp {
+        display: block;
+        margin: 75px 0 30px;
+      }
+
+      .reviews .h2-lead-area-pc {
+        display: none;
+      }
+
+      .reviews .h2-lead-area-sp {
+        display: block;
+        text-align: center;
       }
 
       .button-row {
         flex-direction: column;
         align-items: center;
-        gap: 14px;
+        gap: 30px;
         margin-bottom: 34px;
       }
 
@@ -719,38 +998,70 @@
       }
 
       .special {
-        margin-top: 56px;
+        margin-top: 75px;
+      }
+
+      .special h3 {
+        margin-bottom: 30px;
+      }
+
+      .special .accordion {
+        margin: 30px 0;
       }
 
       .short {
         margin-top: 52px;
       }
 
-      .special .feature-main-image {
+      .short .feature h3 {
+        margin: 80px 0 30px;
+      }
+
+      .short .feature {
+        margin-bottom: 30px;
+      }
+
+      .img-placeholder-special {
         width: 100%;
         max-width: 556px;
         height: auto;
       }
 
-      .course-row {
+      .course-track {
         width: 100%;
         max-width: 448px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .img-placeholder-special {
+        display: grid;
+        width: 250px;
+        height: 250px;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        margin: 30px auto;
+      }
+
+      .img-placeholder-special img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
       }
 
       .card-2row {
+        display: flex;
+        justify-content: center;
         width: 100%;
         max-width: 448px;
+        height: auto;
+        margin: 40px auto 24px;
       }
 
       .card-2row .btn {
-        width: 100%;
-      }
-
-      .card-row {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-        gap: 30px;
-        margin: 18px auto 44px;
+        width: 362px;
+        max-width: 362px;
+        height: 49px;
       }
 
       .card .img-placeholder {
@@ -760,6 +1071,128 @@
         margin-right: auto;
       }
 
+      .review-card .img-placeholder {
+        width: 250px;
+        max-width: 250px;
+        height: 250px;
+        min-height: 0;
+        margin-bottom: 17px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .review-card .img-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .short-slider {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .short-slider .short-track {
+        display: flex;
+        gap: 0;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto 44px;
+        transition: transform 0.3s ease;
+        will-change: transform;
+      }
+
+      .short-slider .short-track>.card {
+        flex: 0 0 100%;
+      }
+
+      .short-slider .short-track .card .img-placeholder {
+        width: 250px;
+        max-width: 250px;
+        height: 250px;
+      }
+
+      .short-slider .short-track .card .img-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .short-slider .short-track .card .btn {
+        width: 186px;
+        max-width: 186px;
+        min-width: 186px;
+        height: 49px;
+      }
+
+      .short-nav-group {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: auto;
+        z-index: 5;
+      }
+
+      .short-nav {
+        position: relative;
+        display: block;
+        width: 21px;
+        height: 39px;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        pointer-events: auto;
+        font-size: 0;
+      }
+
+      .short-nav::before,
+      .short-nav::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 28px;
+        height: 1px;
+        background: #333333;
+        transform-origin: left center;
+      }
+
+      .short-nav.next::before {
+        top: 1px;
+        transform: rotate(44deg);
+      }
+
+      .short-nav.next::after {
+        bottom: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .short-nav.prev::before,
+      .short-nav.prev::after {
+        left: auto;
+        right: 0;
+        transform-origin: right center;
+      }
+
+      .short-nav.prev::before {
+        top: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .short-nav.prev::after {
+        bottom: 1px;
+        transform: rotate(44deg);
+      }
+
       .reviews {
         grid-template-columns: 1fr;
         max-width: 420px;
@@ -767,16 +1200,122 @@
         row-gap: 26px;
       }
 
-      .reviews>.h2-lead-area {
+      .reviews>.h2-lead-area,
+      .reviews>.h2-lead-area-pc,
+      .reviews>.h2-lead-area-sp {
         margin-bottom: 26px;
+      }
+
+      .reviews>.h2-lead-area-sp {
+        margin-bottom: 21px;
+      }
+
+      .reviews>p {
+        margin: 21px 0 0;
+      }
+
+      .reviews>a.btn {
+        margin-top: -7px;
+      }
+
+      .reviews>a.btn.btn-instagram {
+        width: 184px;
+        max-width: 184px;
+        min-width: 184px;
+        height: 49px;
+      }
+
+      .faq .faq-accordion:first-of-type {
+        margin-top: 47px;
       }
 
       .review-card {
         width: 100%;
       }
 
-      .reviews>.review-card:nth-of-type(n + 4) {
-        margin-top: 0;
+      .review-slider {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .review-track {
+        display: flex;
+        gap: 0;
+        width: 100%;
+        transition: transform 0.3s ease;
+        will-change: transform;
+      }
+
+      .review-track>.review-card {
+        flex: 0 0 100%;
+      }
+
+      .review-nav-group {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: auto;
+        z-index: 5;
+      }
+
+      .review-nav {
+        position: relative;
+        display: block;
+        width: 21px;
+        height: 39px;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        pointer-events: auto;
+        font-size: 0;
+      }
+
+      .review-nav::before,
+      .review-nav::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 28px;
+        height: 1px;
+        background: #333333;
+        transform-origin: left center;
+      }
+
+      .review-nav.next::before {
+        top: 1px;
+        transform: rotate(44deg);
+      }
+
+      .review-nav.next::after {
+        bottom: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .review-nav.prev::before,
+      .review-nav.prev::after {
+        left: auto;
+        right: 0;
+        transform-origin: right center;
+      }
+
+      .review-nav.prev::before {
+        top: 1px;
+        transform: rotate(-44deg);
+      }
+
+      .review-nav.prev::after {
+        bottom: 1px;
+        transform: rotate(44deg);
       }
 
       .faq {
@@ -787,8 +1326,14 @@
         margin-top: 72px;
       }
 
+      .access>h2 {
+        margin: 65px 0 34px;
+      }
+
       .access .img-placeholder {
-        height: 280px;
+        height: 230px;
+        margin-top: 47px;
+        margin-bottom: 47px;
       }
 
       .footer {
@@ -799,7 +1344,7 @@
       }
 
       .footer p {
-        font-size: 12px;
+        font-size: 16px;
         text-align: center;
         line-height: 1.5;
       }
@@ -807,12 +1352,12 @@
 
     @media (max-width: 520px) {
       body {
-        font-size: 13px;
+        font-size: 16px;
         line-height: 1.65;
       }
 
       .container {
-        padding: 14px 12px 0;
+        padding: 14px 20px 0;
       }
 
       .sp-header {
@@ -822,64 +1367,74 @@
       }
 
       h1 {
-        font-size: 42px;
-        margin: 48px 0 26px;
+        font-size: 40px;
+        margin: 0 0 61px;
       }
 
       h2 {
-        font-size: 40px;
+        font-size: 36px;
         margin: 54px 0 20px;
       }
 
       h3 {
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 18px;
       }
 
       .copy {
-        font-size: 15px;
+        font-size: 20px;
       }
 
       .lead-area,
+      .lead-area-pc,
+      .lead-area-sp,
       .h2-lead-area {
         margin: 12px auto 26px;
       }
 
-      .center-note {
-        margin: 30px 0 20px;
+      .lead-area-sp {
+        margin-bottom: 70px;
+      }
+
+      .center-note,
+      .center-note-pc,
+      .center-note-sp {
+        margin: 75px 0 20px;
+      }
+
+      .center-note-sp {
+        margin: 75px 0 30px;
       }
 
       .button-row .btn-text-arrow {
-        font-size: 15px;
+        font-size: 18px;
         width: 84%;
         padding-right: 26px;
       }
 
       .special {
-        margin-top: 38px;
+        margin-top: 75px;
+      }
+
+      .special h3 {
+        margin-bottom: 30px;
       }
 
       .short {
         margin-top: 40px;
       }
 
+      .short .feature h3 {
+        margin: 80px 0 30px;
+      }
+
+      .short .feature {
+        margin-bottom: 30px;
+      }
+
       .card-row {
         max-width: 260px;
         gap: 20px;
-      }
-
-      .course-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .btn,
-      .card-2row .btn {
-        width: 100%;
-        max-width: 260px;
-        min-width: 0;
-        height: 40px;
-        font-size: 14px;
       }
 
       .card-2row {
@@ -888,14 +1443,51 @@
         height: auto;
       }
 
+      .btn,
+      .card-2row .btn {
+        width: 100%;
+        max-width: 260px;
+        min-width: 0;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .card-2row .btn {
+        width: 362px;
+        max-width: 362px;
+        height: 49px;
+      }
+
+      .reviews>a.btn.btn-instagram {
+        width: 184px;
+        max-width: 184px;
+        min-width: 184px;
+        height: 49px;
+        font-size: 18px;
+      }
+
       .card .img-placeholder,
       .review-card .img-placeholder {
         max-width: 180px;
         min-height: 0;
       }
 
+      .review-card .img-placeholder {
+        width: 250px;
+        max-width: 250px;
+        height: 250px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .review-card .img-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       .product-name {
-        font-size: 17px;
+        font-size: 22px;
       }
 
       .faq .faq-accordion .head {
@@ -907,7 +1499,7 @@
       }
 
       .accordion .head .symbol {
-        font-size: 22px;
+        font-size: 30px;
       }
 
       .access .img-placeholder {
@@ -917,6 +1509,12 @@
       .hero {
         height: 493px;
         aspect-ratio: auto;
+      }
+
+      .lead-nav-group {
+        left: calc(50% - 50vw + 20px);
+        right: calc(50% - 50vw + 20px);
+        width: auto;
       }
     }
   </style>
@@ -954,39 +1552,59 @@
 
       <div class="container">
         <h1>Workshop</h1>
-        <section class="lead-area">
+        <section class="lead-area-pc">
           <p>賑やかな表通りから一本入った、静けさに包まれる空間で<br>
             あなただけの香りを作りませんか。</p>
           <p>経験豊かな調香師が、二十種を超える香料の中から<br>
             あなたの心にそっと響く一滴を丁寧に導き出します。</p>
           <p>日常を上質に彩る「世界にひとつ」の香りを、特別な時間とともにお持ち帰りください。</p>
         </section>
+        <section class="lead-area-sp">
+          <p>賑やかな表通りから一本入った、<br>
+            静けさに包まれる空間で<br>
+            あなただけの香りを作りませんか。</p>
+          <p>経験豊かな調香師が、<br>
+            二十種を超える香料の中から<br>
+            あなたの心にそっと響く一滴を<br>
+            丁寧に導き出します。</p>
+          <p>日常を上質に彩る「世界にひとつ」の香りを、<br>
+            特別な時間とともにお持ち帰りください。</p>
+        </section>
 
-        <section class="lead-section">
-          <div class="lead-section-left-photo"><img src="image/Feature_1.png" alt="調香のプロがサポート"></div>
-          <div class="lead-section-right-text">
-            <p class="copy">調香のプロが<br>ひとつひとつ丁寧にサポート</p>
-            <p>あなたの「こんな香りにしたい」という想いを丁寧にくみ取り、最適な組み合わせをご提案します。思わず笑みがこぼれる仕上がりとなるよう、調香のプロが寄り添います。</p>
+        <section class="lead-slider" aria-label="ワークショップ特徴スライダー">
+          <div class="lead-track">
+            <section class="lead-section">
+              <div class="lead-section-left-photo"><img src="image/Feature_1.png" alt="調香のプロがサポート"></div>
+              <div class="lead-section-right-text">
+                <p class="copy">調香のプロが<br>ひとつひとつ丁寧にサポート</p>
+                <p>あなたの「こんな香りにしたい」という想いを丁寧にくみ取り、最適な組み合わせをご提案します。思わず笑みがこぼれる仕上がりとなるよう、調香のプロが寄り添います。</p>
+              </div>
+            </section>
+
+            <section class="lead-section">
+              <div class="lead-section-left-text">
+                <p class="copy">静かに整えられた空間で<br>香りと向き合う特別な時間</p>
+                <p>日常の喧騒を離れ、落ち着きに包まれたひととき。 五感を澄ませながら香りと向き合う時間が、感性をより深く研ぎ澄ませます。</p>
+              </div>
+              <div class="lead-section-right-photo"><img src="image/Feature_2.png" alt="静かに整えられた空間"></div>
+            </section>
+
+            <section class="lead-section">
+              <div class="lead-section-left-photo"><img src="image/Feature_3.png" alt="世界に一つだけの香り"></div>
+              <div class="lead-section-right-text">
+                <p class="copy">世界に一つだけの香りを、<br>あなたの手で</p>
+                <p>幾通りもの重なりから導かれるのは、誰とも重なることのないあなただけの香り。 それは、あなたの感性の結晶です。</p>
+              </div>
+            </section>
+          </div>
+          <div class="lead-nav-group" aria-hidden="false">
+            <button class="lead-nav prev" type="button" aria-label="前へ"></button>
+            <button class="lead-nav next" type="button" aria-label="次へ"></button>
           </div>
         </section>
 
-        <section class="lead-section">
-          <div class="lead-section-left-text">
-            <p class="copy">静かに整えられた空間で<br>香りと向き合う特別な時間</p>
-            <p>日常の喧騒を離れ、落ち着きに包まれたひととき。 五感を澄ませながら香りと向き合う時間が、感性をより深く研ぎ澄ませます。</p>
-          </div>
-          <div class="lead-section-right-photo"><img src="image/Feature_2.png" alt="静かに整えられた空間"></div>
-        </section>
-
-        <section class="lead-section">
-          <div class="lead-section-left-photo"><img src="image/Feature_3.png" alt="世界に一つだけの香り"></div>
-          <div class="lead-section-right-text">
-            <p class="copy">世界に一つだけの香りを、<br>あなたの手で</p>
-            <p>幾通りもの重なりから導かれるのは、誰とも重なることのないあなただけの香り。 それは、あなたの感性の結晶です。</p>
-          </div>
-        </section>
-
-        <p class="center-note">気軽に楽しめる30分の香りのショートセッションと、<br>じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
+        <p class="center-note-pc">気軽に楽しめる30分の香りのショートセッションと、<br>じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
+        <p class="center-note-sp">気軽に楽しめる30分の香りのショートセッションと、じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
 
         <section class="button-row">
           <a class="btn btn-text-arrow" href="#short">ショートセッション</a>
@@ -1017,9 +1635,9 @@
               <p class="detail">完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
             </div>
           </div>
-          <div class="img-placeholder feature-main-image"><img src="image/Perfume_productshot.png" alt="プロダクトイメージ">
+          <div class="img-placeholder-special"><img src="image/Perfume_productshot.png" alt="プロダクトイメージ">
           </div>
-          <section class="course-row">
+          <section class="course-track">
             <article class="card">
               <p>【要予約】<br>所要時間目安：60分</p>
               <p>12種類の香りから4種選ぶ<br>スタンダードコース</p>
@@ -1027,7 +1645,7 @@
             </article>
             <article class="card">
               <p>【要予約】<br>所要時間目安：60分</p>
-              <p>20種の香りから4種を選ぶ<br>スペシャルコース</p>
+              <p>20種の香りから4種選ぶ<br>スペシャルコース</p>
               <p class="copy">10ml 6000円（税込）</p>
             </article>
           </section>
@@ -1040,65 +1658,82 @@
           <section class="feature">
             <h3>当日参加OK！<br>お手軽ワークショップもご用意</h3>
             <section class="lead-area">
-              <p>日常に寄り添うファブリックミスト<br>軽やかに香りを纏うオードトワレ、<br>空間をやわらかく満たすディフューザー</p>
+              <p>日常に寄り添うファブリックミスト、<br>軽やかに香りを纏うオードトワレ、<br>空間をやわらかく満たすディフューザー</p>
               <p>3つのワークショップは予約不要で、いつでも気軽にお楽しみいただけます。</p>
               <p>その日の気分に合わせて香りを選び、その場でブレンド。<br>思い立った瞬間に、あなただけの香りをお持ち帰りください。</p>
             </section>
           </section>
-          <section class="card-row">
-            <article class="card">
-              <div class="img-placeholder"><img src="image/Mist_square.png" alt="ファブリックミスト"></div>
-              <p>【予約不要】<br>所要時間目安：30分</p>
-              <p class="product-name">ファブリックミスト</p>
-              <p class="copy">100ml 1000円（税込）</p>
-              <a class="btn btn-primary" href="#">詳しくみる</a>
-            </article>
-            <article class="card">
-              <div class="img-placeholder"><img src="image/EDT_square.png" alt="オードトワレ"></div>
-              <p>【予約不要】<br>所要時間目安：30分</p>
-              <p class="product-name">オードトワレ</p>
-              <p class="copy">10ml 1500円（税込）</p>
-              <a class="btn btn-primary" href="#">詳しくみる</a>
-            </article>
-            <article class="card">
-              <div class="img-placeholder"><img src="image/Diffuser_square.png" alt="ディフューザー"></div>
-              <p>【予約不要】<br>所要時間目安：30分</p>
-              <p class="product-name">ディフューザー</p>
-              <p class="copy">100ml 3000円（税込）</p>
-              <a class="btn btn-primary" href="#">詳しくみる</a>
-            </article>
+          <section class="short-slider" aria-label="ショートセッションスライダー">
+            <section class="short-track">
+              <article class="card">
+                <div class="img-placeholder"><img src="image/Mist_square.png" alt="ファブリックミスト"></div>
+                <p>【予約不要】<br>所要時間目安：30分</p>
+                <p class="product-name">ファブリックミスト</p>
+                <p class="copy">100ml 1000円（税込）</p>
+                <a class="btn btn-primary" href="#">詳しくみる</a>
+              </article>
+              <article class="card">
+                <div class="img-placeholder"><img src="image/EDT_square.png" alt="オードトワレ"></div>
+                <p>【予約不要】<br>所要時間目安：30分</p>
+                <p class="product-name">オードトワレ</p>
+                <p class="copy">10ml 1500円（税込）</p>
+                <a class="btn btn-primary" href="#">詳しくみる</a>
+              </article>
+              <article class="card">
+                <div class="img-placeholder"><img src="image/Diffuser_square.png" alt="ディフューザー"></div>
+                <p>【予約不要】<br>所要時間目安：30分</p>
+                <p class="product-name">ディフューザー</p>
+                <p class="copy">100ml 3000円（税込）</p>
+                <a class="btn btn-primary" href="#">詳しくみる</a>
+              </article>
+            </section>
+            <div class="short-nav-group" aria-hidden="false">
+              <button class="short-nav prev" type="button" aria-label="前へ"></button>
+              <button class="short-nav next" type="button" aria-label="次へ"></button>
+            </div>
           </section>
         </section>
 
         <section class="reviews">
           <h2>User Reviews</h2>
-          <section class="h2-lead-area">
+          <section class="h2-lead-area-pc">
             <p>「思っていたより楽しかった」「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
           </section>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真"></div>
-            <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
-          </article>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真"></div>
-            <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
-          </article>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Male30.png" alt="レビュー写真"></div>
-            <p>スタッフの方が丁寧に香りの特徴を説明してくださり、的確なアドバイスもいただけたので、楽しく香水作りができました。終始和やかな雰囲気で、心地よい時間でした。（30代男性）</p>
-          </article>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真"></div>
-            <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）</p>
-          </article>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Male20.png" alt="レビュー写真"></div>
-            <div>友人と参加しましたが、選ぶ香りによって完成した香りの印象が大きく異なり、とても興味深かったです。調香の奥深さを実感しました。比べるのも楽しく、思い出に残る体験でした。（20代男性）</div>
-          </article>
-          <article class="review-card">
-            <div class="img-placeholder"><img src="image/Review_Family.png" alt="レビュー写真"></div>
-            <div>中学生の子ども2人を連れて参加しましたが、スタッフの方が優しくフォローしてくださり、安心して体験できました。子どもたちも大満足だったようです。（30代女性）</div>
-          </article>
+        <section class="h2-lead-area-sp">
+            <p>「思っていたより楽しかった」<br>「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
+          </section>
+          <section class="review-slider" aria-label="レビュースライダー">
+            <section class="review-track">
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真"></div>
+                <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
+              </article>
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真"></div>
+                <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
+              </article>
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Male30.png" alt="レビュー写真"></div>
+                <p>スタッフの方が丁寧に香りの特徴を説明してくださり、的確なアドバイスもいただけたので、楽しく香水作りができました。終始和やかな雰囲気で、心地よい時間でした。（30代男性）</p>
+              </article>
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真"></div>
+                <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）</p>
+              </article>
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Male20.png" alt="レビュー写真"></div>
+                <div>友人と参加しましたが、選ぶ香りによって完成した香りの印象が大きく異なり、とても興味深かったです。調香の奥深さを実感しました。比べるのも楽しく、思い出に残る体験でした。（20代男性）</div>
+              </article>
+              <article class="review-card">
+                <div class="img-placeholder"><img src="image/Review_Family.png" alt="レビュー写真"></div>
+                <div>中学生の子ども2人を連れて参加しましたが、スタッフの方が優しくフォローしてくださり、安心して体験できました。子どもたちも大満足だったようです。（30代女性）</div>
+              </article>
+            </section>
+            <div class="review-nav-group" aria-hidden="false">
+              <button class="review-nav prev" type="button" aria-label="前へ"></button>
+              <button class="review-nav next" type="button" aria-label="次へ"></button>
+            </div>
+          </section>
           <p>＼ 最新情報をお届け！ ／</p>
           <a class="btn btn-instagram" href="#">公式Instagram</a>
         </section>
@@ -1189,6 +1824,214 @@
         }
       });
     });
+
+    (function () {
+      var slider = document.querySelector(".lead-slider");
+      var track = slider ? slider.querySelector(".lead-track") : null;
+      var slides = track ? track.querySelectorAll(".lead-section") : [];
+      var navGroup = slider ? slider.querySelector(".lead-nav-group") : null;
+      var prev = slider ? slider.querySelector(".lead-nav.prev") : null;
+      var next = slider ? slider.querySelector(".lead-nav.next") : null;
+      var index = 0;
+
+      if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      function isSp() {
+        return window.matchMedia("(max-width: 1280px)").matches;
+      }
+
+      function updateSlider() {
+        if (!isSp()) {
+          track.style.transform = "none";
+          prev.style.display = "none";
+          next.style.display = "none";
+          navGroup.style.top = "50%";
+          return;
+        }
+        var slideWidth = slider.clientWidth;
+        track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+        prev.style.display = "block";
+        next.style.display = "block";
+
+        var currentSlide = slides[index];
+        var photo = currentSlide ? currentSlide.querySelector(".lead-section-left-photo, .lead-section-right-photo") : null;
+        if (photo) {
+          navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+        }
+      }
+
+      prev.addEventListener("click", function () {
+        index = index === 0 ? slides.length - 1 : index - 1;
+        updateSlider();
+      });
+
+      next.addEventListener("click", function () {
+        index = index === slides.length - 1 ? 0 : index + 1;
+        updateSlider();
+      });
+
+      var touchStartX = 0;
+      var touchEndX = 0;
+      slider.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      slider.addEventListener("touchend", function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        var diff = touchEndX - touchStartX;
+        if (Math.abs(diff) < 40) return;
+        if (diff > 0) {
+          index = index === 0 ? slides.length - 1 : index - 1;
+        } else {
+          index = index === slides.length - 1 ? 0 : index + 1;
+        }
+        updateSlider();
+      }, { passive: true });
+
+      window.addEventListener("resize", updateSlider);
+      window.addEventListener("load", updateSlider);
+      updateSlider();
+    })();
+
+    (function () {
+      var slider = document.querySelector(".short-slider");
+      var track = slider ? slider.querySelector(".short-track") : null;
+      var slides = track ? track.querySelectorAll(".card") : [];
+      var navGroup = slider ? slider.querySelector(".short-nav-group") : null;
+      var prev = slider ? slider.querySelector(".short-nav.prev") : null;
+      var next = slider ? slider.querySelector(".short-nav.next") : null;
+      var index = 0;
+
+      if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      function isSp() {
+        return window.matchMedia("(max-width: 1280px)").matches;
+      }
+
+      function updateSlider() {
+        if (!isSp()) {
+          track.style.transform = "none";
+          prev.style.display = "none";
+          next.style.display = "none";
+          navGroup.style.top = "0";
+          return;
+        }
+
+        var slideWidth = slider.clientWidth;
+        track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+        prev.style.display = "block";
+        next.style.display = "block";
+
+        var currentSlide = slides[index];
+        var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
+        if (photo) {
+          navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+        }
+      }
+
+      prev.addEventListener("click", function () {
+        index = index === 0 ? slides.length - 1 : index - 1;
+        updateSlider();
+      });
+
+      next.addEventListener("click", function () {
+        index = index === slides.length - 1 ? 0 : index + 1;
+        updateSlider();
+      });
+
+      var touchStartX = 0;
+      var touchEndX = 0;
+      slider.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener("touchend", function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        var diff = touchEndX - touchStartX;
+        if (Math.abs(diff) < 40) return;
+
+        if (diff > 0) {
+          index = index === 0 ? slides.length - 1 : index - 1;
+        } else {
+          index = index === slides.length - 1 ? 0 : index + 1;
+        }
+        updateSlider();
+      }, { passive: true });
+
+      window.addEventListener("resize", updateSlider);
+      window.addEventListener("load", updateSlider);
+      updateSlider();
+    })();
+
+    (function () {
+      var slider = document.querySelector(".review-slider");
+      var track = slider ? slider.querySelector(".review-track") : null;
+      var slides = track ? track.querySelectorAll(".review-card") : [];
+      var navGroup = slider ? slider.querySelector(".review-nav-group") : null;
+      var prev = slider ? slider.querySelector(".review-nav.prev") : null;
+      var next = slider ? slider.querySelector(".review-nav.next") : null;
+      var index = 0;
+
+      if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      function isSp() {
+        return window.matchMedia("(max-width: 1280px)").matches;
+      }
+
+      function updateSlider() {
+        if (!isSp()) {
+          track.style.transform = "none";
+          prev.style.display = "none";
+          next.style.display = "none";
+          navGroup.style.top = "0";
+          return;
+        }
+
+        var slideWidth = slider.clientWidth;
+        track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+        prev.style.display = "block";
+        next.style.display = "block";
+
+        var currentSlide = slides[index];
+        var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
+        if (photo) {
+          navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+        }
+      }
+
+      prev.addEventListener("click", function () {
+        index = index === 0 ? slides.length - 1 : index - 1;
+        updateSlider();
+      });
+
+      next.addEventListener("click", function () {
+        index = index === slides.length - 1 ? 0 : index + 1;
+        updateSlider();
+      });
+
+      var touchStartX = 0;
+      var touchEndX = 0;
+      slider.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener("touchend", function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        var diff = touchEndX - touchStartX;
+        if (Math.abs(diff) < 40) return;
+
+        if (diff > 0) {
+          index = index === 0 ? slides.length - 1 : index - 1;
+        } else {
+          index = index === slides.length - 1 ? 0 : index + 1;
+        }
+        updateSlider();
+      }, { passive: true });
+
+      window.addEventListener("resize", updateSlider);
+      window.addEventListener("load", updateSlider);
+      updateSlider();
+    })();
+
   </script>
 </body>
 
