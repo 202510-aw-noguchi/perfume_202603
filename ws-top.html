@@ -403,17 +403,6 @@
       padding: 8px 4px;
     }
 
-    .card-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-      max-width: 890px;
-      margin: 18px 0 58px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     .short-slider {
       display: block;
       width: 890px;
@@ -426,8 +415,7 @@
       display: grid;
       grid-template-columns: repeat(3, 250px);
       gap: 70px;
-      width: 890px;
-      max-width: 890px;
+      width: 100%;
       margin: 18px auto 58px;
     }
 
@@ -506,7 +494,6 @@
     }
 
     .reviews>h2,
-    .reviews>.h2-lead-area,
     .reviews>.h2-lead-area-pc,
     .reviews>.h2-lead-area-sp {
       grid-column: 1 / -1;
@@ -516,7 +503,6 @@
       margin: 0 0 34px;
     }
 
-    .reviews>.h2-lead-area,
     .reviews>.h2-lead-area-pc,
     .reviews>.h2-lead-area-sp {
       margin: 0 auto 68px;
@@ -530,13 +516,17 @@
 
     .review-slider {
       grid-column: 1 / -1;
-      width: 100%;
+      width: 890px;
+      max-width: 890px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .review-track {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 20px;
+      grid-template-columns: repeat(3, 250px);
+      justify-content: center;
+      column-gap: 70px;
       row-gap: 55px;
       width: 100%;
     }
@@ -730,8 +720,7 @@
       .special,
       .faq .faq-accordion,
       .access .img-placeholder,
-      .reviews,
-      .card-row {
+      .reviews {
         width: 100%;
       }
     }
@@ -886,7 +875,6 @@
       .center-note-pc,
       .center-note-sp,
       .special>p,
-      .reviews>.h2-lead-area,
       .reviews>.h2-lead-area-pc,
       .reviews>.h2-lead-area-sp,
       .reviews>p,
@@ -1095,12 +1083,6 @@
         margin-bottom: 30px;
       }
 
-      .img-placeholder-special {
-        width: 100%;
-        max-width: 556px;
-        height: auto;
-      }
-
       .course-track {
         width: 100%;
         max-width: 448px;
@@ -1274,7 +1256,6 @@
         row-gap: 26px;
       }
 
-      .reviews>.h2-lead-area,
       .reviews>.h2-lead-area-pc,
       .reviews>.h2-lead-area-sp {
         margin-bottom: 26px;
@@ -1318,6 +1299,10 @@
       .review-track {
         display: flex;
         gap: 0;
+        column-gap: 0;
+        row-gap: 0;
+        grid-template-columns: none;
+        justify-content: flex-start;
         width: 100%;
         transition: transform 0.3s ease;
         will-change: transform;
@@ -1506,11 +1491,6 @@
         margin-bottom: 30px;
       }
 
-      .card-row {
-        max-width: 260px;
-        gap: 20px;
-      }
-
       .card-2row {
         display: flex;
         justify-content: center;
@@ -1540,24 +1520,9 @@
         font-size: 18px;
       }
 
-      .card .img-placeholder,
-      .review-card .img-placeholder {
+      .card .img-placeholder {
         max-width: 180px;
         min-height: 0;
-      }
-
-      .review-card .img-placeholder {
-        width: 250px;
-        max-width: 250px;
-        height: 250px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .review-card .img-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
       }
 
       .product-name {
