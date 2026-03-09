@@ -57,8 +57,8 @@
     }
 
     .logo {
-      width: 250px;
-      height: 250px;
+      width: 200px;
+      height: 200px;
       border-radius: 0;
       border: none;
       margin-bottom: 36px;
@@ -69,9 +69,18 @@
       letter-spacing: 0.06em;
     }
 
+    .logo,
+    .menu,
+    .side-sub {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .menu {
       list-style: none;
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       padding: 0;
     }
 
@@ -125,6 +134,10 @@
       height: 100%;
       object-fit: contain;
       display: block;
+    }
+
+    .sp-drawer {
+      display: none;
     }
 
     .hero {
@@ -403,13 +416,17 @@
 
     .short-slider {
       display: block;
+      width: 890px;
+      max-width: 890px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .short-track {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
+      grid-template-columns: repeat(3, 250px);
+      gap: 70px;
+      width: 890px;
       max-width: 890px;
       margin: 18px auto 58px;
     }
@@ -666,6 +683,8 @@
       width: 100%;
       margin-top: 44px;
       height: 44px;
+      position: relative;
+      z-index: 2;
       background: var(--corp);
       display: flex;
       align-items: center;
@@ -717,6 +736,28 @@
       }
     }
 
+    @media (min-width: 1281px) {
+      .page {
+        display: block;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: max(0px, calc((100vw - 1440px) / 2));
+        width: 280px;
+        height: 100vh;
+        overflow: auto;
+        z-index: 1;
+        background: var(--base-bg);
+      }
+
+      .content {
+        width: min(1160px, calc(100vw - 280px));
+        margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+      }
+    }
+
     @media (max-width: 1280px) {
       .page {
         display: block;
@@ -740,6 +781,39 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      .sp-drawer {
+        position: absolute;
+        top: 72px;
+        right: 12px;
+        z-index: 3;
+        display: block;
+        width: fit-content;
+        max-width: calc(100vw - 24px);
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid #d9d9d9;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      }
+
+      .sp-drawer.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .sp-drawer .menu li {
+        margin-bottom: 12px;
+        white-space: nowrap;
+      }
+
+      .sp-drawer .side-sub {
+        margin-top: 20px;
       }
 
       .sp-header .sp-menu-btn {
@@ -1541,9 +1615,22 @@
       <div class="hero-wrap">
         <div class="sp-header">
           <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
-          <button class="sp-menu-btn" type="button" aria-label="メニューを開く">
+          <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="sp-drawer">
             <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
           </button>
+        </div>
+        <div class="sp-drawer" id="sp-drawer">
+          <ul class="menu">
+            <li>ブランド</li>
+            <li>ワークショップ</li>
+            <li>ショッピング</li>
+            <li>よみもの</li>
+            <li>c-corpについて</li>
+          </ul>
+          <div class="side-sub">
+            <div>メールマガジン登録</div>
+            <div>公式Instagram</div>
+          </div>
         </div>
         <section class="hero">
           <img src="image/Main.png" alt="香水のイメージショット">
@@ -1808,6 +1895,42 @@
     <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
   </footer>
   <script>
+    (function () {
+      var menuButton = document.querySelector(".sp-menu-btn");
+      var drawer = document.querySelector(".sp-drawer");
+
+      if (!menuButton || !drawer) return;
+
+      function isSp() {
+        return window.matchMedia("(max-width: 1280px)").matches;
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+
+      menuButton.addEventListener("click", function () {
+        if (!isSp()) return;
+        var willOpen = !drawer.classList.contains("is-open");
+        drawer.classList.toggle("is-open", willOpen);
+        menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!isSp()) return;
+        if (!drawer.classList.contains("is-open")) return;
+        if (drawer.contains(event.target) || menuButton.contains(event.target)) return;
+        closeDrawer();
+      });
+
+      window.addEventListener("resize", function () {
+        if (!isSp()) {
+          closeDrawer();
+        }
+      });
+    })();
+
     document.querySelectorAll(".accordion .head").forEach(function (head) {
       head.addEventListener("click", function () {
         var bodyId = head.getAttribute("aria-controls");
