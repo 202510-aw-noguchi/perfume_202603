@@ -82,6 +82,44 @@
       padding-bottom: 48px;
     }
 
+    .hero-wrap {
+      position: relative;
+    }
+
+    .sp-header {
+      display: none;
+    }
+
+    .sp-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .sp-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .sp-menu-btn {
+      width: 49px;
+      height: 38px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .sp-menu-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
     .hero {
       width: 1018px;
       height: 527px;
@@ -536,6 +574,351 @@
     .footer p {
       margin: 0;
     }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 1200px) {
+      .page {
+        width: 100%;
+        grid-template-columns: 220px 1fr;
+      }
+
+      .hero {
+        width: 100%;
+        max-width: 1018px;
+        height: auto;
+        aspect-ratio: 1018 / 527;
+      }
+
+      .container {
+        max-width: 920px;
+      }
+
+      .lead-section {
+        width: 100%;
+        max-width: 888px;
+      }
+
+      .lead-section-left-photo,
+      .lead-section-right-photo,
+      .lead-section-right-text,
+      .lead-section-left-text,
+      .special,
+      .faq .faq-accordion,
+      .access .img-placeholder,
+      .reviews,
+      .card-row {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        display: block;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        width: 100%;
+      }
+
+      .sp-header {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sp-header .sp-menu-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .hero {
+        width: 100%;
+        max-width: none;
+      }
+
+      .container {
+        max-width: 760px;
+        padding: 20px 18px 0;
+      }
+
+      h1 {
+        font-size: 34px;
+        margin: 44px 0 36px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin: 58px 0 26px;
+      }
+
+      h3,
+      .copy {
+        font-size: 18px;
+      }
+
+      .lead-area,
+      .h2-lead-area {
+        margin: 22px auto 42px;
+      }
+
+      .lead-section {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .lead-section:nth-of-type(2) .lead-section-left-text {
+        order: 2;
+      }
+
+      .lead-section:nth-of-type(2) .lead-section-right-photo {
+        order: 1;
+      }
+
+      .lead-section-left-photo,
+      .lead-section-right-photo,
+      .lead-section-left-text,
+      .lead-section-right-text {
+        width: 100%;
+      }
+
+      .lead-section-left-photo,
+      .lead-section-right-photo {
+        height: auto;
+      }
+
+      .center-note {
+        margin: 44px 0 24px;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 34px;
+      }
+
+      .button-row .btn-text-arrow {
+        width: min(340px, 100%);
+      }
+
+      .special {
+        margin-top: 56px;
+      }
+
+      .short {
+        margin-top: 52px;
+      }
+
+      .special .feature-main-image {
+        width: 100%;
+        max-width: 556px;
+        height: auto;
+      }
+
+      .course-row {
+        width: 100%;
+        max-width: 448px;
+      }
+
+      .card-2row {
+        width: 100%;
+        max-width: 448px;
+      }
+
+      .card-2row .btn {
+        width: 100%;
+      }
+
+      .card-row {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        gap: 30px;
+        margin: 18px auto 44px;
+      }
+
+      .card .img-placeholder {
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .reviews {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-top: 72px;
+        row-gap: 26px;
+      }
+
+      .reviews>.h2-lead-area {
+        margin-bottom: 26px;
+      }
+
+      .review-card {
+        width: 100%;
+      }
+
+      .reviews>.review-card:nth-of-type(n + 4) {
+        margin-top: 0;
+      }
+
+      .faq {
+        margin-top: 72px;
+      }
+
+      .access {
+        margin-top: 72px;
+      }
+
+      .access .img-placeholder {
+        height: 280px;
+      }
+
+      .footer {
+        margin-top: 32px;
+        height: auto;
+        min-height: 44px;
+        padding: 10px 12px;
+      }
+
+      .footer p {
+        font-size: 12px;
+        text-align: center;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .container {
+        padding: 14px 12px 0;
+      }
+
+      .sp-header {
+        top: 10px;
+        left: 12px;
+        right: 12px;
+      }
+
+      h1 {
+        font-size: 42px;
+        margin: 48px 0 26px;
+      }
+
+      h2 {
+        font-size: 40px;
+        margin: 54px 0 20px;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+
+      .copy {
+        font-size: 15px;
+      }
+
+      .lead-area,
+      .h2-lead-area {
+        margin: 12px auto 26px;
+      }
+
+      .center-note {
+        margin: 30px 0 20px;
+      }
+
+      .button-row .btn-text-arrow {
+        font-size: 15px;
+        width: 84%;
+        padding-right: 26px;
+      }
+
+      .special {
+        margin-top: 38px;
+      }
+
+      .short {
+        margin-top: 40px;
+      }
+
+      .card-row {
+        max-width: 260px;
+        gap: 20px;
+      }
+
+      .course-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .btn,
+      .card-2row .btn {
+        width: 100%;
+        max-width: 260px;
+        min-width: 0;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .card-2row {
+        display: flex;
+        justify-content: center;
+        height: auto;
+      }
+
+      .card .img-placeholder,
+      .review-card .img-placeholder {
+        max-width: 180px;
+        min-height: 0;
+      }
+
+      .product-name {
+        font-size: 17px;
+      }
+
+      .faq .faq-accordion .head {
+        padding: 10px 12px;
+      }
+
+      .faq .faq-accordion .body {
+        padding: 8px 12px 12px;
+      }
+
+      .accordion .head .symbol {
+        font-size: 22px;
+      }
+
+      .access .img-placeholder {
+        height: 190px;
+      }
+
+      .hero {
+        height: 493px;
+        aspect-ratio: auto;
+      }
+    }
   </style>
 </head>
 
@@ -557,9 +940,17 @@
     </aside>
 
     <main class="content">
-      <section class="hero">
-        <img src="image/Main.png" alt="香水のイメージショット">
-      </section>
+      <div class="hero-wrap">
+        <div class="sp-header">
+          <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+          <button class="sp-menu-btn" type="button" aria-label="メニューを開く">
+            <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
+          </button>
+        </div>
+        <section class="hero">
+          <img src="image/Main.png" alt="香水のイメージショット">
+        </section>
+      </div>
 
       <div class="container">
         <h1>Workshop</h1>
