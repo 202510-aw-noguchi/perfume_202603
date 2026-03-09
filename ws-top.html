@@ -1,0 +1,804 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Workshop Top" />
+  <title>Workshop Top - PC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --base-bg: #ffffff;
+      --base-white: #ffffff;
+      --corp: #ded08e;
+      --accent: #2f3f66;
+      --point: #17875e;
+      --text: #333333;
+      --line: #c9c9c9;
+      --placeholder: #cfcfcf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--base-bg);
+      color: var(--text);
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .page {
+      width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      padding: 32px 28px;
+    }
+
+    .logo {
+      width: 250px;
+      height: 250px;
+      border-radius: 0;
+      border: none;
+      margin-bottom: 36px;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-sub {
+      margin-top: 36px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .content {
+      padding-bottom: 48px;
+    }
+
+    .hero {
+      width: 1018px;
+      height: 527px;
+      margin: 0 auto;
+      background: var(--placeholder);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cormorant", serif;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin: 0;
+      color: #333333;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 70px 0 61px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin: 70px 0 34px;
+    }
+
+    h3 {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0 0 30px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .feature h3 {
+      line-height: 1.35;
+    }
+
+    .copy {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .lead-area {
+      max-width: 760px;
+      margin: 30px auto 62px;
+      text-align: center;
+    }
+
+    .h2-lead-area {
+      max-width: 760px;
+      margin: 34px auto 68px;
+      text-align: center;
+    }
+
+    .lead-section {
+      width: 888px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: center;
+      margin: 0 auto 26px;
+    }
+
+    .img-placeholder {
+      width: 250px;
+      height: 250px;
+      background: var(--placeholder);
+      display: grid;
+      place-items: center;
+      letter-spacing: 0.06em;
+      color: var(--text);
+    }
+
+    .lead-section-left-photo,
+    .lead-section-right-photo {
+      width: 412px;
+      height: 303px;
+      background: var(--placeholder);
+      display: grid;
+      place-items: center;
+      letter-spacing: 0.06em;
+      color: var(--text);
+    }
+
+    .lead-section-right-text,
+    .lead-section-left-text {
+      width: 412px;
+    }
+
+    .center-note {
+      text-align: center;
+      margin: 70px 0 33px;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 42px;
+    }
+
+    .button-row .btn-text-arrow {
+      position: relative;
+      width: 230px;
+      height: auto;
+      min-width: 0;
+      padding: 0 30px 8px 8px;
+      border: none;
+      border-bottom: 1px solid #9aa1b2;
+      background: transparent;
+      color: var(--text);
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .button-row .btn-text-arrow::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      width: 0;
+      height: 0;
+      border-left: 14px solid #8c8c8c;
+      border-top: 14px solid transparent;
+    }
+
+    .btn {
+      width: 186px;
+      height: 48px;
+      min-width: 186px;
+      border: 1px solid #aeb4c2;
+      background: var(--base-white);
+      color: var(--text);
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      margin-top: 21px;
+    }
+
+    .feature {
+      max-width: 760px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .special {
+      width: 719px;
+      margin: 96px auto 0;
+    }
+
+    .short {
+      margin-top: 63px;
+    }
+
+    .feature .img-placeholder {
+      min-height: 300px;
+      margin-bottom: 12px;
+    }
+
+    .special .feature-main-image {
+      width: 556px;
+      height: 371px;
+      min-height: 0;
+      margin: 0 auto 30px;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 10px 0 16px;
+    }
+
+    .spec {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 8px 4px;
+    }
+
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 890px;
+      margin: 18px 0 58px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card-2row {
+      display: block;
+      width: 448px;
+      height: 49px;
+      margin: 18px auto 24px;
+    }
+
+    .card-2row .btn {
+      width: 448px;
+      height: 49px;
+      min-width: 0;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .course-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 448px;
+      margin: 18px auto 12px;
+    }
+
+    .course-row p {
+      margin: 4px 0;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card p {
+      margin: 4px 0;
+    }
+
+    .card .img-placeholder {
+      min-height: 160px;
+      margin-bottom: 8px;
+    }
+
+    .card .btn {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .product-name {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      row-gap: 0;
+      width: 890px;
+      margin-top: 115px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .reviews>h2,
+    .reviews>.h2-lead-area {
+      grid-column: 1 / -1;
+    }
+
+    .reviews>h2 {
+      margin: 0 0 34px;
+    }
+
+    .reviews>.h2-lead-area {
+      margin: 0 auto 68px;
+    }
+
+    .reviews>p,
+    .reviews>a.btn {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
+    .reviews>p {
+      margin: 65px 0 6px;
+    }
+
+    .reviews>a.btn {
+      margin-top: 0;
+    }
+
+    .btn-instagram {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #8f8d8d;
+      margin-top: 0;
+    }
+
+    .review-card {
+      width: 250px;
+    }
+
+    .reviews>.review-card:nth-of-type(n + 4) {
+      margin-top: 55px;
+    }
+
+    .review-card .img-placeholder {
+      min-height: 170px;
+      margin-bottom: 8px;
+    }
+
+    .review-card>p,
+    .review-card>div:not(.img-placeholder) {
+      margin: 0;
+    }
+
+    .faq {
+      max-width: 920px;
+      margin: 115px auto 0;
+    }
+
+    .faq .faq-accordion {
+      width: 719px;
+      margin: 0;
+      border-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq .faq-accordion:first-of-type {
+      border-top: 1px solid #9aa1b2;
+    }
+
+    .faq .faq-accordion+.faq-accordion {
+      margin-top: -1px;
+    }
+
+    .faq .faq-accordion .head {
+      padding: 12px 16px;
+    }
+
+    .faq .faq-accordion .body {
+      padding: 10px 16px 14px;
+    }
+
+    .accordion {
+      margin: 30px 0;
+      border: 1px solid #9aa1b2;
+      background: transparent;
+    }
+
+    .accordion .head {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #9aa1b2;
+      background: transparent;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+    }
+
+    .accordion .head .symbol {
+      font-size: 30px;
+      line-height: 1;
+      color: var(--accent);
+      margin-left: 12px;
+      font-weight: 400;
+    }
+
+    .accordion .body {
+      padding: 16px 20px 18px;
+    }
+
+    .accordion .title {
+      margin: 16px 0 4px;
+      font-weight: 500;
+    }
+
+    .accordion .title:first-child {
+      margin-top: 0;
+    }
+
+    .accordion .detail {
+      margin: 0;
+    }
+
+    .access {
+      max-width: 920px;
+      margin: 115px auto 0;
+      text-align: center;
+    }
+
+    .access .img-placeholder {
+      width: 890px;
+      height: 354px;
+      min-height: 0;
+      margin-top: 16px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .access .img-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .footer {
+      width: 100%;
+      margin-top: 44px;
+      height: 44px;
+      background: var(--corp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+      <ul class="menu">
+        <li>ブランド</li>
+        <li>ワークショップ</li>
+        <li>ショッピング</li>
+        <li>よみもの</li>
+        <li>c-corpについて</li>
+      </ul>
+      <div class="side-sub">
+        <div>メールマガジン登録</div>
+        <div>公式Instagram</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero">
+        <img src="image/Main.png" alt="香水のイメージショット">
+      </section>
+
+      <div class="container">
+        <h1>Workshop</h1>
+        <section class="lead-area">
+          <p>賑やかな表通りから一本入った、静けさに包まれる空間で<br>
+            あなただけの香りを作りませんか。</p>
+          <p>経験豊かな調香師が、二十種を超える香料の中から<br>
+            あなたの心にそっと響く一滴を丁寧に導き出します。</p>
+          <p>日常を上質に彩る「世界にひとつ」の香りを、特別な時間とともにお持ち帰りください。</p>
+        </section>
+
+        <section class="lead-section">
+          <div class="lead-section-left-photo"><img src="image/Feature_1.png" alt="調香のプロがサポート"></div>
+          <div class="lead-section-right-text">
+            <p class="copy">調香のプロが<br>ひとつひとつ丁寧にサポート</p>
+            <p>あなたの「こんな香りにしたい」という想いを丁寧にくみ取り、最適な組み合わせをご提案します。思わず笑みがこぼれる仕上がりとなるよう、調香のプロが寄り添います。</p>
+          </div>
+        </section>
+
+        <section class="lead-section">
+          <div class="lead-section-left-text">
+            <p class="copy">静かに整えられた空間で<br>香りと向き合う特別な時間</p>
+            <p>日常の喧騒を離れ、落ち着きに包まれたひととき。 五感を澄ませながら香りと向き合う時間が、感性をより深く研ぎ澄ませます。</p>
+          </div>
+          <div class="lead-section-right-photo"><img src="image/Feature_2.png" alt="静かに整えられた空間"></div>
+        </section>
+
+        <section class="lead-section">
+          <div class="lead-section-left-photo"><img src="image/Feature_3.png" alt="世界に一つだけの香り"></div>
+          <div class="lead-section-right-text">
+            <p class="copy">世界に一つだけの香りを、<br>あなたの手で</p>
+            <p>幾通りもの重なりから導かれるのは、誰とも重なることのないあなただけの香り。 それは、あなたの感性の結晶です。</p>
+          </div>
+        </section>
+
+        <p class="center-note">気軽に楽しめる30分の香りのショートセッションと、<br>じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
+
+        <section class="button-row">
+          <a class="btn btn-text-arrow" href="#short">ショートセッション</a>
+          <a class="btn btn-text-arrow" href="#special">フレグランス調香体験</a>
+        </section>
+
+        <section class="special" id="special">
+          <h3>【要予約】フレグランス調香体験</h3>
+          <p>香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、土・日・祝日限定のオートクチュールフレグランス・ワークショップです。</p>
+          <p>ベーシックコースでは、12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。初めての方にも安心してご参加いただけます。</p>
+          <p>スペシャルコースでは、20種類以上の香りから4種類を選択。およそ4,800通りにもおよぶ組み合わせの中から、より奥行きのある、あなただけの香りをかたちにしていただけます。</p>
+          <p>限られた日程でのみ出会える特別な調香体験を、ぜひこの機会にご体感ください。</p>
+          <div class="accordion">
+            <button class="head" type="button" aria-expanded="false" aria-controls="ws-flow-body">
+              <span>ワークショップ当日の流れ</span>
+              <span class="symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="body" id="ws-flow-body" hidden>
+              <p class="title">Step 1｜受付・カウンセリング</p>
+              <p class="detail">ご予約内容を確認後、お好みや使用シーンをヒアリング。</p>
+              <p class="title">Step 2｜香りを試す</p>
+              <p class="detail">気になる香りを好きなだけ、ムエットでお試しください。</p>
+              <p class="title">Step 3｜4種を選ぶ</p>
+              <p class="detail">あなたの心に響く4種類の香りをセレクト。</p>
+              <p class="title">Step 4｜ブレンド</p>
+              <p class="detail">アドバイザーと相談しながら理想のバランスを探していきます。</p>
+              <p class="title">Step 5｜完成・お持ち帰り</p>
+              <p class="detail">完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
+            </div>
+          </div>
+          <div class="img-placeholder feature-main-image"><img src="image/Perfume_productshot.png" alt="プロダクトイメージ">
+          </div>
+          <section class="course-row">
+            <article class="card">
+              <p>【要予約】<br>所要時間目安：60分</p>
+              <p>12種類の香りから4種選ぶ<br>スタンダードコース</p>
+              <p class="copy">10ml 5000円（税込）</p>
+            </article>
+            <article class="card">
+              <p>【要予約】<br>所要時間目安：60分</p>
+              <p>20種の香りから4種を選ぶ<br>スペシャルコース</p>
+              <p class="copy">10ml 6000円（税込）</p>
+            </article>
+          </section>
+          <section class="card-2row">
+            <a class="btn btn-primary" href="#">詳しくみる</a>
+          </section>
+        </section>
+
+        <section class="short" id="short">
+          <section class="feature">
+            <h3>当日参加OK！<br>お手軽ワークショップもご用意</h3>
+            <section class="lead-area">
+              <p>日常に寄り添うファブリックミスト<br>軽やかに香りを纏うオードトワレ、<br>空間をやわらかく満たすディフューザー</p>
+              <p>3つのワークショップは予約不要で、いつでも気軽にお楽しみいただけます。</p>
+              <p>その日の気分に合わせて香りを選び、その場でブレンド。<br>思い立った瞬間に、あなただけの香りをお持ち帰りください。</p>
+            </section>
+          </section>
+          <section class="card-row">
+            <article class="card">
+              <div class="img-placeholder"><img src="image/Mist_square.png" alt="ファブリックミスト"></div>
+              <p>【予約不要】<br>所要時間目安：30分</p>
+              <p class="product-name">ファブリックミスト</p>
+              <p class="copy">100ml 1000円（税込）</p>
+              <a class="btn btn-primary" href="#">詳しくみる</a>
+            </article>
+            <article class="card">
+              <div class="img-placeholder"><img src="image/EDT_square.png" alt="オードトワレ"></div>
+              <p>【予約不要】<br>所要時間目安：30分</p>
+              <p class="product-name">オードトワレ</p>
+              <p class="copy">10ml 1500円（税込）</p>
+              <a class="btn btn-primary" href="#">詳しくみる</a>
+            </article>
+            <article class="card">
+              <div class="img-placeholder"><img src="image/Diffuser_square.png" alt="ディフューザー"></div>
+              <p>【予約不要】<br>所要時間目安：30分</p>
+              <p class="product-name">ディフューザー</p>
+              <p class="copy">100ml 3000円（税込）</p>
+              <a class="btn btn-primary" href="#">詳しくみる</a>
+            </article>
+          </section>
+        </section>
+
+        <section class="reviews">
+          <h2>User Reviews</h2>
+          <section class="h2-lead-area">
+            <p>「思っていたより楽しかった」「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
+          </section>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真"></div>
+            <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
+          </article>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真"></div>
+            <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
+          </article>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Male30.png" alt="レビュー写真"></div>
+            <p>スタッフの方が丁寧に香りの特徴を説明してくださり、的確なアドバイスもいただけたので、楽しく香水作りができました。終始和やかな雰囲気で、心地よい時間でした。（30代男性）</p>
+          </article>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真"></div>
+            <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）</p>
+          </article>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Male20.png" alt="レビュー写真"></div>
+            <div>友人と参加しましたが、選ぶ香りによって完成した香りの印象が大きく異なり、とても興味深かったです。調香の奥深さを実感しました。比べるのも楽しく、思い出に残る体験でした。（20代男性）</div>
+          </article>
+          <article class="review-card">
+            <div class="img-placeholder"><img src="image/Review_Family.png" alt="レビュー写真"></div>
+            <div>中学生の子ども2人を連れて参加しましたが、スタッフの方が優しくフォローしてくださり、安心して体験できました。子どもたちも大満足だったようです。（30代女性）</div>
+          </article>
+          <p>＼ 最新情報をお届け！ ／</p>
+          <a class="btn btn-instagram" href="#">公式Instagram</a>
+        </section>
+
+        <section class="faq">
+          <h2>FAQ</h2>
+          <section class="h2-lead-area">体験内容やご予約に関するご質問をまとめました。</section>
+          <div class="accordion faq-accordion">
+            <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-1">
+              <span>ご参加について</span>
+              <span class="symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="body" id="faq-body-1" hidden>
+              <p class="detail">Q. 所要時間を教えてください。<br>A. フレグランス（香水）調香体験は約60分です。ファブリックミスト・オードトワレ・ディフューザーは約30分でお楽しみいただけます。
+              </p>
+              <p>Q. 1人でも体験できますか。<br>
+                A. はい、お一人様でのご参加も歓迎しております。落ち着いた空間で、ゆっくりと香り選びをお楽しみいただけます。</p>
+              <p>Q. 何歳から参加できますか。<br>
+                A. 小学生3年生以上の方にご参加いただけます。小さなお子様は保護者の方とご一緒にご参加ください。</p>
+              <p>Q. 初めてでも大丈夫ですか。<br>A. はい、専門知識は必要ありません。調香師が丁寧にサポートいたします。</p>
+            </div>
+          </div>
+          <div class="accordion faq-accordion">
+            <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-2">
+              <span>予約・キャンセルについて</span>
+              <span class="symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="body" id="faq-body-2" hidden>
+              <p class="detail">Q. 予約は必要ですか。<br>A. フレグランス（香水）調香体験は予約制です。ファブリックミスト・オードトワレ・ディフューザー作りは予約不要でご参加いただけます。</p>
+              <p>Q. フレグランス（香水）調香体験の当日予約は可能ですか。<br>A. 前日18時までのご予約が必要です。</p>
+              <p>Q. キャンセルはできますか。<br>A. キャンセルは所定の期限内で承っております。詳細は予約ページをご確認ください。</p>
+            </div>
+          </div>
+          <div class="accordion faq-accordion">
+            <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-3">
+              <span>体験内容について</span>
+              <span class="symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="body" id="faq-body-3" hidden>
+              <p class="detail">Q. どのように香りを選びますか。A. 複数の香料を実際にお試しいただきながら、お好みの香りを選び、ブレンドしていきます。</p>
+              <p>Q. 失敗しないか不安です。<br>A. 調香師がバランスを確認しながら進めますので、安心してお楽しみいただけます。</p>
+              <p>Q. 香りが強すぎないか心配です。<br>A. 香りの強さは調整可能です。ご希望をお聞かせください。</p>
+              <p>Q. 作った香りはその日に持ち帰れますか。<br>A. はい、その日のうちにお持ち帰りいただけます。</p>
+            </div>
+          </div>
+          <div class="accordion faq-accordion">
+            <button class="head" type="button" aria-expanded="false" aria-controls="faq-body-4">
+              <span>お支払い</span>
+              <span class="symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="body" id="faq-body-4" hidden>
+              <p class="detail">Q. 支払い方法を教えてください。<br>A. 現金のほか、各種キャッシュレス決済をご利用いただけます。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="access">
+          <h2>Access</h2>
+          <section class="h2-lead-area">ご来店前に、店舗までのアクセス方法をご確認ください。</section>
+          <div class="img-placeholder">
+            <iframe
+              src="https://www.google.com/maps?q=%E3%80%92110-0015%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%9D%B1%E4%B8%8A%E9%87%8E%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%20%E6%9B%BD%E6%88%91%E3%83%93%E3%83%AB&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map">
+            </iframe>
+          </div>
+        </section>
+      </div>
+
+    </main>
+  </div>
+  <footer class="footer">
+    <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
+  </footer>
+  <script>
+    document.querySelectorAll(".accordion .head").forEach(function (head) {
+      head.addEventListener("click", function () {
+        var bodyId = head.getAttribute("aria-controls");
+        var body = bodyId ? document.getElementById(bodyId) : null;
+        if (!body) return;
+
+        var expanded = head.getAttribute("aria-expanded") === "true";
+        head.setAttribute("aria-expanded", String(!expanded));
+        body.hidden = expanded;
+
+        var symbol = head.querySelector(".symbol");
+        if (symbol) {
+          symbol.textContent = expanded ? "+" : "-";
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
