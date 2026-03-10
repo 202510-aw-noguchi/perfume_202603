@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Workshop Top" />
-    <title>Workshop Top - PC</title>
+    <meta name="description" content="Workshop Perfume" />
+    <title>Workshop Perfume - PC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -187,6 +187,15 @@
             margin: 70px 0 34px;
         }
 
+        h2::after {
+            content: "";
+            display: block;
+            width: 245px;
+            height: 1px;
+            margin: 14px auto 0;
+            background: #333333;
+        }
+
         h3 {
             font-family: "Noto Sans JP", sans-serif;
             font-size: 20px;
@@ -209,7 +218,10 @@
 
         .lead-area,
         .lead-area-pc,
-        .lead-area-sp {
+        .lead-area-sp,
+        .h2-lead-area,
+        .h2-lead-area-pc,
+        .h2-lead-area-sp {
             max-width: 760px;
             margin: 30px auto 62px;
             text-align: center;
@@ -479,6 +491,379 @@
             font-family: "Noto Sans JP", sans-serif;
             font-size: 22px;
             font-weight: 400;
+        }
+
+        .perfume-heading {
+            margin: 70px 0 75px;
+            text-align: center;
+        }
+
+        .perfume-heading h1 {
+            margin: 0;
+        }
+
+        .perfume-heading .copy {
+            margin: 0;
+            line-height: 1;
+        }
+
+        .perfume-intro,
+        .perfume-lead-pc,
+        .perfume-lead-sp {
+            max-width: 760px;
+            margin: 0 auto 54px;
+            text-align: center;
+        }
+
+        .hero-wrap+.container .perfume-heading {
+            margin-top: 70px;
+        }
+
+        .perfume-lead-sp {
+            display: none;
+        }
+
+        .perfume-kicker {
+            margin: 0;
+            font-size: 12px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+
+        .perfume-intro p,
+        .perfume-lead-pc p,
+        .perfume-lead-sp p {
+            margin: 10px 0 0;
+        }
+
+        .perfume-lead-pc p:first-child+p,
+        .perfume-lead-sp p:first-child+p {
+            margin-top: 52px;
+        }
+
+        .perfume-lead-sp p:nth-of-type(3) {
+            margin-top: 26px;
+        }
+
+        .perfume-lead-visual {
+            width: 890px;
+            max-width: 890px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .perfume-lead-visual img {
+            width: 890px;
+            height: 298px;
+            object-fit: cover;
+            display: block;
+            margin: 40px auto;
+        }
+
+        .perfume-lead-visual p {
+            margin: 0;
+        }
+
+        .perfume-course-slider {
+            position: relative;
+            width: 100%;
+            max-width: 890px;
+            margin: 75px auto 115px;
+        }
+
+        .perfume-course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 250px);
+            justify-content: center;
+            gap: 36px;
+            margin: 0 auto;
+        }
+
+        .perfume-course-card {
+            text-align: center;
+        }
+
+        .perfume-course-nav-group,
+        .perfume-course-nav {
+            display: none;
+        }
+
+        .perfume-course-card img {
+            width: 250px;
+            height: 250px;
+            min-width: 250px;
+            max-width: 250px;
+            min-height: 250px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 14px;
+        }
+
+        .perfume-course-card p {
+            margin: 4px 0;
+        }
+
+        .perfume-section {
+            max-width: 890px;
+            margin: 65px auto 96px;
+            text-align: center;
+        }
+
+        .perfume-section-lead {
+            max-width: 760px;
+            margin: 34px auto 68px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 160px);
+            justify-content: center;
+            gap: 23px;
+            width: 892px;
+            max-width: 892px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .timeline-slider {
+            position: relative;
+        }
+
+        .timeline-nav-group,
+        .timeline-nav {
+            display: none;
+        }
+
+        .timeline-item img {
+            width: 160px;
+            height: 160px;
+            min-width: 160px;
+            max-width: 160px;
+            min-height: 160px;
+            max-height: 160px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .timeline-item p {
+            width: 160px;
+            max-width: 160px;
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .btn-reserve {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 311px;
+            min-width: 311px;
+            max-width: 311px;
+            height: 49px;
+            min-height: 49px;
+            max-height: 49px;
+            margin: 26px auto 65px;
+            border: 1px solid #333333;
+            background: transparent;
+            color: #333333;
+            text-decoration: none;
+            line-height: 1;
+            box-sizing: border-box;
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 207px);
+            column-gap: 21px;
+            row-gap: 21px;
+            width: 891px;
+            max-width: 891px;
+            margin: 0 auto 24px;
+            justify-content: center;
+        }
+
+        .scene-slider {
+            position: relative;
+        }
+
+        .scene-nav-group,
+        .scene-nav {
+            display: none;
+        }
+
+        .scene-slide img {
+            width: 207px;
+            height: 207px;
+            min-width: 207px;
+            max-width: 207px;
+            min-height: 207px;
+            max-height: 207px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .scene-note {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid #bfbfbf;
+            font-size: 12px;
+        }
+
+        .pickup-review-list {
+            display: grid;
+            gap: 26px;
+            width: 782px;
+            max-width: 782px;
+            margin: 0 auto;
+        }
+
+        .pickup-review-item {
+            display: grid;
+            grid-template-columns: 296px 1fr auto;
+            grid-template-rows: 1fr;
+            gap: 18px;
+            align-items: center;
+            width: 782px;
+            min-height: 296px;
+            border: 1px solid #bdbdbd;
+            text-align: left;
+        }
+
+        .pickup-review-item img {
+            width: 296px;
+            height: 296px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pickup-review-item h3 {
+            margin: 0 0 10px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .pickup-review-item p {
+            margin: 0;
+        }
+
+        .pickup-review-item .btn {
+            width: 186px;
+            min-width: 186px;
+            max-width: 186px;
+            height: 49px;
+            min-height: 49px;
+            max-height: 49px;
+            background: var(--point);
+            align-self: end;
+            justify-self: end;
+        }
+
+        .price {
+            display: grid;
+            gap: 26px;
+            width: 782px;
+            max-width: 782px;
+            margin: 0 auto;
+        }
+
+        .price-list {
+            width: 782px;
+            border: 1px solid #bdbdbd;
+            text-align: left;
+        }
+
+        .price-list-pc {
+            display: grid;
+            grid-template-columns: 296px minmax(0, 1fr);
+            grid-template-rows: 1fr auto;
+            align-items: start;
+            min-height: 296px;
+        }
+
+        .price-list-sp {
+            display: none;
+        }
+
+        .price-list-pc img {
+            grid-row: 1 / span 2;
+            width: 296px;
+            height: 296px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .price-list-pc>div {
+            padding: 18px 18px 10px;
+        }
+
+        .price-list-pc p,
+        .price-list-sp p {
+            margin: 0 0 12px;
+            line-height: 1.4;
+        }
+
+        .price-list-pc p:last-child,
+        .price-list-sp p:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-list-pc .btn {
+            grid-column: 2;
+            grid-row: 2;
+            width: 186px;
+            min-width: 186px;
+            max-width: 186px;
+            height: 49px;
+            min-height: 49px;
+            max-height: 49px;
+            align-self: end;
+            justify-self: end;
+            background: var(--point);
+        }
+
+        .recommended {
+            max-width: 890px;
+            margin: 86px auto 0;
+            text-align: center;
+        }
+
+        .recommended-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 250px);
+            justify-content: center;
+            gap: 36px;
+            margin-top: 34px;
+        }
+
+        .recommended-slider {
+            position: relative;
+        }
+
+        .recommended-nav-group,
+        .recommended-nav {
+            display: none;
+        }
+
+        .recommended-card {
+            text-align: center;
+        }
+
+        .recommended-card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 12px;
+        }
+
+        .recommended-card p {
+            margin: 4px 0;
         }
 
         .reviews {
@@ -856,8 +1241,7 @@
 
             .lead-area,
             .lead-area-pc,
-            .lead-area-sp,
-            .h2-lead-area {
+            .lead-area-sp {
                 margin: 22px auto 42px;
             }
 
@@ -868,7 +1252,6 @@
             .lead-area,
             .lead-area-pc,
             .lead-area-sp,
-            .h2-lead-area,
             .lead-section-left-text,
             .lead-section-right-text,
             .center-note,
@@ -1039,11 +1422,11 @@
                 margin: 75px 0 30px;
             }
 
-            .reviews .h2-lead-area-pc {
+            .h2-lead-area-pc {
                 display: none;
             }
 
-            .reviews .h2-lead-area-sp {
+            .h2-lead-area-sp {
                 display: block;
                 text-align: center;
             }
@@ -1057,6 +1440,406 @@
 
             .button-row .btn-text-arrow {
                 width: min(340px, 100%);
+            }
+
+            .perfume-intro,
+            .perfume-lead-pc,
+            .perfume-lead-sp,
+            .perfume-lead-visual,
+            .perfume-section,
+            .recommended {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .perfume-lead-visual {
+                margin: 0 auto;
+            }
+
+            .perfume-lead-pc {
+                display: none;
+            }
+
+            .perfume-lead-sp {
+                display: block;
+                margin-bottom: 0;
+            }
+
+            .perfume-lead-sp p:first-child+p {
+                margin-top: 10px;
+            }
+
+            .perfume-lead-sp p:nth-of-type(3),
+            .perfume-lead-sp p:nth-of-type(4) {
+                text-align: left;
+            }
+
+            .perfume-course-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+
+            .perfume-course-slider {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto 115px;
+            }
+
+            .perfume-course-grid {
+                display: flex !important;
+                grid-template-columns: none !important;
+                justify-content: flex-start !important;
+                justify-items: stretch !important;
+                gap: 0 !important;
+                margin-top: 0;
+                transition: transform 0.35s ease;
+                will-change: transform;
+            }
+
+            .perfume-course-card {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .perfume-course-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .perfume-course-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .perfume-course-nav::before,
+            .perfume-course-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .perfume-course-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .perfume-course-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .perfume-course-nav.prev::before,
+            .perfume-course-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .perfume-course-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .perfume-course-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .timeline-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .scene-grid {
+                display: flex;
+                grid-template-columns: none;
+                justify-content: flex-start;
+                justify-items: stretch;
+                gap: 0;
+                column-gap: 0;
+                row-gap: 0;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                transition: transform 0.35s ease;
+                will-change: transform;
+            }
+
+            .scene-slider {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 47px;
+            }
+
+            .scene-slide {
+                flex: 0 0 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .scene-slide img {
+                width: 250px;
+                max-width: 250px;
+                min-width: 250px;
+                height: 250px;
+                min-height: 250px;
+                max-height: 250px;
+                margin: 0 auto;
+            }
+
+            .scene-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .scene-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .scene-nav::before,
+            .scene-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .scene-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .scene-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .scene-nav.prev::before,
+            .scene-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .scene-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .scene-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .recommended-slider {
+                position: relative;
+                width: 100%;
+                max-width: 320px;
+                margin: 34px auto 0;
+                overflow: hidden;
+            }
+
+            .recommended-grid {
+                display: flex;
+                justify-content: flex-start;
+                justify-items: stretch;
+                gap: 0;
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                transition: transform 0.35s ease;
+                will-change: transform;
+            }
+
+            .recommended-card {
+                flex: 0 0 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .recommended-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .recommended-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .recommended-nav::before,
+            .recommended-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .recommended-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .recommended-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .recommended-nav.prev::before,
+            .recommended-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .recommended-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .recommended-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .pickup-review-item {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .price {
+                width: 100%;
+                max-width: 100%;
+                gap: 40px;
+            }
+
+            .price-list {
+                width: 100%;
+                max-width: 362px;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .price-list-pc {
+                display: none;
+            }
+
+            .price-list-sp {
+                display: block;
+                overflow: hidden;
+            }
+
+            .price-list-sp img {
+                width: 361px;
+                max-width: 361px;
+                min-width: 361px;
+                height: 241px;
+                min-height: 241px;
+                max-height: 241px;
+                object-fit: cover;
+                margin: 0;
+            }
+
+            .price-list-sp>div {
+                width: 100%;
+                max-width: 100%;
+                padding: 12px 12px 0;
+                box-sizing: border-box;
+            }
+
+            .price-list-sp .btn {
+                display: flex;
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                height: 49px;
+                margin: 18px 0 0;
+                justify-self: stretch;
+                background: var(--point);
+            }
+
+            .price-list-sp .copy:last-child {
+                margin: 22px 0 0;
+                text-align: center;
+            }
+
+            .pickup-review-item h3 {
+                text-align: center;
+            }
+
+            .perfume-lead-visual img {
+                width: 100%;
+                max-width: 100%;
+                height: 300px;
+                object-fit: cover;
             }
 
             .special {
@@ -1419,6 +2202,44 @@
                 padding: 14px 20px 0;
             }
 
+            .perfume-intro,
+            .perfume-lead-pc,
+            .perfume-lead-sp,
+            .perfume-section-lead,
+            .h2-lead-area,
+            .h2-lead-area-pc,
+            .h2-lead-area-sp,
+            .scene-note {
+                width: calc(100% - 40px);
+                max-width: calc(100% - 40px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .timeline-item p {
+                width: 250px;
+                max-width: 250px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn-reserve {
+                width: 311px;
+                min-width: 311px;
+                max-width: 311px;
+                height: 49px;
+                min-height: 49px;
+                max-height: 49px;
+            }
+
+            .pickup-review-item>div,
+            .pickup-review-item>p {
+                width: calc(100% - 40px);
+                max-width: calc(100% - 40px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             .sp-header {
                 top: 10px;
                 left: 12px;
@@ -1446,8 +2267,7 @@
 
             .lead-area,
             .lead-area-pc,
-            .lead-area-sp,
-            .h2-lead-area {
+            .lead-area-sp {
                 margin: 12px auto 26px;
             }
 
@@ -1469,6 +2289,222 @@
                 font-size: 18px;
                 width: 84%;
                 padding-right: 26px;
+            }
+
+            .perfume-intro,
+            .perfume-lead-pc,
+            .perfume-lead-sp,
+            .perfume-lead-visual,
+            .perfume-section,
+            .recommended {
+                margin-bottom: 72px;
+            }
+
+            .perfume-lead-visual {
+                margin: 0 auto;
+            }
+
+            .perfume-lead-sp {
+                margin-bottom: 0;
+            }
+
+            .perfume-course-grid {
+                margin-top: 0;
+            }
+
+            .perfume-course-slider {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto 115px;
+            }
+
+            .perfume-course-grid {
+                display: flex;
+                gap: 0;
+                transition: transform 0.35s ease;
+                will-change: transform;
+            }
+
+            .perfume-course-card {
+                flex: 0 0 100%;
+            }
+
+            .perfume-course-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .perfume-course-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .perfume-course-nav::before,
+            .perfume-course-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .perfume-course-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .perfume-course-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .perfume-course-nav.prev::before,
+            .perfume-course-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .perfume-course-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .perfume-course-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .perfume-lead-visual p {
+                margin-bottom: 70px;
+            }
+
+            .perfume-lead-pc {
+                display: none;
+            }
+
+            .perfume-lead-sp {
+                display: block;
+            }
+
+            .timeline-grid {
+                display: flex;
+                gap: 0;
+                max-width: none;
+                margin-left: 0;
+                margin-right: 0;
+                transition: transform 0.35s ease;
+                will-change: transform;
+            }
+
+            .timeline-slider {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .timeline-item {
+                flex: 0 0 100%;
+            }
+
+            .timeline-nav-group {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                pointer-events: auto;
+                z-index: 5;
+            }
+
+            .timeline-nav {
+                position: relative;
+                display: block;
+                width: 21px;
+                height: 39px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+                pointer-events: auto;
+                font-size: 0;
+            }
+
+            .timeline-nav::before,
+            .timeline-nav::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 28px;
+                height: 1px;
+                background: #333333;
+                transform-origin: left center;
+            }
+
+            .timeline-nav.next::before {
+                top: 1px;
+                transform: rotate(44deg);
+            }
+
+            .timeline-nav.next::after {
+                bottom: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .timeline-nav.prev::before,
+            .timeline-nav.prev::after {
+                left: auto;
+                right: 0;
+                transform-origin: right center;
+            }
+
+            .timeline-nav.prev::before {
+                top: 1px;
+                transform: rotate(-44deg);
+            }
+
+            .timeline-nav.prev::after {
+                bottom: 1px;
+                transform: rotate(44deg);
+            }
+
+            .pickup-review-item img,
+            .price-list img,
+            .recommended-card img,
+            .perfume-course-card img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .price {
+                width: 100%;
+                max-width: 362px;
             }
 
             .special {
@@ -1599,19 +2635,31 @@
                     </div>
                 </div>
                 <section class="hero">
-                    <img src="image/Perfume_Top.png" alt="ワークショップイメージ">
+                    <img src="image/Perfume_Top.png" alt="ワークショップのイメージ">
                 </section>
             </div>
 
             <div class="container">
-                <h1>Workshop</h1>
-                <section class="lead-area-pc">
-                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――<br>
-                        その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。</p>
-                    <p>香りづくりを気軽に体験したい方も、より自由に表現したい方も<br>
-                        今の気分に合わせて選べる2つのコースをご用意しました</p>
+                <section class="perfume-heading">
+                    <h1>Workshop</h1>
+                    <p class="copy">フレグランス調香体験</p>
                 </section>
-                <section class="lead-area-sp">
+
+                <section class="perfume-lead-pc">
+                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――<br>
+                        その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。<br>
+                        香りづくりを気軽に体験したい方も、より自由に表現したい方も<br>
+                        今の気分に合わせて選べる2つのコースをご用意しました。</p>
+                    <p>Classic｜ベーシックコース<br>
+                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。<br>
+                        初めての方にも安心してご参加いただけます。</p>
+                    <p>
+                        Luxe｜スペシャルコース<br>
+                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。<br>
+                        およそ4,800通りにもおよぶ組み合わせの中から、<br>
+                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
+                </section>
+                <section class="perfume-lead-sp">
                     <p>香りを重ねるたびに、<br>
                         印象がゆるやかに移ろう――<br>
                         その繊細な調和を楽しむ、<br>
@@ -1620,130 +2668,109 @@
                     <p>香りづくりを気軽に体験したい方も、<br>
                         より自由に表現したい方も<br>
                         今の気分に合わせて選べる<br>
-                        2つのコースをご用意しました</p>
+                        2つのコースをご用意しました。</p>
+                    <p>Classic｜ベーシックコース<br>
+                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。
+                        初めての方にも安心してご参加いただけます。</p>
+                    <p>Luxe｜スペシャルコース<br>
+                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。
+                        およそ4,800通りにもおよぶ組み合わせの中から、
+                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
                 </section>
 
-                <section class="lead-slider" aria-label="ワークショップ特徴スライダー">
-                    <div class="lead-track">
-                        <section class="lead-section">
-                            <div class="lead-section-left-photo"><img src="image/Feature_1.png" alt="調香のプロがサポート"></div>
-                            <div class="lead-section-right-text">
-                                <p class="copy">調香のプロが<br>ひとつひとつ丁寧にサポート</p>
-                                <p>あなたの「こんな香りにしたい」という想いを丁寧にくみ取り、最適な組み合わせをご提案します。思わず笑みがこぼれる仕上がりとなるよう、調香のプロが寄り添います。</p>
-                            </div>
-                        </section>
-
-                        <section class="lead-section">
-                            <div class="lead-section-left-text">
-                                <p class="copy">静かに整えられた空間で<br>香りと向き合う特別な時間</p>
-                                <p>日常の喧騒を離れ、落ち着きに包まれたひととき。 五感を澄ませながら香りと向き合う時間が、感性をより深く研ぎ澄ませます。</p>
-                            </div>
-                            <div class="lead-section-right-photo"><img src="image/Feature_2.png" alt="静かに整えられた空間"></div>
-                        </section>
-
-                        <section class="lead-section">
-                            <div class="lead-section-left-photo"><img src="image/Feature_3.png" alt="世界に一つだけの香り"></div>
-                            <div class="lead-section-right-text">
-                                <p class="copy">世界に一つだけの香りを、<br>あなたの手で</p>
-                                <p>幾通りもの重なりから導かれるのは、誰とも重なることのないあなただけの香り。 それは、あなたの感性の結晶です。</p>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="lead-nav-group" aria-hidden="false">
-                        <button class="lead-nav prev" type="button" aria-label="前へ"></button>
-                        <button class="lead-nav next" type="button" aria-label="次へ"></button>
-                    </div>
+                <section class="perfume-lead-visual">
+                    <img src="image/Perfume_Lead.png" alt="香水ワークショップのイメージ">
+                    <p>店舗奥の階段からはじまる特別な調香体験を、ぜひこの機会にご体感ください。</p>
                 </section>
 
-                <p class="center-note-pc">気軽に楽しめる30分の香りのショートセッションと、<br>じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
-                <p class="center-note-sp">気軽に楽しめる30分の香りのショートセッションと、じっくり創りあげる60分のフレグランス調香体験をご用意しております。</p>
-
-                <section class="button-row">
-                    <a class="btn btn-text-arrow" href="#short">ショートセッション</a>
-                    <a class="btn btn-text-arrow" href="#special">フレグランス調香体験</a>
-                </section>
-
-                <section class="special" id="special">
-                    <h3>【要予約】フレグランス調香体験</h3>
-                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、土・日・祝日限定のオートクチュールフレグランス・ワークショップです。</p>
-                    <p>ベーシックコースでは、12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。初めての方にも安心してご参加いただけます。</p>
-                    <p>スペシャルコースでは、20種類以上の香りから4種類を選択。およそ4,800通りにもおよぶ組み合わせの中から、より奥行きのある、あなただけの香りをかたちにしていただけます。</p>
-                    <p>限られた日程でのみ出会える特別な調香体験を、ぜひこの機会にご体感ください。</p>
-                    <div class="accordion">
-                        <button class="head" type="button" aria-expanded="false" aria-controls="ws-flow-body">
-                            <span>ワークショップ当日の流れ</span>
-                            <span class="symbol" aria-hidden="true">+</span>
-                        </button>
-                        <div class="body" id="ws-flow-body" hidden>
-                            <p class="title">Step 1｜受付・カウンセリング</p>
-                            <p class="detail">ご予約内容を確認後、お好みや使用シーンをヒアリング。</p>
-                            <p class="title">Step 2｜香りを試す</p>
-                            <p class="detail">気になる香りを好きなだけ、ムエットでお試しください。</p>
-                            <p class="title">Step 3｜4種を選ぶ</p>
-                            <p class="detail">あなたの心に響く4種類の香りをセレクト。</p>
-                            <p class="title">Step 4｜ブレンド</p>
-                            <p class="detail">アドバイザーと相談しながら理想のバランスを探していきます。</p>
-                            <p class="title">Step 5｜完成・お持ち帰り</p>
-                            <p class="detail">完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
-                        </div>
-                    </div>
-                    <div class="img-placeholder-special"><img src="image/Perfume_productshot.png" alt="プロダクトイメージ">
-                    </div>
-                    <section class="course-track">
-                        <article class="card">
+                <section class="perfume-course-slider" aria-label="香水コーススライダー">
+                    <section class="perfume-course-grid" aria-label="香水コース一覧">
+                        <article class="perfume-course-card">
+                            <img src="image/Perfume_Basic.png" alt="ベーシックコース">
                             <p>【要予約】<br>所要時間目安：60分</p>
-                            <p>12種類の香りから4種選ぶ<br>スタンダードコース</p>
+                            <p>12種類の香りから4種選ぶ<br>ベーシックコース</p>
                             <p class="copy">10ml 5000円（税込）</p>
+                            <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
-                        <article class="card">
-                            <p>【要予約】<br>所要時間目安：60分</p>
-                            <p>20種の香りから4種選ぶ<br>スペシャルコース</p>
+                        <article class="perfume-course-card">
+                            <img src="image/Perfume_Special.png" alt="スペシャルコース">
+                            <p>【要予約・季節限定】<br>所要時間目安：60分</p>
+                            <p>20種類の香りから4種を選ぶ<br>スペシャルコース</p>
                             <p class="copy">10ml 6000円（税込）</p>
+                            <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
                     </section>
-                    <section class="card-2row">
-                        <a class="btn btn-primary" href="#">詳しくみる</a>
-                    </section>
+                    <div class="perfume-course-nav-group" aria-hidden="false">
+                        <button class="perfume-course-nav prev" type="button" aria-label="前へ"></button>
+                        <button class="perfume-course-nav next" type="button" aria-label="次へ"></button>
+                    </div>
                 </section>
 
-                <section class="short" id="short">
-                    <section class="feature">
-                        <h3>当日参加OK！<br>お手軽ワークショップもご用意</h3>
-                        <section class="lead-area">
-                            <p>日常に寄り添うファブリックミスト、<br>軽やかに香りを纏うオードトワレ、<br>空間をやわらかく満たすディフューザー</p>
-                            <p>3つのワークショップは予約不要で、いつでも気軽にお楽しみいただけます。</p>
-                            <p>その日の気分に合わせて香りを選び、その場でブレンド。<br>思い立った瞬間に、あなただけの香りをお持ち帰りください。</p>
-                        </section>
-                    </section>
-                    <section class="short-slider" aria-label="ショートセッションスライダー">
-                        <section class="short-track">
-                            <article class="card">
-                                <div class="img-placeholder"><img src="image/Mist_square.png" alt="ファブリックミスト"></div>
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">ファブリックミスト</p>
-                                <p class="copy">100ml 1000円（税込）</p>
-                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                <section class="perfume-section">
+                    <h2>Timeline</h2>
+                    <p class="h2-lead-area-pc">ワークショップ当日の流れをご案内いたします。</p>
+                    <p class="h2-lead-area-sp">ワークショップ当日の流れを<br>
+                        ご案内いたします。</p>
+                    <section class="timeline-slider" aria-label="ワークショップの流れスライダー">
+                        <section class="timeline-grid" aria-label="ワークショップの流れ">
+                            <article class="timeline-item">
+                                <img src="image/Timeline_1.png" alt="受付">
+                                <p>Step 1｜受付<br>ご予約内容を確認後、お好みや使用シーンをヒアリング。</p>
                             </article>
-                            <article class="card">
-                                <div class="img-placeholder"><img src="image/EDT_square.png" alt="オードトワレ"></div>
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">オードトワレ</p>
-                                <p class="copy">10ml 1500円（税込）</p>
-                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            <article class="timeline-item">
+                                <img src="image/Timeline_2.png" alt="ヒアリング">
+                                <p>Step 2｜香りを試す<br>気になる香りを好きなだけ、ムエットでお試しください。</p>
                             </article>
-                            <article class="card">
-                                <div class="img-placeholder"><img src="image/Diffuser_square.png" alt="ディフューザー"></div>
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">ディフューザー</p>
-                                <p class="copy">100ml 3000円（税込）</p>
-                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            <article class="timeline-item">
+                                <img src="image/Timeline_3.png" alt="香料選び">
+                                <p>Step 3｜香りを選ぶ<br>あなたの心に響く4種類の香りをセレクト。</p>
+                            </article>
+                            <article class="timeline-item">
+                                <img src="image/Timeline_4.png" alt="調香">
+                                <p>Step 4｜ブレンド<br>アドバイザーと相談しながら理想のバランスを探していきます。</p>
+                            </article>
+                            <article class="timeline-item">
+                                <img src="image/Timeline_5.png" alt="完成">
+                                <p>Step 5｜完成<br>完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
                             </article>
                         </section>
-                        <div class="short-nav-group" aria-hidden="false">
-                            <button class="short-nav prev" type="button" aria-label="前へ"></button>
-                            <button class="short-nav next" type="button" aria-label="次へ"></button>
+                        <div class="timeline-nav-group" aria-hidden="false">
+                            <button class="timeline-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="timeline-nav next" type="button" aria-label="次へ"></button>
                         </div>
                     </section>
+                    <a class="btn-reserve" href="#">ワークショップのご予約はこちら</a>
+                    <div class="timeline-divider" aria-hidden="true"></div>
+                </section>
+
+                <section class="perfume-section">
+                    <h2>Scent</h2>
+                    <p class="h2-lead-area-pc">ワークショップでご用意している定番の香りをご覧ください。<br>
+                        香りの表情を知ることが、あなただけの香りの第一歩となります。<br> </p>
+                    <p class="h2-lead-area-sp">ワークショップでご用意している<br>定番の香りをご覧ください。<br>
+                        香りの表情を知ることが、<br>あなただけの香りの第一歩となります。<br>
+                    </p>
+                    <section class="scene-slider" aria-label="scentスライダー">
+                        <section class="scene-grid" aria-label="scent">
+                            <div class="scene-slide"><img src="image/Aroma_1.png" alt="ローズ"></div>
+                            <div class="scene-slide"><img src="image/Aroma_2.png" alt="ローズ"></div>
+                            <div class="scene-slide"><img src="image/Aroma_3.png" alt="ガーデニア"></div>
+                            <div class="scene-slide"><img src="image/Aroma_4.png" alt="バニラ"></div>
+                            <div class="scene-slide"><img src="image/Aroma_5.png" alt="シダーウッド"></div>
+                            <div class="scene-slide"><img src="image/Aroma_6.png" alt="ネロリ"></div>
+                            <div class="scene-slide"><img src="image/Aroma_7.png" alt="サンダルウッド"></div>
+                            <div class="scene-slide"><img src="image/Aroma_8.png" alt="ラベンダー"></div>
+                            <div class="scene-slide"><img src="image/Aroma_9.png" alt="パチュリ"></div>
+                            <div class="scene-slide"><img src="image/Aroma_10.png" alt="ムスク"></div>
+                            <div class="scene-slide"><img src="image/Aroma_11.png" alt="ベルガモット"></div>
+                            <div class="scene-slide"><img src="image/Aroma_12.png" alt="ジャスミン"></div>
+                        </section>
+                        <div class="scene-nav-group" aria-hidden="false">
+                            <button class="scene-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="scene-nav next" type="button" aria-label="次へ"></button>
+                        </div>
+                    </section>
+                    <a class="btn-reserve" href="#">ワークショップのご予約はこちら</a>
                 </section>
 
                 <section class="reviews">
@@ -1757,11 +2784,13 @@
                     <section class="review-slider" aria-label="レビュースライダー">
                         <section class="review-track">
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真">
+                                </div>
                                 <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真">
+                                </div>
                                 <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
                             </article>
                             <article class="review-card">
@@ -1770,7 +2799,8 @@
                                 </p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真">
+                                </div>
                                 <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）
                                 </p>
                             </article>
@@ -1795,6 +2825,69 @@
                     <a class="btn btn-instagram" href="#">公式Instagram</a>
                 </section>
 
+                <section class="perfume-section">
+                    <h2>Price & Reserve</h2>
+                    <p class="h2-lead-area">ご検討の参考に、所要時間と料金をご案内いたします。<br>
+                        お席には限りがございますので、ご希望の日程が決まっている場合はお早めにご確認ください。</p>
+                    <section class="price" aria-label="価格表">
+                        <article class="price-list">
+                            <div class="price-list-pc">
+                                <img src="image/EDT_5000.png" alt="ベーシックコース">
+                                <div>
+                                    <p class="copy">Classic｜12種の香りから4種選ぶ、<br>
+                                        はじめての方にもお勧めのベーシックコース</p>
+                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：60分<br>
+                                        予約受付：前日18時まで</p>
+                                    <p class="copy">香水(オードトワレ)10ml　5000円(税込)</p>
+                                </div>
+                                <a class="btn btn-primary" href="#">予約する</a>
+                            </div>
+                            <div class="price-list-sp">
+                                <img src="image/EDT_5000_sp.png" alt="ベーシックコース">
+                                <div>
+                                    <p class="copy">Classic｜12種の香りから4種選ぶ、
+                                        はじめての方にもお勧めのベーシックコース</p>
+                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：60分<br>
+                                        予約受付：前日18時まで</p>
+                                    <p class="copy">香水(オードトワレ)10ml<br>5000円(税込)</p>
+                                </div>
+                                <a class="btn btn-primary" href="#">予約する</a>
+                            </div>
+                        </article>
+                        <article class="price-list">
+                            <div class="price-list-pc">
+                                <img src="image/EDT_6000.png" alt="スペシャルコース">
+                                <div>
+                                    <p class="copy">Luxe｜季節限定の香りなど20種の香りから<br>
+                                        4種選ぶ、スペシャルコース</p>
+                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：60分<br>
+                                        予約受付：前日18時まで</p>
+                                    <p class="copy">香水(オードトワレ)10ml　6000円(税込)</p>
+                                </div>
+                                <a class="btn btn-primary" href="#">予約する</a>
+                            </div>
+                            <div class="price-list-sp">
+                                <img src="image/EDT_6000_sp.png" alt="スペシャルコース">
+                                <div>
+                                    <p class="copy">Luxe｜季節限定の香りなど20種の香りから4種選ぶ、スペシャルコース</p>
+                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：60分<br>
+                                        予約受付：前日18時まで</p>
+                                    <p class="copy">香水(オードトワレ)10ml<br>6000円(税込)</p>
+                                </div>
+                                <a class="btn btn-primary" href="#">予約する</a>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+
                 <section class="faq">
                     <h2>FAQ</h2>
                     <section class="h2-lead-area">体験内容やご予約に関するご質問をまとめました。</section>
@@ -1805,12 +2898,9 @@
                         </button>
                         <div class="body" id="faq-body-1" hidden>
                             <p class="detail">Q. 所要時間を教えてください。<br>A.
-                                フレグランス（香水）調香体験は約60分です。ファブリックミスト・オードトワレ・ディフューザーは約30分でお楽しみいただけます。
-                            </p>
-                            <p>Q. 1人でも体験できますか。<br>
-                                A. はい、お一人様でのご参加も歓迎しております。落ち着いた空間で、ゆっくりと香り選びをお楽しみいただけます。</p>
-                            <p>Q. 何歳から参加できますか。<br>
-                                A. 小学生3年生以上の方にご参加いただけます。小さなお子様は保護者の方とご一緒にご参加ください。</p>
+                                フレグランス（香水）調香体験は約60分です。ファブリックミスト・オードトワレ・ディフューザーは約30分でお楽しみいただけます。</p>
+                            <p>Q. 1人でも体験できますか。<br>A. はい、お一人様でのご参加も歓迎しております。落ち着いた空間で、ゆっくりと香り選びをお楽しみいただけます。</p>
+                            <p>Q. 何歳から参加できますか。<br>A. 小学生3年生以上の方にご参加いただけます。小さなお子様は保護者の方とご一緒にご参加ください。</p>
                             <p>Q. 初めてでも大丈夫ですか。<br>A. はい、専門知識は必要ありません。調香師が丁寧にサポートいたします。</p>
                         </div>
                     </div>
@@ -1858,6 +2948,39 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map">
                         </iframe>
                     </div>
+                </section>
+                <section class="recommended">
+                    <h2>Recommended</h2>
+                    <p class="h2-lead-area">フレグランス調香体験のほかにも、さまざまなワークショップをご用意しています。</p>
+                    <section class="recommended-slider" aria-label="おすすめ商品スライダー">
+                        <section class="recommended-grid" aria-label="おすすめ商品">
+                            <article class="recommended-card">
+                                <img src="image/Mist_square.png" alt="ファブリックミスト">
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">ファブリックミスト</p>
+                                <p class="copy">100ml 1000円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                            <article class="recommended-card">
+                                <img src="image/EDT_square.png" alt="オードトワレ">
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">オードトワレ</p>
+                                <p class="copy">10ml 1500円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                            <article class="recommended-card">
+                                <img src="image/Diffuser_square.png" alt="ディフューザー">
+                                <p>【予約不要】<br>所要時間目安：30分</p>
+                                <p class="product-name">ディフューザー</p>
+                                <p class="copy">100ml 3000円（税込）</p>
+                                <a class="btn btn-primary" href="#">詳しくみる</a>
+                            </article>
+                        </section>
+                        <div class="recommended-nav-group" aria-hidden="false">
+                            <button class="recommended-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="recommended-nav next" type="button" aria-label="次へ"></button>
+                        </div>
+                    </section>
                 </section>
             </div>
 
@@ -2090,6 +3213,285 @@
                 var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
                 if (photo) {
                     navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".timeline-slider");
+            var track = slider ? slider.querySelector(".timeline-grid") : null;
+            var slides = track ? track.querySelectorAll(".timeline-item") : [];
+            var navGroup = slider ? slider.querySelector(".timeline-nav-group") : null;
+            var prev = slider ? slider.querySelector(".timeline-nav.prev") : null;
+            var next = slider ? slider.querySelector(".timeline-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "50%";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector("img") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".perfume-course-slider");
+            var track = slider ? slider.querySelector(".perfume-course-grid") : null;
+            var slides = track ? track.querySelectorAll(".perfume-course-card") : [];
+            var navGroup = slider ? slider.querySelector(".perfume-course-nav-group") : null;
+            var prev = slider ? slider.querySelector(".perfume-course-nav.prev") : null;
+            var next = slider ? slider.querySelector(".perfume-course-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "50%";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector("img") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".scene-slider");
+            var track = slider ? slider.querySelector(".scene-grid") : null;
+            var slides = track ? track.querySelectorAll(".scene-slide") : [];
+            var navGroup = slider ? slider.querySelector(".scene-nav-group") : null;
+            var prev = slider ? slider.querySelector(".scene-nav.prev") : null;
+            var next = slider ? slider.querySelector(".scene-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "50%";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var currentSlide = slides[index];
+                var photo = currentSlide ? currentSlide.querySelector("img") : null;
+                if (photo) {
+                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                }
+            }
+
+            prev.addEventListener("click", function () {
+                index = index === 0 ? slides.length - 1 : index - 1;
+                updateSlider();
+            });
+
+            next.addEventListener("click", function () {
+                index = index === slides.length - 1 ? 0 : index + 1;
+                updateSlider();
+            });
+
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener("touchstart", function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            slider.addEventListener("touchend", function (e) {
+                touchEndX = e.changedTouches[0].clientX;
+                var diff = touchEndX - touchStartX;
+                if (Math.abs(diff) < 40) return;
+
+                if (diff > 0) {
+                    index = index === 0 ? slides.length - 1 : index - 1;
+                } else {
+                    index = index === slides.length - 1 ? 0 : index + 1;
+                }
+                updateSlider();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateSlider);
+            window.addEventListener("load", updateSlider);
+            updateSlider();
+        })();
+
+        (function () {
+            var slider = document.querySelector(".recommended-slider");
+            var track = slider ? slider.querySelector(".recommended-grid") : null;
+            var slides = track ? track.querySelectorAll(".recommended-card") : [];
+            var navGroup = slider ? slider.querySelector(".recommended-nav-group") : null;
+            var prev = slider ? slider.querySelector(".recommended-nav.prev") : null;
+            var next = slider ? slider.querySelector(".recommended-nav.next") : null;
+            var index = 0;
+
+            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+            function isSp() {
+                return window.matchMedia("(max-width: 1280px)").matches;
+            }
+
+            function updateSlider() {
+                if (!isSp()) {
+                    track.style.transform = "none";
+                    prev.style.display = "none";
+                    next.style.display = "none";
+                    navGroup.style.top = "50%";
+                    return;
+                }
+
+                var slideWidth = slider.clientWidth;
+                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
+                prev.style.display = "block";
+                next.style.display = "block";
+
+                var photo = slides[index] ? slides[index].querySelector("img") : null;
+                if (photo) {
+                    navGroup.style.top = (track.offsetTop + photo.offsetTop + (photo.offsetHeight / 2)) + "px";
                 }
             }
 
