@@ -191,9 +191,10 @@
             content: "";
             display: block;
             width: 245px;
-            height: 1px;
+            height: 0;
             margin: 14px auto 0;
-            background: #333333;
+            border-top: 1px solid #333333;
+            background: transparent;
         }
 
         h3 {
@@ -216,19 +217,12 @@
             color: var(--text);
         }
 
-        .lead-area,
-        .lead-area-pc,
-        .lead-area-sp,
         .h2-lead-area,
         .h2-lead-area-pc,
         .h2-lead-area-sp {
             max-width: 760px;
             margin: 30px auto 62px;
             text-align: center;
-        }
-
-        .lead-area-sp {
-            display: none;
         }
 
         .lead-slider {
@@ -402,70 +396,6 @@
             object-fit: cover;
         }
 
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin: 10px 0 16px;
-        }
-
-        .spec {
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            padding: 8px 4px;
-        }
-
-        .short-slider {
-            display: block;
-            width: 890px;
-            max-width: 890px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .short-track {
-            display: grid;
-            grid-template-columns: repeat(3, 250px);
-            gap: 70px;
-            width: 100%;
-            margin: 18px auto 58px;
-        }
-
-        .short-nav-group,
-        .short-nav {
-            display: none;
-        }
-
-        .card-2row {
-            display: block;
-            width: 100%;
-            max-width: 448px;
-            height: 49px;
-            margin: 18px auto 24px;
-        }
-
-        .card-2row .btn {
-            width: 100%;
-            max-width: 448px;
-            height: 49px;
-            min-width: 0;
-            margin-top: 0;
-            font-size: 18px;
-        }
-
-        .course-track {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            width: 100%;
-            max-width: 448px;
-            margin: 18px auto 12px;
-        }
-
-        .course-track p {
-            margin: 4px 0;
-        }
-
         .card {
             display: flex;
             flex-direction: column;
@@ -521,13 +451,6 @@
 
         .perfume-lead-sp {
             display: none;
-        }
-
-        .perfume-kicker {
-            margin: 0;
-            font-size: 12px;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
         }
 
         .perfume-intro p,
@@ -651,7 +574,6 @@
             width: 160px;
             max-width: 160px;
             margin: 0;
-            font-size: 12px;
             line-height: 1.6;
             text-align: left;
         }
@@ -705,21 +627,6 @@
             max-height: 207px;
             object-fit: cover;
             display: block;
-            margin: 0 auto;
-        }
-
-        .scene-note {
-            display: inline-block;
-            padding: 10px 18px;
-            border: 1px solid #bfbfbf;
-            font-size: 12px;
-        }
-
-        .pickup-review-list {
-            display: grid;
-            gap: 26px;
-            width: 782px;
-            max-width: 782px;
             margin: 0 auto;
         }
 
@@ -1211,15 +1118,6 @@
                 padding: 20px 20px 0;
             }
 
-            .lead-area-pc {
-                display: none;
-            }
-
-            .lead-area-sp {
-                display: block;
-                margin-bottom: 70px;
-            }
-
             h1 {
                 font-size: 40px;
                 margin: 0 0 61px;
@@ -1239,19 +1137,6 @@
                 font-size: 20px;
             }
 
-            .lead-area,
-            .lead-area-pc,
-            .lead-area-sp {
-                margin: 22px auto 42px;
-            }
-
-            .lead-area-sp {
-                margin-bottom: 70px;
-            }
-
-            .lead-area,
-            .lead-area-pc,
-            .lead-area-sp,
             .lead-section-left-text,
             .lead-section-right-text,
             .center-note,
@@ -1866,13 +1751,6 @@
                 margin-bottom: 30px;
             }
 
-            .course-track {
-                width: 100%;
-                max-width: 448px;
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .img-placeholder-special {
                 display: grid;
                 width: 250px;
@@ -1886,21 +1764,6 @@
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover;
-            }
-
-            .card-2row {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                max-width: 448px;
-                height: auto;
-                margin: 40px auto 24px;
-            }
-
-            .card-2row .btn {
-                width: 362px;
-                max-width: 362px;
-                height: 49px;
             }
 
             .card .img-placeholder {
@@ -1924,112 +1787,6 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-            }
-
-            .short-slider {
-                position: relative;
-                width: 100%;
-                max-width: 320px;
-                margin: 0 auto;
-                overflow: hidden;
-            }
-
-            .short-slider .short-track {
-                display: flex;
-                gap: 0;
-                width: 100%;
-                max-width: none;
-                margin: 0 auto 44px;
-                transition: transform 0.3s ease;
-                will-change: transform;
-            }
-
-            .short-slider .short-track>.card {
-                flex: 0 0 100%;
-            }
-
-            .short-slider .short-track .card .img-placeholder {
-                width: 250px;
-                max-width: 250px;
-                height: 250px;
-            }
-
-            .short-slider .short-track .card .img-placeholder img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .short-slider .short-track .card .btn {
-                width: 186px;
-                max-width: 186px;
-                min-width: 186px;
-                height: 49px;
-            }
-
-            .short-nav-group {
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                transform: translateY(-50%);
-                height: 40px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                pointer-events: auto;
-                z-index: 5;
-            }
-
-            .short-nav {
-                position: relative;
-                display: block;
-                width: 21px;
-                height: 39px;
-                border: 0;
-                background: transparent;
-                padding: 0;
-                cursor: pointer;
-                pointer-events: auto;
-                font-size: 0;
-            }
-
-            .short-nav::before,
-            .short-nav::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                width: 28px;
-                height: 1px;
-                background: #333333;
-                transform-origin: left center;
-            }
-
-            .short-nav.next::before {
-                top: 1px;
-                transform: rotate(44deg);
-            }
-
-            .short-nav.next::after {
-                bottom: 1px;
-                transform: rotate(-44deg);
-            }
-
-            .short-nav.prev::before,
-            .short-nav.prev::after {
-                left: auto;
-                right: 0;
-                transform-origin: right center;
-            }
-
-            .short-nav.prev::before {
-                top: 1px;
-                transform: rotate(-44deg);
-            }
-
-            .short-nav.prev::after {
-                bottom: 1px;
-                transform: rotate(44deg);
             }
 
             .reviews {
@@ -2208,8 +1965,7 @@
             .perfume-section-lead,
             .h2-lead-area,
             .h2-lead-area-pc,
-            .h2-lead-area-sp,
-            .scene-note {
+            .h2-lead-area-sp {
                 width: calc(100% - 40px);
                 max-width: calc(100% - 40px);
                 margin-left: auto;
@@ -2263,16 +2019,6 @@
 
             .copy {
                 font-size: 20px;
-            }
-
-            .lead-area,
-            .lead-area-pc,
-            .lead-area-sp {
-                margin: 12px auto 26px;
-            }
-
-            .lead-area-sp {
-                margin-bottom: 70px;
             }
 
             .center-note,
@@ -2427,6 +2173,18 @@
 
             .timeline-item {
                 flex: 0 0 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item img {
+                width: 250px;
+                height: 250px;
+                min-width: 250px;
+                max-width: 250px;
+                min-height: 250px;
+                max-height: 250px;
             }
 
             .timeline-nav-group {
@@ -2527,25 +2285,12 @@
                 margin-bottom: 30px;
             }
 
-            .card-2row {
-                display: flex;
-                justify-content: center;
-                height: auto;
-            }
-
-            .btn,
-            .card-2row .btn {
+            .btn {
                 width: 100%;
                 max-width: 260px;
                 min-width: 0;
                 height: 40px;
                 font-size: 18px;
-            }
-
-            .card-2row .btn {
-                width: 362px;
-                max-width: 362px;
-                height: 49px;
             }
 
             .reviews>a.btn.btn-instagram {
@@ -3111,76 +2856,6 @@
         })();
 
         (function () {
-            var slider = document.querySelector(".short-slider");
-            var track = slider ? slider.querySelector(".short-track") : null;
-            var slides = track ? track.querySelectorAll(".card") : [];
-            var navGroup = slider ? slider.querySelector(".short-nav-group") : null;
-            var prev = slider ? slider.querySelector(".short-nav.prev") : null;
-            var next = slider ? slider.querySelector(".short-nav.next") : null;
-            var index = 0;
-
-            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
-
-            function isSp() {
-                return window.matchMedia("(max-width: 1280px)").matches;
-            }
-
-            function updateSlider() {
-                if (!isSp()) {
-                    track.style.transform = "none";
-                    prev.style.display = "none";
-                    next.style.display = "none";
-                    navGroup.style.top = "0";
-                    return;
-                }
-
-                var slideWidth = slider.clientWidth;
-                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-                prev.style.display = "block";
-                next.style.display = "block";
-
-                var currentSlide = slides[index];
-                var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
-                if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-                }
-            }
-
-            prev.addEventListener("click", function () {
-                index = index === 0 ? slides.length - 1 : index - 1;
-                updateSlider();
-            });
-
-            next.addEventListener("click", function () {
-                index = index === slides.length - 1 ? 0 : index + 1;
-                updateSlider();
-            });
-
-            var touchStartX = 0;
-            var touchEndX = 0;
-            slider.addEventListener("touchstart", function (e) {
-                touchStartX = e.changedTouches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener("touchend", function (e) {
-                touchEndX = e.changedTouches[0].clientX;
-                var diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 40) return;
-
-                if (diff > 0) {
-                    index = index === 0 ? slides.length - 1 : index - 1;
-                } else {
-                    index = index === slides.length - 1 ? 0 : index + 1;
-                }
-                updateSlider();
-            }, { passive: true });
-
-            window.addEventListener("resize", updateSlider);
-            window.addEventListener("load", updateSlider);
-            updateSlider();
-        })();
-
-        (function () {
             var slider = document.querySelector(".review-slider");
             var track = slider ? slider.querySelector(".review-track") : null;
             var slides = track ? track.querySelectorAll(".review-card") : [];
@@ -3282,7 +2957,7 @@
                 var currentSlide = slides[index];
                 var photo = currentSlide ? currentSlide.querySelector("img") : null;
                 if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
+                    navGroup.style.top = (track.offsetTop + photo.offsetTop + (photo.offsetHeight / 2)) + "px";
                 }
             }
 
