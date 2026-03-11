@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Workshop Perfume" />
-    <title>Workshop Perfume - PC</title>
+    <meta name="description" content="Fragrance Making Workshop" />
+    <title>Fragrance Making Workshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -368,12 +368,6 @@
             text-align: center;
         }
 
-        .special {
-            width: 100%;
-            max-width: 719px;
-            margin: 96px auto 0;
-        }
-
         .short {
             margin-top: 63px;
         }
@@ -381,19 +375,6 @@
         .feature .img-placeholder {
             min-height: 300px;
             margin-bottom: 12px;
-        }
-
-        .img-placeholder-special {
-            width: 556px;
-            height: 371px;
-            min-height: 0;
-            margin: 0 auto 30px;
-        }
-
-        .img-placeholder-special img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .card {
@@ -640,14 +621,6 @@
 
         .scene-trigger img {
             display: block;
-        }
-
-        .scene-inline-detail {
-            display: none;
-            width: 100%;
-            max-width: 520px;
-            margin: 24px auto 0;
-            text-align: left;
         }
 
         .scene-slide-detail {
@@ -902,9 +875,7 @@
             margin-right: auto;
         }
 
-        .reviews>h2,
-        .reviews>.h2-lead-area-pc,
-        .reviews>.h2-lead-area-sp {
+        .reviews>h2 {
             grid-column: 1 / -1;
         }
 
@@ -914,6 +885,7 @@
 
         .reviews>.h2-lead-area-pc,
         .reviews>.h2-lead-area-sp {
+            grid-column: 1 / -1;
             margin: 0 auto 68px;
         }
 
@@ -1106,40 +1078,6 @@
             display: block;
         }
 
-        @media (max-width: 900px) {
-            .page {
-                width: 100%;
-                grid-template-columns: 220px 1fr;
-            }
-
-            .hero {
-                width: 100%;
-                max-width: 1018px;
-                height: auto;
-                aspect-ratio: 1018 / 527;
-            }
-
-            .container {
-                max-width: 920px;
-            }
-
-            .lead-section {
-                width: 100%;
-                max-width: 888px;
-            }
-
-            .lead-section-left-photo,
-            .lead-section-right-photo,
-            .lead-section-right-text,
-            .lead-section-left-text,
-            .special,
-            .faq .faq-accordion,
-            .access .img-placeholder,
-            .reviews {
-                width: 100%;
-            }
-        }
-
         @media (min-width: 1281px) {
             .page {
                 display: block;
@@ -1243,6 +1181,33 @@
                 width: 100%;
             }
 
+            .hero {
+                width: 100%;
+                max-width: 1018px;
+                height: auto;
+                aspect-ratio: 1018 / 527;
+            }
+
+            .container {
+                max-width: 920px;
+            }
+
+            .lead-section {
+                width: 100%;
+                max-width: 888px;
+            }
+
+            .lead-section-left-photo,
+            .lead-section-right-photo,
+            .lead-section-right-text,
+            .lead-section-left-text,
+            .special,
+            .faq .faq-accordion,
+            .access .img-placeholder,
+            .reviews {
+                width: 100%;
+            }
+
             .sp-header {
                 position: absolute;
                 top: 12px;
@@ -1333,8 +1298,6 @@
             .center-note-pc,
             .center-note-sp,
             .special>p,
-            .reviews>.h2-lead-area-pc,
-            .reviews>.h2-lead-area-sp,
             .reviews>p,
             .review-card>p,
             .review-card>div:not(.img-placeholder),
@@ -1342,6 +1305,13 @@
             .access .h2-lead-area {
                 padding-left: 20px;
                 padding-right: 20px;
+            }
+
+            .reviews>.h2-lead-area-pc,
+            .reviews>.h2-lead-area-sp {
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 26px;
             }
 
             .review-card>p,
@@ -1796,10 +1766,6 @@
                 margin: 0 auto;
             }
 
-            .scene-inline-detail {
-                display: none;
-            }
-
             .scene-slide-detail {
                 display: block;
                 width: 250px;
@@ -2054,18 +2020,6 @@
                 object-fit: cover;
             }
 
-            .special {
-                margin-top: 75px;
-            }
-
-            .special h3 {
-                margin-bottom: 30px;
-            }
-
-            .special .accordion {
-                margin: 30px 0;
-            }
-
             .short {
                 margin-top: 52px;
             }
@@ -2076,21 +2030,6 @@
 
             .short .feature {
                 margin-bottom: 30px;
-            }
-
-            .img-placeholder-special {
-                display: grid;
-                width: 250px;
-                height: 250px;
-                aspect-ratio: 1 / 1;
-                overflow: hidden;
-                margin: 30px auto;
-            }
-
-            .img-placeholder-special img {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover;
             }
 
             .card .img-placeholder {
@@ -2121,11 +2060,6 @@
                 max-width: 420px;
                 margin-top: 72px;
                 row-gap: 26px;
-            }
-
-            .reviews>.h2-lead-area-pc,
-            .reviews>.h2-lead-area-sp {
-                margin-bottom: 26px;
             }
 
             .reviews>.h2-lead-area-sp {
@@ -2284,9 +2218,6 @@
             .footer-sp {
                 display: block;
             }
-        }
-
-        @media (max-width: 900px) {
             body {
                 font-size: 16px;
                 line-height: 1.65;
@@ -2615,14 +2546,6 @@
                 max-width: 362px;
             }
 
-            .special {
-                margin-top: 75px;
-            }
-
-            .special h3 {
-                margin-bottom: 30px;
-            }
-
             .short {
                 margin-top: 40px;
             }
@@ -2835,7 +2758,6 @@
                         </div>
                     </section>
                     <a class="btn-reserve" href="#">ワークショップのご予約はこちら</a>
-                    <div class="timeline-divider" aria-hidden="true"></div>
                 </section>
 
                 <section class="perfume-section">
@@ -2847,27 +2769,59 @@
                     </p>
                     <section class="scene-slider" aria-label="scentスライダー">
                         <section class="scene-grid" aria-label="scent">
-                            <div class="scene-slide" data-scene-title="ローズ" data-scene-description="気品のある華やかさとやわらかな甘さをあわせ持つ香りです。フローラルの中心として全体を上品にまとめます。"><button class="scene-trigger" type="button"><img src="image/Aroma_1.png" alt="ローズ"></button></div>
-                            <div class="scene-slide" data-scene-title="グレープフルーツ" data-scene-description="みずみずしい苦みと爽快感が広がるシトラスです。香り立ちに軽やかさと明るい印象を添えます。"><button class="scene-trigger" type="button"><img src="image/Aroma_2.png" alt="グレープフルーツ"></button></div>
-                            <div class="scene-slide" data-scene-title="ガーデニア" data-scene-description="クリーミーで濃密な白い花の香りです。やさしさの中に華やかな余韻を残します。"><button class="scene-trigger" type="button"><img src="image/Aroma_3.png" alt="ガーデニア"></button></div>
-                            <div class="scene-slide" data-scene-title="バニラ" data-scene-description="まろやかな甘さと温かみを感じる香りです。全体にやわらかな丸みと親しみやすさを加えます。"><button class="scene-trigger" type="button"><img src="image/Aroma_4.png" alt="バニラ"></button></div>
-                            <div class="scene-slide" data-scene-title="シダーウッド" data-scene-description="乾いた木肌を思わせる、落ち着きのあるウッディノートです。香りに骨格と静かな深みを与えます。"><button class="scene-trigger" type="button"><img src="image/Aroma_5.png" alt="シダーウッド"></button></div>
-                            <div class="scene-slide" data-scene-title="ネロリ" data-scene-description="ほのかな苦みと透明感を備えたフローラルシトラスです。軽やかで清潔感のある印象へ導きます。"><button class="scene-trigger" type="button"><img src="image/Aroma_6.png" alt="ネロリ"></button></div>
-                            <div class="scene-slide" data-scene-title="サンダルウッド" data-scene-description="なめらかで穏やかな木のぬくもりを感じる香りです。余韻をやさしく支え、奥行きを生みます。"><button class="scene-trigger" type="button"><img src="image/Aroma_7.png" alt="サンダルウッド"></button></div>
-                            <div class="scene-slide" data-scene-title="ラベンダー" data-scene-description="清涼感のあるハーバルな香りで、全体をすっきり整えます。穏やかさと清潔感の両方を持つ定番です。"><button class="scene-trigger" type="button"><img src="image/Aroma_8.png" alt="ラベンダー"></button></div>
-                            <div class="scene-slide" data-scene-title="パチュリ" data-scene-description="土や葉を思わせる重厚感のある香りです。少量でもブレンドに個性と深みを加えます。"><button class="scene-trigger" type="button"><img src="image/Aroma_9.png" alt="パチュリ"></button></div>
-                            <div class="scene-slide" data-scene-title="ムスク" data-scene-description="肌になじむようなやわらかさを持つベースノートです。香り全体を自然に包み込み、余韻を美しく整えます。"><button class="scene-trigger" type="button"><img src="image/Aroma_10.png" alt="ムスク"></button></div>
-                            <div class="scene-slide" data-scene-title="ベルガモット" data-scene-description="上品な苦みと明るさを備えたシトラスです。トップに抜け感をつくり、軽快な印象へまとめます。"><button class="scene-trigger" type="button"><img src="image/Aroma_11.png" alt="ベルガモット"></button></div>
-                            <div class="scene-slide" data-scene-title="ジャスミン" data-scene-description="甘く華やかで、奥行きのあるフローラルノートです。主役にもアクセントにもなり、印象を豊かに広げます。"><button class="scene-trigger" type="button"><img src="image/Aroma_12.png" alt="ジャスミン"></button></div>
+                            <div class="scene-slide" data-scene-title="ローズ"
+                                data-scene-description="気品のある華やかさとやわらかな甘さをあわせ持つ香りです。フローラルの中心として全体を上品にまとめます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_1.png" alt="ローズ"></button>
+                            </div>
+                            <div class="scene-slide" data-scene-title="グレープフルーツ"
+                                data-scene-description="みずみずしい苦みと爽快感が広がるシトラスです。香り立ちに軽やかさと明るい印象を添えます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_2.png"
+                                        alt="グレープフルーツ"></button></div>
+                            <div class="scene-slide" data-scene-title="ガーデニア"
+                                data-scene-description="クリーミーで濃密な白い花の香りです。やさしさの中に華やかな余韻を残します。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_3.png"
+                                        alt="ガーデニア"></button></div>
+                            <div class="scene-slide" data-scene-title="バニラ"
+                                data-scene-description="まろやかな甘さと温かみを感じる香りです。全体にやわらかな丸みと親しみやすさを加えます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_4.png" alt="バニラ"></button>
+                            </div>
+                            <div class="scene-slide" data-scene-title="シダーウッド"
+                                data-scene-description="乾いた木肌を思わせる、落ち着きのあるウッディノートです。香りに骨格と静かな深みを与えます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_5.png"
+                                        alt="シダーウッド"></button></div>
+                            <div class="scene-slide" data-scene-title="ネロリ"
+                                data-scene-description="ほのかな苦みと透明感を備えたフローラルシトラスです。軽やかで清潔感のある印象へ導きます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_6.png" alt="ネロリ"></button>
+                            </div>
+                            <div class="scene-slide" data-scene-title="サンダルウッド"
+                                data-scene-description="なめらかで穏やかな木のぬくもりを感じる香りです。余韻をやさしく支え、奥行きを生みます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_7.png"
+                                        alt="サンダルウッド"></button></div>
+                            <div class="scene-slide" data-scene-title="ラベンダー"
+                                data-scene-description="清涼感のあるハーバルな香りで、全体をすっきり整えます。穏やかさと清潔感の両方を持つ定番です。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_8.png"
+                                        alt="ラベンダー"></button></div>
+                            <div class="scene-slide" data-scene-title="パチュリ"
+                                data-scene-description="土や葉を思わせる重厚感のある香りです。少量でもブレンドに個性と深みを加えます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_9.png"
+                                        alt="パチュリ"></button></div>
+                            <div class="scene-slide" data-scene-title="ムスク"
+                                data-scene-description="肌になじむようなやわらかさを持つベースノートです。香り全体を自然に包み込み、余韻を美しく整えます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_10.png"
+                                        alt="ムスク"></button></div>
+                            <div class="scene-slide" data-scene-title="ベルガモット"
+                                data-scene-description="上品な苦みと明るさを備えたシトラスです。トップに抜け感をつくり、軽快な印象へまとめます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_11.png"
+                                        alt="ベルガモット"></button></div>
+                            <div class="scene-slide" data-scene-title="ジャスミン"
+                                data-scene-description="甘く華やかで、奥行きのあるフローラルノートです。主役にもアクセントにもなり、印象を豊かに広げます。"><button
+                                    class="scene-trigger" type="button"><img src="image/Aroma_12.png"
+                                        alt="ジャスミン"></button></div>
                         </section>
                         <div class="scene-nav-group" aria-hidden="false">
                             <button class="scene-nav prev" type="button" aria-label="前へ"></button>
                             <button class="scene-nav next" type="button" aria-label="次へ"></button>
                         </div>
-                    </section>
-                    <section class="scene-inline-detail" aria-live="polite" hidden>
-                        <h3 class="scene-detail-title"></h3>
-                        <p class="scene-detail-text"></p>
                     </section>
                     <a class="btn-reserve" href="#">ワークショップのご予約はこちら</a>
                 </section>
@@ -3580,16 +3534,13 @@
         (function () {
             var slider = document.querySelector(".scene-slider");
             var slides = slider ? slider.querySelectorAll(".scene-slide") : [];
-            var inlineDetail = document.querySelector(".scene-inline-detail");
-            var inlineTitle = inlineDetail ? inlineDetail.querySelector(".scene-detail-title") : null;
-            var inlineText = inlineDetail ? inlineDetail.querySelector(".scene-detail-text") : null;
             var modal = document.getElementById("scene-modal");
             var modalImage = modal ? modal.querySelector(".scene-modal-image") : null;
             var modalTitle = modal ? modal.querySelector(".scene-modal-title") : null;
             var modalText = modal ? modal.querySelector(".scene-modal-text") : null;
             var modalClose = modal ? modal.querySelector(".scene-modal-close") : null;
 
-            if (!slider || !slides.length || !inlineDetail || !inlineTitle || !inlineText || !modal || !modalImage || !modalTitle || !modalText || !modalClose) return;
+            if (!slider || !slides.length || !modal || !modalImage || !modalTitle || !modalText || !modalClose) return;
 
             function isSp() {
                 return window.matchMedia("(max-width: 900px)").matches;
@@ -3737,5 +3688,3 @@
 </body>
 
 </html>
-
-

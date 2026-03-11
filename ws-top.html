@@ -399,19 +399,6 @@
       object-fit: cover;
     }
 
-    .spec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin: 10px 0 16px;
-    }
-
-    .spec {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 8px 4px;
-    }
-
     .short-slider {
       display: block;
       width: 890px;
@@ -502,9 +489,7 @@
       margin-right: auto;
     }
 
-    .reviews>h2,
-    .reviews>.h2-lead-area-pc,
-    .reviews>.h2-lead-area-sp {
+    .reviews>h2 {
       grid-column: 1 / -1;
     }
 
@@ -514,6 +499,7 @@
 
     .reviews>.h2-lead-area-pc,
     .reviews>.h2-lead-area-sp {
+      grid-column: 1 / -1;
       margin: 0 auto 68px;
     }
 
@@ -728,40 +714,6 @@
       display: block;
     }
 
-    @media (max-width: 900px) {
-      .page {
-        width: 100%;
-        grid-template-columns: 220px 1fr;
-      }
-
-      .hero {
-        width: 100%;
-        max-width: 1018px;
-        height: auto;
-        aspect-ratio: 1018 / 527;
-      }
-
-      .container {
-        max-width: 920px;
-      }
-
-      .lead-section {
-        width: 100%;
-        max-width: 888px;
-      }
-
-      .lead-section-left-photo,
-      .lead-section-right-photo,
-      .lead-section-right-text,
-      .lead-section-left-text,
-      .special,
-      .faq .faq-accordion,
-      .access .img-placeholder,
-      .reviews {
-        width: 100%;
-      }
-    }
-
     @media (min-width: 1281px) {
       .page {
         display: block;
@@ -862,6 +814,33 @@
       }
 
       .content {
+        width: 100%;
+      }
+
+      .hero {
+        width: 100%;
+        max-width: 1018px;
+        height: auto;
+        aspect-ratio: 1018 / 527;
+      }
+
+      .container {
+        max-width: 920px;
+      }
+
+      .lead-section {
+        width: 100%;
+        max-width: 888px;
+      }
+
+      .lead-section-left-photo,
+      .lead-section-right-photo,
+      .lead-section-right-text,
+      .lead-section-left-text,
+      .special,
+      .faq .faq-accordion,
+      .access .img-placeholder,
+      .reviews {
         width: 100%;
       }
 
@@ -979,8 +958,6 @@
       .center-note-pc,
       .center-note-sp,
       .special>p,
-      .reviews>.h2-lead-area-pc,
-      .reviews>.h2-lead-area-sp,
       .reviews>p,
       .review-card>p,
       .review-card>div:not(.img-placeholder),
@@ -988,6 +965,13 @@
       .access .h2-lead-area {
         padding-left: 20px;
         padding-right: 20px;
+      }
+
+      .reviews>.h2-lead-area-pc,
+      .reviews>.h2-lead-area-sp {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 26px;
       }
 
       .review-card>p,
@@ -1360,11 +1344,6 @@
         row-gap: 26px;
       }
 
-      .reviews>.h2-lead-area-pc,
-      .reviews>.h2-lead-area-sp {
-        margin-bottom: 26px;
-      }
-
       .reviews>.h2-lead-area-sp {
         margin-bottom: 21px;
       }
@@ -1521,9 +1500,6 @@
       .footer-sp {
         display: block;
       }
-    }
-
-    @media (max-width: 900px) {
       body {
         font-size: 16px;
         line-height: 1.65;
