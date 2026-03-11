@@ -576,6 +576,28 @@
       margin: 0 auto;
     }
 
+    .slider-dots {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid #999999;
+      border-radius: 50%;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .slider-dot.is-active {
+      background: #999999;
+    }
+
     .faq {
       max-width: 920px;
       margin: 115px auto 0;
@@ -678,7 +700,8 @@
       display: block;
     }
 
-    .footer {
+    .footer-pc,
+    .footer-sp {
       width: 100%;
       margin-top: 44px;
       height: 44px;
@@ -690,8 +713,13 @@
       justify-content: center;
     }
 
-    .footer p {
+    .footer-pc p,
+    .footer-sp p {
       margin: 0;
+    }
+
+    .footer-sp {
+      display: none;
     }
 
     img {
@@ -1404,17 +1432,27 @@
         margin-bottom: 47px;
       }
 
-      .footer {
+      .footer-pc,
+      .footer-sp {
         margin-top: 32px;
         height: auto;
         min-height: 44px;
         padding: 10px 12px;
       }
 
-      .footer p {
+      .footer-pc p,
+      .footer-sp p {
         font-size: 16px;
         text-align: center;
         line-height: 1.5;
+      }
+
+      .footer-pc {
+        display: none;
+      }
+
+      .footer-sp {
+        display: block;
       }
     }
 
@@ -1564,6 +1602,10 @@
         right: calc(50% - 50vw + 20px);
         width: auto;
       }
+
+      .slider-dots {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -1589,7 +1631,8 @@
       <div class="hero-wrap">
         <div class="sp-header">
           <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
-          <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="sp-drawer">
+          <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+            aria-controls="sp-drawer">
             <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
           </button>
         </div>
@@ -1760,7 +1803,7 @@
           <section class="h2-lead-area-pc">
             <p>「思っていたより楽しかった」「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
           </section>
-        <section class="h2-lead-area-sp">
+          <section class="h2-lead-area-sp">
             <p>「思っていたより楽しかった」<br>「自分の香りができて感動した」<br>——そんな体験の声をご紹介いたします。</p>
           </section>
           <section class="review-slider" aria-label="レビュースライダー">
@@ -1865,10 +1908,49 @@
 
     </main>
   </div>
-  <footer class="footer">
+  <footer class="footer-pc">
     <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
   </footer>
+  <footer class="footer-sp">
+    <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
+  </footer>
   <script>
+    function ensureSliderDots(slider, slideCount, onSelect) {
+      if (!slider || slideCount < 2) return null;
+
+      var dots = slider.querySelector(".slider-dots");
+      if (!dots) {
+        dots = document.createElement("div");
+        dots.className = "slider-dots";
+
+        for (var i = 0; i < slideCount; i += 1) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "slider-dot";
+          dot.setAttribute("aria-label", (i + 1) + "枚目へ");
+          (function (index) {
+            dot.addEventListener("click", function () {
+              onSelect(index);
+            });
+          })(i);
+          dots.appendChild(dot);
+        }
+
+        slider.appendChild(dots);
+      }
+
+      return dots;
+    }
+
+    function updateSliderDots(dots, index, isVisible) {
+      if (!dots) return;
+
+      dots.style.display = isVisible ? "flex" : "none";
+      for (var i = 0; i < dots.children.length; i += 1) {
+        dots.children[i].classList.toggle("is-active", i === index);
+      }
+    }
+
     (function () {
       var menuButton = document.querySelector(".sp-menu-btn");
       var drawer = document.querySelector(".sp-drawer");
@@ -1930,8 +2012,14 @@
       var prev = slider ? slider.querySelector(".lead-nav.prev") : null;
       var next = slider ? slider.querySelector(".lead-nav.next") : null;
       var index = 0;
+      var dots = null;
 
       if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
+        index = nextIndex;
+        updateSlider();
+      });
 
       function isSp() {
         return window.matchMedia("(max-width: 1280px)").matches;
@@ -1943,6 +2031,7 @@
           prev.style.display = "none";
           next.style.display = "none";
           navGroup.style.top = "50%";
+          updateSliderDots(dots, index, false);
           return;
         }
         var slideWidth = slider.clientWidth;
@@ -1955,6 +2044,7 @@
         if (photo) {
           navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
         }
+        updateSliderDots(dots, index, true);
       }
 
       prev.addEventListener("click", function () {
@@ -1997,8 +2087,14 @@
       var prev = slider ? slider.querySelector(".short-nav.prev") : null;
       var next = slider ? slider.querySelector(".short-nav.next") : null;
       var index = 0;
+      var dots = null;
 
       if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
+        index = nextIndex;
+        updateSlider();
+      });
 
       function isSp() {
         return window.matchMedia("(max-width: 1280px)").matches;
@@ -2010,6 +2106,7 @@
           prev.style.display = "none";
           next.style.display = "none";
           navGroup.style.top = "0";
+          updateSliderDots(dots, index, false);
           return;
         }
 
@@ -2023,6 +2120,7 @@
         if (photo) {
           navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
         }
+        updateSliderDots(dots, index, true);
       }
 
       prev.addEventListener("click", function () {
@@ -2067,8 +2165,14 @@
       var prev = slider ? slider.querySelector(".review-nav.prev") : null;
       var next = slider ? slider.querySelector(".review-nav.next") : null;
       var index = 0;
+      var dots = null;
 
       if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+
+      dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
+        index = nextIndex;
+        updateSlider();
+      });
 
       function isSp() {
         return window.matchMedia("(max-width: 1280px)").matches;
@@ -2080,6 +2184,7 @@
           prev.style.display = "none";
           next.style.display = "none";
           navGroup.style.top = "0";
+          updateSliderDots(dots, index, false);
           return;
         }
 
@@ -2093,6 +2198,7 @@
         if (photo) {
           navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
         }
+        updateSliderDots(dots, index, true);
       }
 
       prev.addEventListener("click", function () {
