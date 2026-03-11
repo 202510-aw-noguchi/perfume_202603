@@ -84,9 +84,16 @@
       padding: 0;
     }
 
-    .menu li {
-      margin-bottom: 10px;
-    }
+    
+
+        .menu li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            text-decoration: underline;
+        }
 
     .side-sub {
       margin-top: 36px;
@@ -1656,10 +1663,10 @@
 <body>
   <div class="page">
     <aside class="sidebar">
-      <div class="logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+      <a class="logo" href="index.html"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></a>
       <ul class="menu">
         <li>ブランド</li>
-        <li>ワークショップ</li>
+        <li><a href="workshop.html">ワークショップ</a></li>
         <li>ショッピング</li>
         <li>よみもの</li>
         <li>c-corpについて</li>
@@ -1682,7 +1689,7 @@
         <div class="sp-drawer" id="sp-drawer">
           <ul class="menu">
             <li>ブランド</li>
-            <li>ワークショップ</li>
+            <li><a href="workshop.html">ワークショップ</a></li>
             <li>ショッピング</li>
             <li>よみもの</li>
             <li>c-corpについて</li>
@@ -2282,3 +2289,5 @@
 </body>
 
 </html>
+
+

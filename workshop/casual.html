@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Fragrance Making Workshop" />
-    <title>Fragrance Making Workshop</title>
+    <meta name="description" content="Fragrance Short Session" />
+    <title>Fragrance Short Session</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -84,8 +84,15 @@
             padding: 0;
         }
 
-        .menu li {
-            margin-bottom: 10px;
+
+
+        .menu li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            text-decoration: underline;
         }
 
         .side-sub {
@@ -747,7 +754,7 @@
             margin: 0 auto;
         }
 
-        .price-list {
+        .cas-price-list {
             width: 782px;
             height: 215px;
             border: 1px solid #bdbdbd;
@@ -755,7 +762,7 @@
             box-sizing: border-box;
         }
 
-        .price-list-pc {
+        .cas-price-list-pc {
             display: grid;
             grid-template-columns: minmax(0, 1fr) 186px 322px;
             grid-template-rows: 1fr auto;
@@ -763,11 +770,11 @@
             height: 213px;
         }
 
-        .price-list-sp {
+        .cas-price-list-sp {
             display: none;
         }
 
-        .price-list-pc img {
+        .cas-price-list-pc img {
             grid-column: 3;
             grid-row: 1 / span 2;
             width: 322px;
@@ -777,23 +784,23 @@
             justify-self: end;
         }
 
-        .price-list-pc>div {
+        .cas-price-list-pc>div {
             grid-column: 1 / span 2;
             padding: 18px 18px 10px 20px;
         }
 
-        .price-list-pc p,
-        .price-list-sp p {
+        .cas-price-list-pc p,
+        .cas-price-list-sp p {
             margin: 0 0 12px;
             line-height: 1.4;
         }
 
-        .price-list-pc p:last-child,
-        .price-list-sp p:last-child {
+        .cas-price-list-pc p:last-child,
+        .cas-price-list-sp p:last-child {
             margin-bottom: 0;
         }
 
-        .price-list-pc .btn {
+        .cas-price-list-pc .btn {
             grid-column: 2;
             grid-row: 2;
             width: 186px;
@@ -1964,7 +1971,7 @@
                 gap: 40px;
             }
 
-            .price-list {
+            .cas-price-list {
                 width: 100%;
                 max-width: 362px;
                 height: auto;
@@ -1972,17 +1979,17 @@
                 text-align: left;
             }
 
-            .price-list-pc {
+            .cas-price-list-pc {
                 display: none;
             }
 
-            .price-list-sp {
+            .cas-price-list-sp {
                 display: block;
                 overflow: hidden;
                 padding-bottom: 16px;
             }
 
-            .price-list-sp img {
+            .cas-price-list-sp img {
                 width: 361px;
                 max-width: 361px;
                 min-width: 361px;
@@ -1993,14 +2000,14 @@
                 margin: 0;
             }
 
-            .price-list-sp>div {
+            .cas-price-list-sp>div {
                 width: 100%;
                 max-width: 100%;
                 padding: 12px 12px 0;
                 box-sizing: border-box;
             }
 
-            .price-list-sp .btn {
+            .cas-price-list-sp .btn {
                 display: flex;
                 width: 100%;
                 max-width: 100%;
@@ -2011,7 +2018,7 @@
                 background: var(--point);
             }
 
-            .price-list-sp .copy:last-child {
+            .cas-price-list-sp .copy:last-child {
                 margin: 22px 0 0;
                 text-align: center;
             }
@@ -2623,10 +2630,10 @@
 <body>
     <div class="page">
         <aside class="sidebar">
-            <div class="logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+            <a class="logo" href="index.html"><img src="../image/Logo_250_ol.png" alt="ブランドロゴ"></a>
             <ul class="menu">
                 <li>ブランド</li>
-                <li>ワークショップ</li>
+                <li><a href="workshop.html">ワークショップ</a></li>
                 <li>ショッピング</li>
                 <li>よみもの</li>
                 <li>c-corpについて</li>
@@ -2640,16 +2647,16 @@
         <main class="content">
             <div class="hero-wrap">
                 <div class="sp-header">
-                    <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+                    <div class="sp-logo"><img src="../image/Logo_250_ol.png" alt="ブランドロゴ"></div>
                     <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
                         aria-controls="sp-drawer">
-                        <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
+                        <img class="sp-menu-icon" src="../image/Menu.png" alt="ハンバーガーメニューアイコン">
                     </button>
                 </div>
                 <div class="sp-drawer" id="sp-drawer">
                     <ul class="menu">
                         <li>ブランド</li>
-                        <li>ワークショップ</li>
+                        <li><a href="workshop.html">ワークショップ</a></li>
                         <li>ショッピング</li>
                         <li>よみもの</li>
                         <li>c-corpについて</li>
@@ -2660,7 +2667,7 @@
                     </div>
                 </div>
                 <section class="hero">
-                    <img src="image/Casual_Top.png" alt="ワークショップのイメージ">
+                    <img src="../image/Casual_Top.png" alt="ワークショップのイメージ">
                 </section>
             </div>
 
@@ -2687,21 +2694,21 @@
                 <section class="recommended-slider" aria-label="おすすめ商品スライダー">
                     <section class="recommended-grid" aria-label="おすすめ商品">
                         <article class="recommended-card">
-                            <img src="image/Mist_square.png" alt="ファブリックミスト">
+                            <img src="../image/Mist_square.png" alt="ファブリックミスト">
                             <p>【予約不要】<br>所要時間目安：30分</p>
                             <p class="product-name">ファブリックミスト</p>
                             <p class="copy">100ml 1000円（税込）</p>
                             <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
                         <article class="recommended-card">
-                            <img src="image/EDT_square.png" alt="オードトワレ">
+                            <img src="../image/EDT_square.png" alt="オードトワレ">
                             <p>【予約不要】<br>所要時間目安：30分</p>
                             <p class="product-name">オードトワレ</p>
                             <p class="copy">10ml 1500円（税込）</p>
                             <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
                         <article class="recommended-card">
-                            <img src="image/Diffuser_square.png" alt="ディフューザー">
+                            <img src="../image/Diffuser_square.png" alt="ディフューザー">
                             <p>【予約不要】<br>所要時間目安：30分</p>
                             <p class="product-name">ディフューザー</p>
                             <p class="copy">100ml 3000円（税込）</p>
@@ -2722,23 +2729,23 @@
                     <section class="timeline-slider" aria-label="ワークショップの流れスライダー">
                         <section class="timeline-grid" aria-label="ワークショップの流れ">
                             <article class="timeline-item">
-                                <img src="image/Timeline_1.png" alt="受付">
+                                <img src="../image/Timeline_1.png" alt="受付">
                                 <p>Step 1｜受付<br>ご予約内容を確認後、お好みや使用シーンをヒアリング。</p>
                             </article>
                             <article class="timeline-item">
-                                <img src="image/Timeline_2.png" alt="ヒアリング">
+                                <img src="../image/Timeline_2.png" alt="ヒアリング">
                                 <p>Step 2｜香りを試す<br>気になる香りを好きなだけ、ムエットでお試しください。</p>
                             </article>
                             <article class="timeline-item">
-                                <img src="image/Timeline_3.png" alt="香料選び">
+                                <img src="../image/Timeline_3.png" alt="香料選び">
                                 <p>Step 3｜香りを選ぶ<br>あなたの心に響く4種類の香りをセレクト。</p>
                             </article>
                             <article class="timeline-item">
-                                <img src="image/Timeline_4.png" alt="調香">
+                                <img src="../image/Timeline_4.png" alt="調香">
                                 <p>Step 4｜ブレンド<br>アドバイザーと相談しながら理想のバランスを探していきます。</p>
                             </article>
                             <article class="timeline-item">
-                                <img src="image/Timeline_5.png" alt="完成">
+                                <img src="../image/Timeline_5.png" alt="完成">
                                 <p>Step 5｜完成<br>完成した香りをボトルへ充填。そのままお持ち帰りいただけます。</p>
                             </article>
                         </section>
@@ -2761,51 +2768,54 @@
                         <section class="scene-grid" aria-label="scent">
                             <div class="scene-slide" data-scene-title="ローズ"
                                 data-scene-description="気品のある華やかさとやわらかな甘さをあわせ持つ香りです。フローラルの中心として全体を上品にまとめます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_1.png" alt="ローズ"></button>
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_1.png"
+                                        alt="ローズ"></button>
                             </div>
                             <div class="scene-slide" data-scene-title="グレープフルーツ"
                                 data-scene-description="みずみずしい苦みと爽快感が広がるシトラスです。香り立ちに軽やかさと明るい印象を添えます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_2.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_2.png"
                                         alt="グレープフルーツ"></button></div>
                             <div class="scene-slide" data-scene-title="ガーデニア"
                                 data-scene-description="クリーミーで濃密な白い花の香りです。やさしさの中に華やかな余韻を残します。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_3.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_3.png"
                                         alt="ガーデニア"></button></div>
                             <div class="scene-slide" data-scene-title="バニラ"
                                 data-scene-description="まろやかな甘さと温かみを感じる香りです。全体にやわらかな丸みと親しみやすさを加えます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_4.png" alt="バニラ"></button>
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_4.png"
+                                        alt="バニラ"></button>
                             </div>
                             <div class="scene-slide" data-scene-title="シダーウッド"
                                 data-scene-description="乾いた木肌を思わせる、落ち着きのあるウッディノートです。香りに骨格と静かな深みを与えます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_5.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_5.png"
                                         alt="シダーウッド"></button></div>
                             <div class="scene-slide" data-scene-title="ネロリ"
                                 data-scene-description="ほのかな苦みと透明感を備えたフローラルシトラスです。軽やかで清潔感のある印象へ導きます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_6.png" alt="ネロリ"></button>
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_6.png"
+                                        alt="ネロリ"></button>
                             </div>
                             <div class="scene-slide" data-scene-title="サンダルウッド"
                                 data-scene-description="なめらかで穏やかな木のぬくもりを感じる香りです。余韻をやさしく支え、奥行きを生みます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_7.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_7.png"
                                         alt="サンダルウッド"></button></div>
                             <div class="scene-slide" data-scene-title="ラベンダー"
                                 data-scene-description="清涼感のあるハーバルな香りで、全体をすっきり整えます。穏やかさと清潔感の両方を持つ定番です。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_8.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_8.png"
                                         alt="ラベンダー"></button></div>
                             <div class="scene-slide" data-scene-title="パチュリ"
                                 data-scene-description="土や葉を思わせる重厚感のある香りです。少量でもブレンドに個性と深みを加えます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_9.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_9.png"
                                         alt="パチュリ"></button></div>
                             <div class="scene-slide" data-scene-title="ムスク"
                                 data-scene-description="肌になじむようなやわらかさを持つベースノートです。香り全体を自然に包み込み、余韻を美しく整えます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_10.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_10.png"
                                         alt="ムスク"></button></div>
                             <div class="scene-slide" data-scene-title="ベルガモット"
                                 data-scene-description="上品な苦みと明るさを備えたシトラスです。トップに抜け感をつくり、軽快な印象へまとめます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_11.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_11.png"
                                         alt="ベルガモット"></button></div>
                             <div class="scene-slide" data-scene-title="ジャスミン"
                                 data-scene-description="甘く華やかで、奥行きのあるフローラルノートです。主役にもアクセントにもなり、印象を豊かに広げます。"><button
-                                    class="scene-trigger" type="button"><img src="image/Aroma_12.png"
+                                    class="scene-trigger" type="button"><img src="../image/Aroma_12.png"
                                         alt="ジャスミン"></button></div>
                         </section>
                         <div class="scene-nav-group" aria-hidden="false">
@@ -2827,34 +2837,34 @@
                     <section class="review-slider" aria-label="レビュースライダー">
                         <section class="review-track">
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female20.png" alt="レビュー写真">
+                                <div class="img-placeholder"><img src="../image/Review_Female20.png" alt="レビュー写真">
                                 </div>
                                 <p>初めてでも安心して参加できました。スタッフの方の説明が丁寧で分かりやすく、自分らしい香りを仕上げることができて満足しています。（20代女性）</p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female30.png" alt="レビュー写真">
+                                <div class="img-placeholder"><img src="../image/Review_Female30.png" alt="レビュー写真">
                                 </div>
                                 <p>ひとつひとつの香りと、重ねたときの表情の違いが印象的でした。思い描いていた以上に好きな香りが完成し、とても満足しています。（30代女性）</p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Male30.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="../image/Review_Male30.png" alt="レビュー写真"></div>
                                 <p>スタッフの方が丁寧に香りの特徴を説明してくださり、的確なアドバイスもいただけたので、楽しく香水作りができました。終始和やかな雰囲気で、心地よい時間でした。（30代男性）
                                 </p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Female40.png" alt="レビュー写真">
+                                <div class="img-placeholder"><img src="../image/Review_Female40.png" alt="レビュー写真">
                                 </div>
                                 <p>香水の基礎から丁寧に教えていただき、組み合わせたときの仕上がりイメージまで具体的にアドバイスしてもらえました。自分好みの香りに仕上がり、とても満足しています。（40代女性）
                                 </p>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Male20.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="../image/Review_Male20.png" alt="レビュー写真"></div>
                                 <div>
                                     友人と参加しましたが、選ぶ香りによって完成した香りの印象が大きく異なり、とても興味深かったです。調香の奥深さを実感しました。比べるのも楽しく、思い出に残る体験でした。（20代男性）
                                 </div>
                             </article>
                             <article class="review-card">
-                                <div class="img-placeholder"><img src="image/Review_Family.png" alt="レビュー写真"></div>
+                                <div class="img-placeholder"><img src="../image/Review_Family.png" alt="レビュー写真"></div>
                                 <div>中学生の子ども2人を連れて参加しましたが、スタッフの方が優しくフォローしてくださり、安心して体験できました。子どもたちも大満足だったようです。（30代女性）
                                 </div>
                             </article>
@@ -2872,9 +2882,9 @@
                     <h2>Price</h2>
                     <p class="h2-lead-area">香りのショートセッションはご予約なしでお楽しみいただけます。</p>
                     <section class="price" aria-label="価格表">
-                        <article class="price-list">
-                            <div class="price-list-pc">
-                                <img src="image/mist_322_215.png" alt="ファブリックミスト">
+                        <article class="cas-price-list">
+                            <div class="cas-price-list-pc">
+                                <img src="../image/mist_322_215.png" alt="ファブリックミスト">
                                 <div>
                                     <p class="copy">衣類や空間に、やさしく香りをまとわせる</p>
                                     <p>開催日時：店舗営業日<br>
@@ -2884,8 +2894,8 @@
                                     <p class="copy">ファブリックミスト100ml　1000円(税込)</p>
                                 </div>
                             </div>
-                            <div class="price-list-sp">
-                                <img src="image/mist_322_215.png" alt="ファブリックミスト">
+                            <div class="cas-price-list-sp">
+                                <img src="../image/mist_322_215.png" alt="ファブリックミスト">
                                 <div>
                                     <p class="copy">衣類や空間に、やさしく香りをまとわせる</p>
                                     <p>開催日時：店舗営業日<br>
@@ -2896,9 +2906,9 @@
                                 </div>
                             </div>
                         </article>
-                        <article class="price-list">
-                            <div class="price-list-pc">
-                                <img src="image/perfume_322_215.png" alt="オードトワレ">
+                        <article class="cas-price-list">
+                            <div class="cas-price-list-pc">
+                                <img src="../image/perfume_322_215.png" alt="オードトワレ">
                                 <div>
                                     <p class="copy">友だちに自慢したくなる、あなただけの香り</p>
                                     <p>開催日時：店舗営業日<br>
@@ -2908,8 +2918,8 @@
                                     <p class="copy">香水(オードトワレ)10ml　1500円(税込)</p>
                                 </div>
                             </div>
-                            <div class="price-list-sp">
-                                <img src="image/perfume_322_215.png" alt="オードトワレ">
+                            <div class="cas-price-list-sp">
+                                <img src="../image/perfume_322_215.png" alt="オードトワレ">
                                 <div>
                                     <p class="copy">友だちに自慢したくなる、あなただけの香り</p>
                                     <p>開催日時：店舗営業日<br>
@@ -2920,9 +2930,9 @@
                                 </div>
                             </div>
                         </article>
-                        <article class="price-list">
-                            <div class="price-list-pc">
-                                <img src="image/diffuser_322_215.png" alt="ディフューザー">
+                        <article class="cas-price-list">
+                            <div class="cas-price-list-pc">
+                                <img src="../image/diffuser_322_215.png" alt="ディフューザー">
                                 <div>
                                     <p class="copy">ゆるやかに香る、上品なディフューザー</p>
                                     <p>開催日時：店舗営業日<br>
@@ -2932,8 +2942,8 @@
                                     <p class="copy">ディフューザー100ml　3000円(税込)</p>
                                 </div>
                             </div>
-                            <div class="price-list-sp">
-                                <img src="image/diffuser_322_215.png" alt="ディフューザー">
+                            <div class="cas-price-list-sp">
+                                <img src="../image/diffuser_322_215.png" alt="ディフューザー">
                                 <div>
                                     <p class="copy">ゆるやかに香る、上品なディフューザー</p>
                                     <p>開催日時：店舗営業日<br>
@@ -3015,14 +3025,14 @@
                     <section class="perfume-course-slider" aria-label="香水コーススライダー">
                         <section class="perfume-course-grid" aria-label="香水コース一覧">
                             <article class="perfume-course-card">
-                                <img src="image/Perfume_Basic.png" alt="ベーシックコース">
+                                <img src="../image/Perfume_Basic.png" alt="ベーシックコース">
                                 <p>【要予約】<br>所要時間目安：60分</p>
                                 <p>12種類の香りから4種選ぶ<br>ベーシックコース</p>
                                 <p class="copy">10ml 5000円（税込）</p>
                                 <a class="btn btn-primary" href="#">詳しくみる</a>
                             </article>
                             <article class="perfume-course-card">
-                                <img src="image/Perfume_Special.png" alt="スペシャルコース">
+                                <img src="../image/Perfume_Special.png" alt="スペシャルコース">
                                 <p>【要予約・季節限定】<br>所要時間目安：60分</p>
                                 <p>20種類の香りから4種を選ぶ<br>スペシャルコース</p>
                                 <p class="copy">10ml 6000円（税込）</p>

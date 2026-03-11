@@ -1,0 +1,534 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="c-corp トップページ" />
+    <title>c-corp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --base-bg: #ffffff;
+            --corp: #ded08e;
+            --text: #333333;
+            --line: #c9c9c9;
+            --footer-h: 44px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            max-width: 100%;
+            overflow-x: hidden;
+            background: var(--base-bg);
+            color: var(--text);
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            padding: 32px 28px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 36px;
+            background: transparent;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            letter-spacing: 0.06em;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo,
+        .menu,
+        .side-sub {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        
+
+        .menu li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            text-decoration: underline;
+        }
+
+        .side-sub {
+            margin-top: 36px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .content {
+            padding-bottom: 0;
+        }
+
+        .sp-header {
+            display: none;
+        }
+
+        .sp-logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .sp-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sp-menu-btn {
+            width: 49px;
+            height: 38px;
+            border: 0;
+            background: transparent;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .sp-menu-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .sp-drawer {
+            display: none;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            height: calc(100vh - var(--footer-h));
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.1s ease;
+        }
+
+        .hero-slide.is-active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-slide-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: block;
+            cursor: pointer;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            left: 11%;
+            bottom: 40%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+
+        .hero-title {
+            margin: 0;
+            font-family: "Cormorant", serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 82px;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            height: 44px;
+            padding: 0 18px;
+            border: 1px solid rgba(255, 255, 255, 0.92);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 1;
+            background: rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(1px);
+        }
+
+        .footer-pc,
+        .footer-sp {
+            width: 100%;
+            margin-top: 0;
+            height: var(--footer-h);
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--corp);
+        }
+
+        .footer-pc p,
+        .footer-sp p {
+            margin: 0;
+        }
+
+        .footer-sp {
+            display: none;
+        }
+
+        @media (min-width: 1281px) {
+            .page {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: max(0px, calc((100vw - 1440px) / 2));
+                width: 280px;
+                height: calc(100vh - var(--footer-h));
+                overflow: auto;
+                z-index: 1;
+                background: var(--base-bg);
+            }
+
+            .content {
+                width: min(1160px, calc(100vw - 280px));
+                margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .page {
+                display: block;
+                width: 100%;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .content {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .sp-header {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .sp-header .sp-menu-btn {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .sp-drawer {
+                position: absolute;
+                top: 72px;
+                right: 12px;
+                z-index: 4;
+                display: block;
+                width: fit-content;
+                max-width: calc(100vw - 24px);
+                padding: 16px 18px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid #d9d9d9;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-12px);
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            }
+
+            .sp-drawer.is-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .sp-drawer .menu {
+                width: auto;
+                margin: 0;
+            }
+
+            .sp-drawer .menu li {
+                margin-bottom: 12px;
+                white-space: nowrap;
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .sp-drawer .side-sub {
+                width: auto;
+                margin: 20px 0 0;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .hero-title {
+                font-size: 72px;
+            }
+
+            .hero-overlay {
+                left: 9%;
+                bottom: 36%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            :root {
+                --footer-h: 64px;
+            }
+
+            .sp-header {
+                top: 10px;
+                left: 12px;
+                right: 12px;
+            }
+
+            .hero-title {
+                font-size: 58px;
+            }
+
+            .hero-overlay {
+                left: 8%;
+                bottom: 34%;
+                gap: 12px;
+            }
+
+            .hero-link {
+                min-width: 148px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .footer-pc,
+            .footer-sp {
+                margin-top: 0;
+                height: var(--footer-h);
+                min-height: 0;
+                padding: 0 12px;
+            }
+
+            .footer-pc p,
+            .footer-sp p {
+                font-size: 16px;
+                text-align: center;
+                line-height: 1.5;
+            }
+
+            .footer-pc {
+                display: none;
+            }
+
+            .footer-sp {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <a class="logo" href="index.html"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></a>
+            <ul class="menu">
+                <li>ブランド</li>
+                <li><a href="workshop.html">ワークショップ</a></li>
+                <li>ショッピング</li>
+                <li>よみもの</li>
+                <li>c-corpについて</li>
+            </ul>
+            <div class="side-sub">
+                <div>メールマガジン登録</div>
+                <div>公式Instagram</div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="sp-header">
+                <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+                <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+                    aria-controls="sp-drawer">
+                    <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
+                </button>
+            </div>
+
+            <div class="sp-drawer" id="sp-drawer">
+                <ul class="menu">
+                    <li>ブランド</li>
+                    <li><a href="workshop.html">ワークショップ</a></li>
+                    <li>ショッピング</li>
+                    <li>よみもの</li>
+                    <li>c-corpについて</li>
+                </ul>
+                <div class="side-sub">
+                    <div>メールマガジン登録</div>
+                    <div>公式Instagram</div>
+                </div>
+            </div>
+
+            <section class="hero" aria-label="メインビジュアル">
+                <div class="hero-slide is-active">
+                    <img src="image/Brand_Top_1.png" alt="メインビジュアル1">
+                    <div class="hero-overlay">
+                        <p class="hero-title">Brands</p>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <a class="hero-slide-link" href="workshop.html" aria-label="ワークショップページへ">
+                        <img src="image/Brand_Top_2.png" alt="メインビジュアル2">
+                    </a>
+                    <div class="hero-overlay">
+                        <p class="hero-title">Workshop</p>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="image/Brand_Top_3.png" alt="メインビジュアル3">
+                    <div class="hero-overlay">
+                        <p class="hero-title">Magazine</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer-pc">
+        <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+    <footer class="footer-sp">
+        <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var menuButton = document.querySelector(".sp-menu-btn");
+            var drawer = document.querySelector(".sp-drawer");
+
+            if (menuButton && drawer) {
+                function isDrawerEnabled() {
+                    return window.matchMedia("(max-width: 1280px)").matches;
+                }
+
+                function closeDrawer() {
+                    drawer.classList.remove("is-open");
+                    menuButton.setAttribute("aria-expanded", "false");
+                }
+
+                menuButton.addEventListener("click", function () {
+                    if (!isDrawerEnabled()) return;
+                    var willOpen = !drawer.classList.contains("is-open");
+                    drawer.classList.toggle("is-open", willOpen);
+                    menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!isDrawerEnabled()) return;
+                    if (!drawer.classList.contains("is-open")) return;
+                    if (drawer.contains(event.target) || menuButton.contains(event.target)) return;
+                    closeDrawer();
+                });
+
+                window.addEventListener("resize", function () {
+                    if (!isDrawerEnabled()) closeDrawer();
+                });
+            }
+        })();
+
+        (function () {
+            var slides = document.querySelectorAll(".hero-slide");
+            if (!slides.length) return;
+
+            var index = 0;
+            var intervalMs = 4500;
+
+            function show(nextIndex) {
+                slides[index].classList.remove("is-active");
+                index = nextIndex;
+                slides[index].classList.add("is-active");
+            }
+
+            setInterval(function () {
+                var next = (index + 1) % slides.length;
+                show(next);
+            }, intervalMs);
+        })();
+    </script>
+</body>
+
+</html>
+
+
