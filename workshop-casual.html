@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 
 <head>
@@ -749,16 +749,18 @@
 
         .price-list {
             width: 782px;
+            height: 215px;
             border: 1px solid #bdbdbd;
             text-align: left;
+            box-sizing: border-box;
         }
 
         .price-list-pc {
             display: grid;
-            grid-template-columns: 296px minmax(0, 1fr);
+            grid-template-columns: minmax(0, 1fr) 186px 322px;
             grid-template-rows: 1fr auto;
             align-items: start;
-            min-height: 296px;
+            height: 213px;
         }
 
         .price-list-sp {
@@ -766,15 +768,18 @@
         }
 
         .price-list-pc img {
+            grid-column: 3;
             grid-row: 1 / span 2;
-            width: 296px;
-            height: 296px;
+            width: 322px;
+            height: 213px;
             object-fit: cover;
             display: block;
+            justify-self: end;
         }
 
         .price-list-pc>div {
-            padding: 18px 18px 10px;
+            grid-column: 1 / span 2;
+            padding: 18px 18px 10px 20px;
         }
 
         .price-list-pc p,
@@ -1962,6 +1967,7 @@
             .price-list {
                 width: 100%;
                 max-width: 362px;
+                height: auto;
                 margin: 0 auto;
                 text-align: left;
             }
@@ -1973,6 +1979,7 @@
             .price-list-sp {
                 display: block;
                 overflow: hidden;
+                padding-bottom: 16px;
             }
 
             .price-list-sp img {
@@ -2218,6 +2225,7 @@
             .footer-sp {
                 display: block;
             }
+
             body {
                 font-size: 16px;
                 line-height: 1.65;
@@ -2534,7 +2542,6 @@
             }
 
             .pickup-review-item img,
-            .price-list img,
             .recommended-card img,
             .perfume-course-card img {
                 width: 250px;
@@ -2653,74 +2660,57 @@
                     </div>
                 </div>
                 <section class="hero">
-                    <img src="image/Perfume_Top.png" alt="ワークショップのイメージ">
+                    <img src="image/Casual_Top.png" alt="ワークショップのイメージ">
                 </section>
             </div>
 
             <div class="container">
                 <section class="perfume-heading">
                     <h1>Workshop</h1>
-                    <p class="copy">フレグランス調香体験</p>
+                    <p class="copy">香りのショートセッション</p>
                 </section>
 
                 <section class="perfume-lead-pc">
-                    <p>香りを重ねるたびに、印象がゆるやかに移ろう――<br>
-                        その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。<br>
-                        香りづくりを気軽に体験したい方も、より自由に表現したい方も<br>
-                        今の気分に合わせて選べる2つのコースをご用意しました。</p>
-                    <p>Classic｜ベーシックコース<br>
-                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。<br>
-                        初めての方にも安心してご参加いただけます。</p>
-                    <p>
-                        Luxe｜スペシャルコース<br>
-                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。<br>
-                        およそ4,800通りにもおよぶ組み合わせの中から、<br>
-                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
+                    <p>香りをもっと身近に感じていただくための、コンパクトな体験プログラムです。<br>
+                        ファブリックミスト、オードトワレ、ディフューザーの3種から選び、<br>
+                        日常に寄り添う香りをお作りいただけます。</p>
+                    <p>はじめての調香体験にも、気軽な記念づくりにもおすすめです。</p>
                 </section>
                 <section class="perfume-lead-sp">
-                    <p>香りを重ねるたびに、<br>
-                        印象がゆるやかに移ろう――<br>
-                        その繊細な調和を楽しむ、<br>
-                        オートクチュールフレグランス・<br>
-                        ワークショップです。</p>
-                    <p>香りづくりを気軽に体験したい方も、<br>
-                        より自由に表現したい方も<br>
-                        今の気分に合わせて選べる<br>
-                        2つのコースをご用意しました。</p>
-                    <p>Classic｜ベーシックコース<br>
-                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。
-                        初めての方にも安心してご参加いただけます。</p>
-                    <p>Luxe｜スペシャルコース<br>
-                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。
-                        およそ4,800通りにもおよぶ組み合わせの中から、
-                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
+                    <p>香りをもっと身近に感じていただくための、<br>
+                        コンパクトな体験プログラムです。<br>
+                        ファブリックミスト、オードトワレ、ディフューザーの3種から選び、<br>
+                        日常に寄り添う香りをお作りいただけます。</p>
+                    <p>はじめての調香体験にも、<br>
+                        気軽な記念づくりにもおすすめです。</p>
                 </section>
-
-                <section class="perfume-lead-visual">
-                    <img src="image/Perfume_Lead.png" alt="香水ワークショップのイメージ">
-                    <p>店舗奥の階段からはじまる特別な調香体験を、ぜひこの機会にご体感ください。</p>
-                </section>
-
-                <section class="perfume-course-slider" aria-label="香水コーススライダー">
-                    <section class="perfume-course-grid" aria-label="香水コース一覧">
-                        <article class="perfume-course-card">
-                            <img src="image/Perfume_Basic.png" alt="ベーシックコース">
-                            <p>【要予約】<br>所要時間目安：60分</p>
-                            <p>12種類の香りから4種選ぶ<br>ベーシックコース</p>
-                            <p class="copy">10ml 5000円（税込）</p>
+                <section class="recommended-slider" aria-label="おすすめ商品スライダー">
+                    <section class="recommended-grid" aria-label="おすすめ商品">
+                        <article class="recommended-card">
+                            <img src="image/Mist_square.png" alt="ファブリックミスト">
+                            <p>【予約不要】<br>所要時間目安：30分</p>
+                            <p class="product-name">ファブリックミスト</p>
+                            <p class="copy">100ml 1000円（税込）</p>
                             <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
-                        <article class="perfume-course-card">
-                            <img src="image/Perfume_Special.png" alt="スペシャルコース">
-                            <p>【要予約・季節限定】<br>所要時間目安：60分</p>
-                            <p>20種類の香りから4種を選ぶ<br>スペシャルコース</p>
-                            <p class="copy">10ml 6000円（税込）</p>
+                        <article class="recommended-card">
+                            <img src="image/EDT_square.png" alt="オードトワレ">
+                            <p>【予約不要】<br>所要時間目安：30分</p>
+                            <p class="product-name">オードトワレ</p>
+                            <p class="copy">10ml 1500円（税込）</p>
+                            <a class="btn btn-primary" href="#">詳しくみる</a>
+                        </article>
+                        <article class="recommended-card">
+                            <img src="image/Diffuser_square.png" alt="ディフューザー">
+                            <p>【予約不要】<br>所要時間目安：30分</p>
+                            <p class="product-name">ディフューザー</p>
+                            <p class="copy">100ml 3000円（税込）</p>
                             <a class="btn btn-primary" href="#">詳しくみる</a>
                         </article>
                     </section>
-                    <div class="perfume-course-nav-group" aria-hidden="false">
-                        <button class="perfume-course-nav prev" type="button" aria-label="前へ"></button>
-                        <button class="perfume-course-nav next" type="button" aria-label="次へ"></button>
+                    <div class="recommended-nav-group" aria-hidden="false">
+                        <button class="recommended-nav prev" type="button" aria-label="前へ"></button>
+                        <button class="recommended-nav next" type="button" aria-label="次へ"></button>
                     </div>
                 </section>
 
@@ -2879,63 +2869,79 @@
                 </section>
 
                 <section class="perfume-section">
-                    <h2>Price & Reserve</h2>
-                    <p class="h2-lead-area">ご検討の参考に、所要時間と料金をご案内いたします。<br>
-                        お席には限りがございますので、ご希望の日程が決まっている場合はお早めにご確認ください。</p>
+                    <h2>Price</h2>
+                    <p class="h2-lead-area">香りのショートセッションはご予約なしでお楽しみいただけます。</p>
                     <section class="price" aria-label="価格表">
                         <article class="price-list">
                             <div class="price-list-pc">
-                                <img src="image/EDT_5000.png" alt="ベーシックコース">
+                                <img src="image/mist_322_215.png" alt="ファブリックミスト">
                                 <div>
-                                    <p class="copy">Classic｜12種の香りから4種選ぶ、<br>
-                                        はじめての方にもお勧めのベーシックコース</p>
-                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                    <p class="copy">衣類や空間に、やさしく香りをまとわせる</p>
+                                    <p>開催日時：店舗営業日<br>
                                         定員　　：20名まで　※1名様より催行<br>
-                                        所要時間：60分<br>
-                                        予約受付：前日18時まで</p>
-                                    <p class="copy">香水(オードトワレ)10ml　5000円(税込)</p>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">ファブリックミスト100ml　1000円(税込)</p>
                                 </div>
-                                <a class="btn btn-primary" href="#">予約する</a>
                             </div>
                             <div class="price-list-sp">
-                                <img src="image/EDT_5000_sp.png" alt="ベーシックコース">
+                                <img src="image/mist_322_215.png" alt="ファブリックミスト">
                                 <div>
-                                    <p class="copy">Classic｜12種の香りから4種選ぶ、
-                                        はじめての方にもお勧めのベーシックコース</p>
-                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                    <p class="copy">衣類や空間に、やさしく香りをまとわせる</p>
+                                    <p>開催日時：店舗営業日<br>
                                         定員　　：20名まで　※1名様より催行<br>
-                                        所要時間：60分<br>
-                                        予約受付：前日18時まで</p>
-                                    <p class="copy">香水(オードトワレ)10ml<br>5000円(税込)</p>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">ファブリックミスト100ml<br>1000円(税込)</p>
                                 </div>
-                                <a class="btn btn-primary" href="#">予約する</a>
                             </div>
                         </article>
                         <article class="price-list">
                             <div class="price-list-pc">
-                                <img src="image/EDT_6000.png" alt="スペシャルコース">
+                                <img src="image/perfume_322_215.png" alt="オードトワレ">
                                 <div>
-                                    <p class="copy">Luxe｜季節限定の香りなど20種の香りから<br>
-                                        4種選ぶ、スペシャルコース</p>
-                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                    <p class="copy">友だちに自慢したくなる、あなただけの香り</p>
+                                    <p>開催日時：店舗営業日<br>
                                         定員　　：20名まで　※1名様より催行<br>
-                                        所要時間：60分<br>
-                                        予約受付：前日18時まで</p>
-                                    <p class="copy">香水(オードトワレ)10ml　6000円(税込)</p>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">香水(オードトワレ)10ml　1500円(税込)</p>
                                 </div>
-                                <a class="btn btn-primary" href="#">予約する</a>
                             </div>
                             <div class="price-list-sp">
-                                <img src="image/EDT_6000_sp.png" alt="スペシャルコース">
+                                <img src="image/perfume_322_215.png" alt="オードトワレ">
                                 <div>
-                                    <p class="copy">Luxe｜季節限定の香りなど20種の香りから4種選ぶ、スペシャルコース</p>
-                                    <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                    <p class="copy">友だちに自慢したくなる、あなただけの香り</p>
+                                    <p>開催日時：店舗営業日<br>
                                         定員　　：20名まで　※1名様より催行<br>
-                                        所要時間：60分<br>
-                                        予約受付：前日18時まで</p>
-                                    <p class="copy">香水(オードトワレ)10ml<br>6000円(税込)</p>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">香水(オードトワレ)10ml<br>1500円(税込)</p>
                                 </div>
-                                <a class="btn btn-primary" href="#">予約する</a>
+                            </div>
+                        </article>
+                        <article class="price-list">
+                            <div class="price-list-pc">
+                                <img src="image/diffuser_322_215.png" alt="ディフューザー">
+                                <div>
+                                    <p class="copy">ゆるやかに香る、上品なディフューザー</p>
+                                    <p>開催日時：店舗営業日<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">ディフューザー100ml　3000円(税込)</p>
+                                </div>
+                            </div>
+                            <div class="price-list-sp">
+                                <img src="image/diffuser_322_215.png" alt="ディフューザー">
+                                <div>
+                                    <p class="copy">ゆるやかに香る、上品なディフューザー</p>
+                                    <p>開催日時：店舗営業日<br>
+                                        定員　　：20名まで　※1名様より催行<br>
+                                        所要時間：30分<br>
+                                        予約受付：予約不要、先着順</p>
+                                    <p class="copy">ディフューザー100ml<br>3000円(税込)</p>
+                                </div>
                             </div>
                         </article>
                     </section>
@@ -3004,36 +3010,32 @@
                 </section>
                 <section class="recommended">
                     <h2>Recommended</h2>
-                    <p class="h2-lead-area">フレグランス調香体験のほかにも、さまざまなワークショップをご用意しています。</p>
-                    <section class="recommended-slider" aria-label="おすすめ商品スライダー">
-                        <section class="recommended-grid" aria-label="おすすめ商品">
-                            <article class="recommended-card">
-                                <img src="image/Mist_square.png" alt="ファブリックミスト">
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">ファブリックミスト</p>
-                                <p class="copy">100ml 1000円（税込）</p>
+                    <p class="h2-lead-area">もっと深く香りと向き合いたい方へ。<br>
+                        香りの世界をじっくり探究する「フレグランス調香体験」もご用意しています。</p>
+                    <section class="perfume-course-slider" aria-label="香水コーススライダー">
+                        <section class="perfume-course-grid" aria-label="香水コース一覧">
+                            <article class="perfume-course-card">
+                                <img src="image/Perfume_Basic.png" alt="ベーシックコース">
+                                <p>【要予約】<br>所要時間目安：60分</p>
+                                <p>12種類の香りから4種選ぶ<br>ベーシックコース</p>
+                                <p class="copy">10ml 5000円（税込）</p>
                                 <a class="btn btn-primary" href="#">詳しくみる</a>
                             </article>
-                            <article class="recommended-card">
-                                <img src="image/EDT_square.png" alt="オードトワレ">
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">オードトワレ</p>
-                                <p class="copy">10ml 1500円（税込）</p>
-                                <a class="btn btn-primary" href="#">詳しくみる</a>
-                            </article>
-                            <article class="recommended-card">
-                                <img src="image/Diffuser_square.png" alt="ディフューザー">
-                                <p>【予約不要】<br>所要時間目安：30分</p>
-                                <p class="product-name">ディフューザー</p>
-                                <p class="copy">100ml 3000円（税込）</p>
+                            <article class="perfume-course-card">
+                                <img src="image/Perfume_Special.png" alt="スペシャルコース">
+                                <p>【要予約・季節限定】<br>所要時間目安：60分</p>
+                                <p>20種類の香りから4種を選ぶ<br>スペシャルコース</p>
+                                <p class="copy">10ml 6000円（税込）</p>
                                 <a class="btn btn-primary" href="#">詳しくみる</a>
                             </article>
                         </section>
-                        <div class="recommended-nav-group" aria-hidden="false">
-                            <button class="recommended-nav prev" type="button" aria-label="前へ"></button>
-                            <button class="recommended-nav next" type="button" aria-label="次へ"></button>
+                        <div class="perfume-course-nav-group" aria-hidden="false">
+                            <button class="perfume-course-nav prev" type="button" aria-label="前へ"></button>
+                            <button class="perfume-course-nav next" type="button" aria-label="次へ"></button>
                         </div>
                     </section>
+
+
                 </section>
             </div>
 
