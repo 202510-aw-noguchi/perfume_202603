@@ -728,7 +728,7 @@
       display: block;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 900px) {
       .page {
         width: 100%;
         grid-template-columns: 220px 1fr;
@@ -785,6 +785,73 @@
     }
 
     @media (max-width: 1280px) {
+      .page {
+        display: block;
+        width: 100%;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .sp-header {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sp-drawer {
+        position: absolute;
+        top: 72px;
+        right: 12px;
+        z-index: 3;
+        display: block;
+        width: fit-content;
+        max-width: calc(100vw - 24px);
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid #d9d9d9;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      }
+
+      .sp-drawer.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .sp-drawer .menu li {
+        margin-bottom: 12px;
+        white-space: nowrap;
+      }
+
+      .sp-drawer .side-sub {
+        margin-top: 20px;
+      }
+
+      .sp-header .sp-menu-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    @media (max-width: 900px) {
       .page {
         display: block;
         width: 100%;
@@ -1456,7 +1523,7 @@
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 900px) {
       body {
         font-size: 16px;
         line-height: 1.65;
@@ -2022,7 +2089,7 @@
       });
 
       function isSp() {
-        return window.matchMedia("(max-width: 1280px)").matches;
+        return window.matchMedia("(max-width: 900px)").matches;
       }
 
       function updateSlider() {
@@ -2097,7 +2164,7 @@
       });
 
       function isSp() {
-        return window.matchMedia("(max-width: 1280px)").matches;
+        return window.matchMedia("(max-width: 900px)").matches;
       }
 
       function updateSlider() {
@@ -2175,7 +2242,7 @@
       });
 
       function isSp() {
-        return window.matchMedia("(max-width: 1280px)").matches;
+        return window.matchMedia("(max-width: 900px)").matches;
       }
 
       function updateSlider() {
