@@ -11,26 +11,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
     <style>
-        :root {
-            --base-bg: #ffffff;
-            --base-white: #ffffff;
-            --corp: #ded08e;
-            --accent: #2f3f66;
-            --point: #17875e;
-            --text: #333333;
-            --line: #c9c9c9;
-            --placeholder: #cfcfcf;
-        }
-
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            background: var(--base-bg);
-            color: var(--text);
             font-family: "Noto Sans JP", sans-serif;
             font-size: 16px;
             font-weight: 400;
@@ -50,55 +38,6 @@
             display: grid;
             grid-template-columns: 280px 1fr;
             min-height: 100vh;
-        }
-
-        .sidebar {
-            padding: 32px 28px;
-        }
-
-        .logo {
-            width: 200px;
-            height: 200px;
-            border-radius: 0;
-            border: none;
-            margin-bottom: 36px;
-            background: transparent;
-            display: grid;
-            place-items: center;
-            font-size: 18px;
-            letter-spacing: 0.06em;
-        }
-
-        .logo,
-        .menu,
-        .side-sub {
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .menu {
-            list-style: none;
-            margin-top: 0;
-            margin-bottom: 0;
-            padding: 0;
-        }
-
-
-
-        .menu li a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .menu li a:hover {
-            text-decoration: underline;
-        }
-
-        .side-sub {
-            margin-top: 36px;
-            font-size: 14px;
-            line-height: 1.8;
         }
 
         .content {
@@ -173,55 +112,8 @@
             padding: 28px 24px 0;
         }
 
-        h1,
-        h2 {
-            font-family: "Cormorant", serif;
-            font-style: italic;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-align: center;
-            margin: 0;
-            color: #333333;
-        }
-
-        h1 {
-            font-size: 40px;
-            margin: 70px 0 61px;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin: 70px 0 34px;
-        }
-
-        h2::after {
-            content: "";
-            display: block;
-            width: 245px;
-            height: 0;
-            margin: 14px auto 0;
-            border-top: 1px solid #333333;
-            background: transparent;
-        }
-
-        h3 {
-            font-family: "Noto Sans JP", sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            margin: 0 0 30px;
-            color: var(--text);
-            text-align: center;
-        }
-
         .feature h3 {
             line-height: 1.35;
-        }
-
-        .copy {
-            font-family: "Noto Sans JP", sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text);
         }
 
         .h2-lead-area,
@@ -1057,28 +949,6 @@
             display: block;
         }
 
-        .footer-pc,
-        .footer-sp {
-            width: 100%;
-            margin-top: 44px;
-            height: 44px;
-            position: relative;
-            z-index: 2;
-            background: var(--corp);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-pc p,
-        .footer-sp p {
-            margin: 0;
-        }
-
-        .footer-sp {
-            display: none;
-        }
-
         img {
             max-width: 100%;
             height: auto;
@@ -1088,17 +958,6 @@
         @media (min-width: 1281px) {
             .page {
                 display: block;
-            }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: max(0px, calc((100vw - 1440px) / 2));
-                width: 280px;
-                height: 100vh;
-                overflow: auto;
-                z-index: 1;
-                background: var(--base-bg);
             }
 
             .content {
@@ -1111,10 +970,6 @@
             .page {
                 display: block;
                 width: 100%;
-            }
-
-            .sidebar {
-                display: none;
             }
 
             .content {
@@ -1178,10 +1033,6 @@
             .page {
                 display: block;
                 width: 100%;
-            }
-
-            .sidebar {
-                display: none;
             }
 
             .content {
@@ -1280,11 +1131,6 @@
                 padding: 20px 20px 0;
             }
 
-            h1 {
-                font-size: 40px;
-                margin: 0 0 61px;
-            }
-
             h2 {
                 font-size: 36px;
                 margin: 58px 0 26px;
@@ -1292,11 +1138,6 @@
 
             .reviews>h2 {
                 margin: 65px 0 34px;
-            }
-
-            h3,
-            .copy {
-                font-size: 20px;
             }
 
             .lead-section-left-text,
@@ -2205,29 +2046,6 @@
                 margin-bottom: 47px;
             }
 
-            .footer-pc,
-            .footer-sp {
-                margin-top: 32px;
-                height: auto;
-                min-height: 44px;
-                padding: 10px 12px;
-            }
-
-            .footer-pc p,
-            .footer-sp p {
-                font-size: 16px;
-                text-align: center;
-                line-height: 1.5;
-            }
-
-            .footer-pc {
-                display: none;
-            }
-
-            .footer-sp {
-                display: block;
-            }
-
             body {
                 font-size: 16px;
                 line-height: 1.65;
@@ -2278,25 +2096,6 @@
                 top: 10px;
                 left: 12px;
                 right: 12px;
-            }
-
-            h1 {
-                font-size: 40px;
-                margin: 0 0 61px;
-            }
-
-            h2 {
-                font-size: 36px;
-                margin: 54px 0 20px;
-            }
-
-            h3 {
-                font-size: 20px;
-                margin-bottom: 18px;
-            }
-
-            .copy {
-                font-size: 20px;
             }
 
             .center-note,

@@ -11,14 +11,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
   <style>
     :root {
-      --base-bg: #ffffff;
       --section-bg: #f2f3f5;
-      --corp: #ded08e;
-      --text: #333333;
-      --line: #c9c9c9;
-      --footer-h: 44px;
     }
 
     * {
@@ -30,8 +26,6 @@
       margin: 0;
       max-width: 100%;
       overflow-x: hidden;
-      background: var(--base-bg);
-      color: var(--text);
       font-family: "Noto Sans JP", sans-serif;
       font-size: 16px;
       line-height: 1.7;
@@ -46,63 +40,16 @@
       min-height: 100vh;
     }
 
-    .sidebar {
-      padding: 32px 28px;
-    }
-
-    .logo {
-      width: 200px;
-      height: 200px;
-      border-radius: 0;
-      border: none;
-      margin-bottom: 36px;
-      background: transparent;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      letter-spacing: 0.06em;
-    }
-
-    .logo,
-    .menu,
-    .side-sub {
-      width: 200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
-    .menu {
-      list-style: none;
-      margin-top: 0;
-      margin-bottom: 0;
-      padding: 0;
-    }
-
-    .menu li a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .menu li a:hover {
-      text-decoration: underline;
-    }
-
-    .side-sub {
-      margin-top: 36px;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
     .content {
-      padding: 70px 40px calc(var(--footer-h) + 64px);
+      padding: 70px 40px 64px;
       background: var(--section-bg);
-      min-height: calc(100vh - var(--footer-h));
+      min-height: 100vh;
     }
 
     .sp-header {
@@ -153,9 +100,14 @@
 
     .article-wrap h1 {
       margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      font-style: normal;
+      text-align: left;
       font-size: 36px;
       line-height: 1.35;
       font-weight: 500;
+      letter-spacing: 0;
+      color: var(--text);
     }
 
     .article-meta {
@@ -214,45 +166,9 @@
       border: 1px solid var(--line);
     }
 
-    .footer-pc,
-    .footer-sp {
-      width: 100%;
-      margin-top: 0;
-      height: var(--footer-h);
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--corp);
-    }
-
-    .footer-pc p,
-    .footer-sp p {
-      margin: 0;
-    }
-
-    .footer-sp {
-      display: none;
-    }
-
     @media (min-width: 1281px) {
       .page {
         display: block;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: max(0px, calc((100vw - 1440px) / 2));
-        width: 280px;
-        height: 100vh;
-        overflow: auto;
-        z-index: 1;
-        background: var(--base-bg);
       }
 
       .content {
@@ -265,10 +181,6 @@
       .page {
         display: block;
         width: 100%;
-      }
-
-      .sidebar {
-        display: none;
       }
 
       .content {
@@ -340,12 +252,8 @@
     }
 
     @media (max-width: 900px) {
-      :root {
-        --footer-h: 64px;
-      }
-
       .content {
-        padding: 96px 20px calc(var(--footer-h) + 40px);
+        padding: 96px 20px 40px;
       }
 
       .article-wrap {
@@ -368,19 +276,6 @@
         grid-template-columns: 1fr;
       }
 
-      .footer-pc {
-        display: none;
-      }
-
-      .footer-sp {
-        display: flex;
-      }
-
-      .footer-sp p {
-        font-size: 14px;
-        line-height: 1.4;
-        text-align: center;
-      }
     }
   </style>
 </head>
