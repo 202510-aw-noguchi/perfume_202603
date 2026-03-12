@@ -1,0 +1,675 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="c-corp ブランド紹介" />
+    <title>Brands - c-corp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --base-bg: #ffffff;
+            --section-bg: #f2f3f5;
+            --corp: #ded08e;
+            --text: #333333;
+            --line: #c9c9c9;
+            --footer-h: 44px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            max-width: 100%;
+            overflow-x: hidden;
+            background: var(--base-bg);
+            color: var(--text);
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            padding: 32px 28px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 36px;
+            background: transparent;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            letter-spacing: 0.06em;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo,
+        .menu,
+        .side-sub {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu {
+            list-style: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .menu li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            text-decoration: underline;
+        }
+
+        .side-sub {
+            margin-top: 36px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .content {
+            padding: 70px 40px calc(var(--footer-h) + 64px);
+            background: var(--section-bg);
+            min-height: calc(100vh - var(--footer-h));
+        }
+
+        .sp-header,
+        .sp-drawer {
+            display: none;
+        }
+
+        .brands-wrap {
+            width: min(890px, 100%);
+            margin: 0 auto;
+        }
+
+        .brands-heading {
+            text-align: center;
+            margin-bottom: 54px;
+        }
+
+        .brands-heading h1 {
+            margin: 0;
+            font-family: "Cormorant", serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 48px;
+            letter-spacing: 0.06em;
+        }
+
+        .lead-area-pc,
+        .lead-area-sp {
+            max-width: 760px;
+            margin: 30px auto 62px;
+            text-align: center;
+        }
+
+        .lead-area-sp {
+            display: none;
+        }
+
+        .item {
+            max-width: 782px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .item>.item {
+            margin-top: 34px;
+        }
+
+        .item-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            gap: 26px;
+            width: 100%;
+            max-width: 782px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .item-list>div {
+            width: 782px;
+            min-width: 782px;
+            max-width: 782px;
+            height: 296px;
+            min-height: 296px;
+            max-height: 296px;
+            display: grid;
+            grid-template-columns: 296px minmax(0, 1fr);
+            column-gap: 24px;
+            align-items: start;
+            padding: 0;
+            border: 1px solid #d8d8d8;
+            background: #ffffff;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .item-list>div img {
+            grid-column: 1;
+            width: 296px;
+            height: 296px;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+        }
+
+        .item-list>div p {
+            grid-column: 2;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+            text-align: left;
+            padding-right: 18px;
+        }
+
+        .item-list>div p:first-of-type {
+            margin-top: 18px;
+        }
+
+        .item-list>div p:last-child {
+            margin-bottom: 18px;
+        }
+
+        .item-list>div p.notice {
+            line-height: 1.0;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .notice {
+            grid-column: 1 / -1;
+            margin-top: 6px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.0;
+            color: #555555;
+        }
+
+        .access {
+            max-width: 920px;
+            margin: 96px auto 0;
+            text-align: center;
+        }
+
+        .access h2 {
+            font-family: "Cormorant", serif;
+            font-style: italic;
+            font-size: 36px;
+            margin: 0 0 26px;
+        }
+
+        .h2-lead-area {
+            max-width: 760px;
+            margin: 0 auto 34px;
+            text-align: center;
+        }
+
+        .access .img-placeholder {
+            width: 100%;
+            max-width: 890px;
+            height: 354px;
+            margin: 0 auto;
+        }
+
+        .access .img-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .footer-pc,
+        .footer-sp {
+            width: 100%;
+            margin-top: 0;
+            height: var(--footer-h);
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--corp);
+        }
+
+        .footer-pc p,
+        .footer-sp p {
+            margin: 0;
+        }
+
+        .footer-sp {
+            display: none;
+        }
+
+        @media (min-width: 1281px) {
+            .page {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: max(0px, calc((100vw - 1440px) / 2));
+                width: 280px;
+                height: 100vh;
+                overflow: auto;
+                z-index: 1;
+                background: var(--base-bg);
+            }
+
+            .content {
+                width: min(1160px, calc(100vw - 280px));
+                margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .page {
+                display: block;
+                width: 100%;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .content {
+                width: 100%;
+                margin-left: 0;
+                padding-top: 96px;
+            }
+
+            .sp-header {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .sp-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .sp-logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .sp-menu-btn {
+                width: 49px;
+                height: 38px;
+                border: 0;
+                background: transparent;
+                padding: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .sp-menu-icon {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+
+            .sp-drawer {
+                position: absolute;
+                top: 72px;
+                right: 12px;
+                z-index: 4;
+                display: block;
+                width: fit-content;
+                max-width: calc(100vw - 24px);
+                padding: 16px 18px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid #d9d9d9;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-12px);
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            }
+
+            .sp-drawer.is-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .sp-drawer .menu {
+                width: auto;
+                margin: 0;
+            }
+
+            .sp-drawer .menu li {
+                margin-bottom: 12px;
+                white-space: nowrap;
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .sp-drawer .side-sub {
+                width: auto;
+                margin: 20px 0 0;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+        }
+
+        @media (max-width: 900px) {
+            :root {
+                --footer-h: 64px;
+            }
+
+            .content {
+                padding: 96px 20px calc(var(--footer-h) + 40px);
+            }
+
+            .brands-heading {
+                margin-bottom: 38px;
+            }
+
+            .brands-heading h1 {
+                font-size: 40px;
+            }
+
+            .lead-area-pc {
+                display: none;
+            }
+
+            .lead-area-sp {
+                display: block;
+                margin-bottom: 54px;
+            }
+
+            .item-list {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 20px;
+                max-width: 320px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .item-list>div {
+                width: 100%;
+                min-width: 0;
+                max-width: 320px;
+                height: auto;
+                min-height: 0;
+                max-height: none;
+                grid-template-columns: 1fr;
+                padding: 14px 14px 18px;
+                overflow: visible;
+                text-align: center;
+            }
+
+            .item-list>div img {
+                grid-column: 1;
+                width: 250px;
+                height: 250px;
+                margin: 0 auto 12px;
+            }
+
+            .item-list>div p {
+                grid-column: 1;
+                margin: 4px 0;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .item-list>div p:first-of-type {
+                margin-top: 4px;
+            }
+
+            .item-list>div p:last-child {
+                margin-bottom: 4px;
+            }
+
+            .access {
+                margin-top: 72px;
+            }
+
+            .access .img-placeholder {
+                height: 230px;
+            }
+
+            .footer-pc {
+                display: none;
+            }
+
+            .footer-sp {
+                display: flex;
+                height: auto;
+                min-height: 44px;
+                padding: 10px 12px;
+            }
+
+            .footer-sp p {
+                text-align: center;
+                line-height: 1.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <a class="logo" href="index.html"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></a>
+            <ul class="menu">
+                <li>ブランド</li>
+                <li><a href="workshop.html">ワークショップ</a></li>
+                <li>ショッピング</li>
+                <li><a href="magazine.html">よみもの</a></li>
+                <li>c-corpについて</li>
+            </ul>
+            <div class="side-sub">
+                <div>メールマガジン登録</div>
+                <div>公式Instagram</div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="sp-header">
+                <div class="sp-logo"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+                <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+                    aria-controls="sp-drawer">
+                    <img class="sp-menu-icon" src="image/Menu.png" alt="ハンバーガーメニューアイコン">
+                </button>
+            </div>
+
+            <div class="sp-drawer" id="sp-drawer">
+                <ul class="menu">
+                    <li>ブランド</li>
+                    <li><a href="workshop.html">ワークショップ</a></li>
+                    <li>ショッピング</li>
+                    <li><a href="magazine.html">よみもの</a></li>
+                    <li>c-corpについて</li>
+                </ul>
+                <div class="side-sub">
+                    <div>メールマガジン登録</div>
+                    <div>公式Instagram</div>
+                </div>
+            </div>
+
+            <div class="brands-wrap">
+                <section class="brands-heading">
+                    <h1>Brands</h1>
+                </section>
+
+                <section class="lead-area-pc">
+                    <p>季節は、少しずつ移り変わります。<br>
+                        光の角度、風の温度、花の香り。<br>
+                        そのわずかな変化を、日本では「二十四節気」として大切にしてきました。</p>
+                    <p>清明、夏至、白露、小雪。<br>
+                        それぞれの季節が持つ空気や光、静かな情景を、香りとして閉じ込めた香水です。</p>
+                    <p>四つの季節の瞬間を、香りでたどる。<br>
+                        自然のリズムに寄り添う、特別なコレクション。</p>
+                </section>
+
+                <section class="lead-area-sp">
+                    <p>季節は、少しずつ移り変わります。<br>
+                        光の角度、風の温度、花の香り。<br>
+                        そのわずかな変化を、日本では<br>
+                        「二十四節気」として大切にしてきました。</p>
+                    <p>清明、夏至、白露、小雪。<br>
+                        それぞれの季節が持つ空気や光、静かな情景を、<br>
+                        香りとして閉じ込めた香水です。</p>
+                    <p>四つの季節の瞬間を、香りでたどる。<br>
+                        自然のリズムに寄り添う、特別なコレクション。</p>
+                </section>
+
+                <section class="item">
+                    <h2>Recommended</h2>
+                    <p class="h2-lead-area">その日の気分にあわせて香水をお選びいただけます。</p>
+                    <section class="item">
+                        <article class="item-list">
+                            <div>
+                                <img src="image/EDT_5000.png" alt="二十四節気：清明">
+                                <p class="copy">二十四節気：清明</p>
+                                <p>やわらかな光が地面を包み、草木が一斉に芽吹くころ。<br>
+                                    空気は澄み、世界は少しだけ明るくなる。</p>
+                                <p>春が本格的に動き出す、清明。<br>
+                                    瑞々しい若葉と花の香りが、新しい季節の始まりを告げる。</p>
+                                <p>朝の光のように透明で軽やかな香り。</p>
+                                <p class="notice">
+                                    Top：ベルガモット、グリーンアップル、レモンブロッサム　Middle：ジャスミン、ミュゲ、ピオニー　Base：ホワイトムスク、シダーウッド、アンバー</p>
+                                <p class="copy">香水(オードトワレ)30ml　15000円(税込)</p>
+                            </div>
+                            <div>
+                                <img src="image/EDT_5000.png" alt="二十四節気：夏至">
+                                <p class="copy">二十四節気：夏至</p>
+                                <p>まぶしい太陽が空を高く照らし、世界は光で満たされる。</p>
+                                <p>海風、柑橘の香り、熱を帯びた空気。<br>
+                                    夏至は、生命がもっとも力強く輝く。</p>
+                                <p>太陽の光をそのまま閉じ込めた、鮮やかで開放的な香り。</p>
+                                <p class="notice">
+                                    Top：グレープフルーツ、マンダリン、ライム　Middle：ネロリ、オレンジブロッサム、マリンノート　Base：ペチパー、サンダルウッド、ホワイトアンバー</p>
+                                <p class="copy">香水(オードトワレ)30ml　15000円(税込)</p>
+                            </div>
+                            <div>
+                                <img src="image/EDT_5000.png" alt="二十四節気：白露">
+                                <p class="copy">二十四節気：白露</p>
+                                <p>夜の涼しさが、少しずつ深まるころ。<br>
+                                    朝の草葉には、静かに露が宿る。</p>
+                                <p>白露は、夏の終わりと秋の始まりが重なる季節。<br>
+                                    澄んだ空気と、穏やかな光。世界が少し静かになる。</p>
+                                <p>透明な朝露のように、落ち着きと深みを感じる香り。</p>
+                                <p class="notice">Top：ペア、ベルガモット、グリーンティー　Middle：ローズ、アイリス、フリージア　Base：ムスク、カシミアウッド、アンバーグリス
+                                </p>
+                                <p class="copy">香水(オードトワレ)30ml　15000円(税込)</p>
+                            </div>
+                            <div>
+                                <img src="image/EDT_5000.png" alt="二十四節気：小雪">
+                                <p class="copy">二十四節気：小雪</p>
+                                <p>空気が冷たく澄み、遠くの山にはうっすらと雪が積もる。</p>
+                                <p>冬の訪れを告げる、小さな雪。<br>
+                                    静かな景色の中に、あたたかな灯りがともる季節。</p>
+                                <p>冷たい空気と、やわらかな温もり。<br>
+                                    冬の始まりを感じる香り。</p>
+                                <p class="notice">
+                                    Top：ピンクペッパー、ベルガモット、ジュニパー　Middle：ローズ、ヘリオトロープ、カルダモン　Base：バニラ、トンカビーンズ、サンダルウッド</p>
+                                <p class="copy">香水(オードトワレ)30ml　15000円(税込)</p>
+                            </div>
+                            <p class="notice">※通販サイトは準備中のため、店頭でお買い求めください。</p>
+                        </article>
+                    </section>
+                </section>
+
+                <section class="access">
+                    <h2>Access</h2>
+                    <section class="h2-lead-area">ご来店前に、店舗までのアクセス方法をご確認ください。</section>
+                    <div class="img-placeholder">
+                        <iframe
+                            src="https://www.google.com/maps?q=%E3%80%92110-0015%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%9D%B1%E4%B8%8A%E9%87%8E%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%20%E6%9B%BD%E6%88%91%E3%83%93%E3%83%AB&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map"></iframe>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-pc">
+        <p>静かに、深く、香りと向き合う時間を。 © 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+    <footer class="footer-sp">
+        <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var menuButton = document.querySelector('.sp-menu-btn');
+            var drawer = document.getElementById('sp-drawer');
+            if (!menuButton || !drawer) return;
+
+            function setOpen(open) {
+                drawer.classList.toggle('is-open', open);
+                menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+
+            menuButton.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setOpen(!drawer.classList.contains('is-open'));
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!drawer.contains(event.target) && !menuButton.contains(event.target)) {
+                    setOpen(false);
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

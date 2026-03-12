@@ -53,9 +53,14 @@
     .logo {
       width: 200px;
       height: 200px;
+      border-radius: 0;
+      border: none;
       margin-bottom: 36px;
+      background: transparent;
       display: grid;
       place-items: center;
+      font-size: 18px;
+      letter-spacing: 0.06em;
     }
 
     .logo,
@@ -74,12 +79,9 @@
 
     .menu {
       list-style: none;
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       padding: 0;
-    }
-
-    .menu li {
-      margin-bottom: 10px;
     }
 
     .menu li a {
@@ -247,7 +249,7 @@
         top: 0;
         left: max(0px, calc((100vw - 1440px) / 2));
         width: 280px;
-        height: calc(100vh - var(--footer-h));
+        height: 100vh;
         overflow: auto;
         z-index: 1;
         background: var(--base-bg);
@@ -386,12 +388,12 @@
 <body>
   <div class="page">
     <aside class="sidebar">
-      <a class="logo" href="../../index.html"><img src="../../image/Logo_250_ol.png" alt="ブランドロゴ"></a>
+      <a class="logo" href="../index.html"><img src="../image/Logo_250_ol.png" alt="ブランドロゴ"></a>
       <ul class="menu">
         <li>ブランド</li>
-        <li><a href="../../workshop.html">ワークショップ</a></li>
+        <li><a href="../workshop.html">ワークショップ</a></li>
         <li>ショッピング</li>
-        <li><a href="../../magazine.html">よみもの</a></li>
+        <li><a href="../magazine.html">よみもの</a></li>
         <li>c-corpについて</li>
       </ul>
       <div class="side-sub">
@@ -402,19 +404,18 @@
 
     <main class="content">
       <div class="sp-header">
-        <div class="sp-logo"><img src="../../image/Logo_250_ol.png" alt="ブランドロゴ"></div>
-        <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
-          aria-controls="sp-drawer">
-          <img class="sp-menu-icon" src="../../image/Menu.png" alt="ハンバーガーメニューアイコン">
+        <div class="sp-logo"><img src="../image/Logo_250_ol.png" alt="ブランドロゴ"></div>
+        <button class="sp-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="sp-drawer">
+          <img class="sp-menu-icon" src="../image/Menu.png" alt="ハンバーガーメニューアイコン">
         </button>
       </div>
 
       <div class="sp-drawer" id="sp-drawer">
         <ul class="menu">
           <li>ブランド</li>
-          <li><a href="../../workshop.html">ワークショップ</a></li>
+          <li><a href="../workshop.html">ワークショップ</a></li>
           <li>ショッピング</li>
-          <li><a href="../../magazine.html">よみもの</a></li>
+          <li><a href="../magazine.html">よみもの</a></li>
           <li>c-corpについて</li>
         </ul>
         <div class="side-sub">
@@ -451,9 +452,9 @@
           </p>
 
           <section class="article-gallery" aria-label="記事画像ギャラリー">
-            <img src="../../image/Feature_2.png" alt="調香のイメージ1">
-            <img src="../../image/Perfume_Lead.png" alt="調香のイメージ2">
-            <img src="../../image/Feature_3.png" alt="調香のイメージ3">
+            <img src="../image/Feature_2.png" alt="調香のイメージ1">
+            <img src="../image/Perfume_Lead.png" alt="調香のイメージ2">
+            <img src="../image/Feature_3.png" alt="調香のイメージ3">
           </section>
         </section>
       </article>
