@@ -13,6 +13,10 @@
 body {
     background: var(--base-bg);
     color: var(--text);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
 }
 
 /* Common typography (based on workshop/holiday.html) */
@@ -657,6 +661,7 @@ p {
         max-width: 184px;
         min-width: 184px;
         height: 49px;
+        font-size: 18px;
     }
 
     .review-card {
@@ -1551,6 +1556,18 @@ p {
 
 .menu li a:hover {
     text-decoration: underline;
+}
+
+.button-row .btn-text-arrow {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.product-name {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
 }
 
 .side-sub {
