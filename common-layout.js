@@ -38,7 +38,7 @@
   var spHeader = document.querySelector(".sp-header");
   if (spHeader) {
     spHeader.innerHTML =
-      "<div class=\"sp-logo\"><img src=\"" + root + "image/Logo_250_ol.png\" alt=\"ブランドロゴ\"></div>" +
+      "<a class=\"sp-logo\" href=\"" + root + "index.html\"><img src=\"" + root + "image/Logo_250_ol.png\" alt=\"ブランドロゴ\"></a>" +
       "<button class=\"sp-menu-btn\" type=\"button\" aria-label=\"メニューを開く\" aria-expanded=\"false\" aria-controls=\"sp-drawer\">" +
       "<img class=\"sp-menu-icon\" src=\"" + root + "image/Menu.png\" alt=\"ハンバーガーメニューアイコン\">" +
       "</button>";
