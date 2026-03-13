@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
 
 <head>
@@ -61,7 +61,8 @@
     }
 
     .article-wrap h1,
-    .article-wrap h2 {
+    .article-wrap h2,
+    .article-wrap h3 {
       font-family: "Noto Sans JP", sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -77,9 +78,21 @@
     }
 
     .article-wrap h1 {
-      font-size: 36px;
-      line-height: 1.35;
-      font-weight: 500;
+      font-size: 32px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .article-wrap h2 {
+      font-size: 24px;
+      line-height: 1.5;
+      margin: 40px 0 20px;
+    }
+
+    .article-wrap h3 {
+      font-size: 20px;
+      line-height: 1.5;
+      margin: 20px 0 20px;
     }
 
     .article-meta {
@@ -90,19 +103,44 @@
 
     .article-lead {
       margin-top: 24px;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.9;
     }
 
     .read-more-btn {
-      margin-top: 22px;
-      width: 186px;
-      height: 49px;
-      border: 1px solid #333333;
-      background: #ffffff;
+      display: block;
+      margin: 22px auto 0;
+      padding: 4px;
+      border: 0;
+      background: transparent;
       color: #333333;
-      font-size: 16px;
+      line-height: 1;
       cursor: pointer;
+      text-align: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .read-more-btn:hover {
+      opacity: 0.65;
+    }
+
+    .read-more-btn-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .read-more-btn-icon {
+      display: block;
+      font-size: 28px;
+      transform: rotate(90deg) scaleX(1);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    .read-more-btn.is-open .read-more-btn-icon {
+      transform: rotate(-90deg) scaleX(1);
     }
 
     .article-body {
@@ -136,6 +174,30 @@
       object-fit: cover;
       display: block;
       border: 1px solid var(--line);
+    }
+
+    .article-cta {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .article-cta p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .article-cta a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-size: 15px;
+    }
+
+    .footer-pc,
+    .footer-sp {
+      margin-top: 0;
     }
 
     @media (min-width: 1281px) {
@@ -206,10 +268,6 @@
         font-size: 16px;
       }
 
-      .read-more-btn {
-        width: 100%;
-      }
-
       .article-gallery {
         grid-template-columns: 1fr;
       }
@@ -268,69 +326,77 @@
           この記事では、香りと記憶の関係、そして自分だけの香りを作る体験についてご紹介します。
         </p>
 
-        <button class="read-more-btn" type="button" aria-expanded="false" aria-controls="article-body">
-          続きを読む
+        <button class="read-more-btn" type="button" aria-label="続きを読む" aria-expanded="false"
+          aria-controls="article-body">
+          <span class="read-more-btn-label">read more</span>
+          <span class="read-more-btn-icon">＞</span>
         </button>
 
         <section class="article-body" id="article-body">
           <h2>香りは、なぜ記憶を呼び起こすのか。</h2>
           <p>香りは五感の中でも、特に記憶と強く結びついている感覚です。</p>
-          <p>人間の嗅覚（Smell：においを感じる感覚）は、脳の「海馬（Hippocampus：記憶を司る脳の部位）」や「扁桃体（Amygdala：感情を司る脳の部位）」と直接つながっています。</p>
-          <p>そのため香りは、視覚や聴覚よりも感情や記憶を強く刺激するといわれています。</p>
+          <p>人間の嗅覚（Smell：においを感じる感覚）は、脳の「海馬（Hippocampus：記憶を司る脳の部位）」や「扁桃体（Amygdala：感情を司る脳の部位）」と直接つながっています。<br>
+            そのため香りは、視覚や聴覚よりも感情や記憶を強く刺激するといわれています。</p>
           <p>例えば
+          <ul>
             <li>初めて訪れた旅先のホテルの香り</li>
             <li>大切な人がつけていた香水</li>
             <li>季節の花の香り</li>
-          </p>
-          <p>こうした香りは、時間が経っても私たちの中に残り続けます。<br>
-            香水が特別な存在である理由は、まさにここにあります。</p>
+          </ul>
+          こうした香りは、時間が経っても私たちの中に残り続けます。<br>
+          香水が特別な存在である理由は、まさにここにあります。</p>
 
           <h2>香水は「記憶をつくる」アイテム</h2>
-          <p>多くの人は香水を「香りを楽しむもの」として選びます。</p>
-          <p>しかし実際には、香水は人生の瞬間を彩る存在でもあります。</p>
+          <p>多くの人は香水を「香りを楽しむもの」として選びます。<br>
+            しかし実際には、香水は人生の瞬間を彩る存在でもあります。</p>
           <p>例えば
+          <ul>
             <li>新しい仕事を始めた日</li>
             <li>大切な人と出会った日</li>
             <li>旅先で過ごした特別な時間</li>
-          </p>
-          <p>そうした瞬間に身につけた香りは、あとから振り返ったとき、その出来事を思い出させてくれます。</p>
-          <p>香りは、その瞬間の空気や感情までも一緒に閉じ込めてくれるのです。</p>
+          </ul>
+          そうした瞬間に身につけた香りは、あとから振り返ったとき、その出来事を思い出させてくれます。<br>
+          香りは、その瞬間の空気や感情までも一緒に閉じ込めてくれるのです。</p>
 
           <h2>「自分の香り」を持つという贅沢</h2>
-          <p>香水を選ぶとき、多くの人はブランドや人気の香りを参考にします。</p>
-          <p>もちろんそれも素敵な選び方です。</p>
-          <p>しかしもう一つの楽しみ方があります。</p>
+          <p>香水を選ぶとき、多くの人はブランドや人気の香りを参考にします。<br>
+            もちろんそれも素敵な選び方です。<br>
+            しかしもう一つの楽しみ方があります。</p>
           <p>それは「自分だけの香り」を見つけること。</p>
-          <p>香りは、人それぞれの好みや記憶と深く結びついています。
+          <p>香りは、人それぞれの好みや記憶と深く結びついています。<br>
+          <ul>
             <li>落ち着く香り</li>
             <li>元気になる香り</li>
             <li>自分らしさを感じる香り</li>
-          </p>
-          <p>こうした香りを組み合わせることで、世界に一つだけの香りが生まれます。</p>
+          </ul>
+          こうした香りを組み合わせることで、世界に一つだけの香りが生まれます。</p>
 
           <h2>香りを「作る」という体験</h2>
-          <p>最近では、香水を自分で作る体験も人気を集めています。</p>
-          <p></p>香水ワークショップでは、さまざまな香料を組み合わせながら、自分だけの香りを作ることができます。</p>
+          <p>最近では、香水を自分で作る体験も人気を集めています。<br>
+            香水ワークショップでは、さまざまな香料を組み合わせながら、自分だけの香りを作ることができます。</p>
           <p>例えば
+          <ul>
             <li>フローラル（Floral：花の香り）</li>
             <li>シトラス（Citrus：柑橘の香り）</li>
             <li>ウッディ（Woody：木の香り）</li>
-          </p>
-          <p>これらを少しずつ調整しながら、理想の香りを形にしていきます。</p>
-          <p>この体験の魅力は、香水が「完成品」ではなく「自分で生み出すもの」になることです。</p>
+          </ul>
+          これらを少しずつ調整しながら、理想の香りを形にしていきます。<br>
+          この体験の魅力は、香水が「完成品」ではなく「自分で生み出すもの」になることです。</p>
           <p>香りを選び、組み合わせ、調整する時間そのものが特別な体験になります。</p>
 
           <h2>香りは人生に寄り添う</h2>
-          <p>香水は、目に見えるものではありません。</p>
-          <p>しかし、私たちの記憶の中では、確かに存在し続けます。</p>
+          <p>香水は、目に見えるものではありません。<br>
+            しかし、私たちの記憶の中では、確かに存在し続けます。</p>
           <p>何年後かにその香りを感じたとき、きっとあなたは今日という日を思い出すでしょう。</p>
           <p>香りは、人生の瞬間をそっと包み込み、未来へと運んでくれるものです。</p>
           </p>
 
-          <section class="article-gallery" aria-label="記事画像ギャラリー">
-            <img src="../image/Feature_2.png" alt="調香のイメージ1">
-            <img src="../image/Perfume_Lead.png" alt="調香のイメージ2">
-            <img src="../image/Feature_3.png" alt="調香のイメージ3">
+          <section class="article-cta" aria-label="Call to action">
+            <h3>あなたの香りを作ってみませんか</h3>
+            <p>香りは選ぶものでもあり、作るものでもあります。<br>
+              ワークショップでは、香料を組み合わせながら、自分だけの香りを作る体験ができます。</p>
+            <p>世界に一つだけの香りを、ぜひ体験してみてください。</p>
+            <a href="../workshop.html">香水ワークショップを見る</a>
           </section>
         </section>
       </article>
@@ -388,7 +454,7 @@
       readMoreButton.addEventListener("click", function () {
         var opened = articleBody.classList.toggle("is-open");
         readMoreButton.setAttribute("aria-expanded", opened ? "true" : "false");
-        readMoreButton.textContent = opened ? "閉じる" : "続きを読む";
+        readMoreButton.classList.toggle("is-open", opened);
       });
     })();
   </script>
