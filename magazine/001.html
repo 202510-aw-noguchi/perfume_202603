@@ -95,10 +95,33 @@
       margin: 20px 0 20px;
     }
 
+    .decoration {
+      font-family: "Cormorant", serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: 0.1em;
+      text-align: left;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+
     .article-meta {
       margin-top: 12px;
       color: #555555;
       font-size: 15px;
+    }
+
+    .article-hero {
+      margin: 18px 0 0;
+    }
+
+    .article-hero img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border: 1px solid var(--line);
     }
 
     .article-lead {
@@ -153,7 +176,6 @@
 
     .article-body.is-open {
       margin-top: 26px;
-      max-height: 2400px;
       opacity: 1;
     }
 
@@ -316,8 +338,12 @@
       </div>
 
       <article class="article-wrap">
+        <p class="decoration">Magazine</p>
         <h1>香りは、記憶になる。香水が人生に残る理由</h1>
         <p class="article-meta">Author: c-corp editorial</p>
+        <figure class="article-hero">
+          <img src="../image/Magazine_001.png" alt="記事メインイメージ">
+        </figure>
         <p class="article-lead">
           ふとした瞬間、どこからか漂ってきた香りに、昔の記憶がよみがえった経験はありませんか。
           懐かしい場所や、大切な人との時間。香りは、言葉よりも鮮やかに私たちの記憶を呼び起こします。<br>
@@ -455,6 +481,13 @@
         var opened = articleBody.classList.toggle("is-open");
         readMoreButton.setAttribute("aria-expanded", opened ? "true" : "false");
         readMoreButton.classList.toggle("is-open", opened);
+        articleBody.style.maxHeight = opened ? articleBody.scrollHeight + "px" : "0px";
+      });
+
+      window.addEventListener("resize", function () {
+        if (articleBody.classList.contains("is-open")) {
+          articleBody.style.maxHeight = articleBody.scrollHeight + "px";
+        }
       });
     })();
   </script>
