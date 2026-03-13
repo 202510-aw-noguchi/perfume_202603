@@ -98,11 +98,15 @@
     .article-card {
       display: grid;
       grid-template-columns: 1fr 280px;
-      gap: 24px;
+      gap: 0;
       align-items: stretch;
       background: #ffffff;
       border: 1px solid var(--line);
-      padding: 22px;
+      padding: 0;
+    }
+
+    .article-card>div {
+      padding: 22px 24px 22px 22px;
     }
 
     .article-card-link {
@@ -132,8 +136,9 @@
     }
 
     .article-card img {
-      width: 280px;
-      height: 180px;
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
       object-fit: cover;
       display: block;
     }
@@ -212,6 +217,10 @@
         padding: 16px;
       }
 
+      .article-card>div {
+        padding: 0;
+      }
+
       .article-card img {
         width: 100%;
         height: auto;
@@ -231,7 +240,7 @@
     <aside class="sidebar">
       <a class="logo" href="index.html"><img src="image/Logo_250_ol.png" alt="ブランドロゴ"></a>
       <ul class="menu">
-        <li><a href="brands.html"></a>ブランド</li>
+        <li><a href="brands.html">ブランド</a></li>
         <li><a href="workshop.html">ワークショップ</a></li>
         <li>ショッピング</li>
         <li><a href="magazine.html">よみもの</a></li>
@@ -253,7 +262,7 @@
 
       <div class="sp-drawer" id="sp-drawer">
         <ul class="menu">
-          <li><a href="brands.html"></a>ブランド</li>
+          <li><a href="brands.html">ブランド</a></li>
           <li><a href="workshop.html">ワークショップ</a></li>
           <li>ショッピング</li>
           <li><a href="magazine.html">よみもの</a></li>
@@ -273,23 +282,25 @@
         </section>
 
         <section class="article-list" aria-label="記事一覧">
-          <a class="article-card-link" href="magazine/001/">
+          <a class="article-card-link" href="magazine/001.html">
             <article class="article-card">
               <div>
                 <h2>香りは、記憶になる。香水が人生に残る理由</h2>
                 <p>香りは私たちの記憶と深く結びついています。なぜ香水の香りは人生の瞬間と結びつくのでしょうか。香りと記憶の関係、自分だけの香りを作る楽しさを紹介します。</p>
               </div>
-              <img src="image/Feature_2.png" alt="季節の香りイメージ">
+              <img src="image/Magazine_001.png" alt="香水をつける女性">
             </article>
           </a>
 
-          <article class="article-card">
-            <div>
-              <h2>自分の香りを知るという、新しい自己表現</h2>
-              <p>香りは自分らしさを表現する方法のひとつです。香りの種類や自分に合う香水の見つけ方、オリジナル香水を作る体験について紹介します。</p>
-            </div>
-            <img src="image/Perfume_Lead.png" alt="香水保管のイメージ">
-          </article>
+          <a class="article-card-link" href="magazine/002.html">
+            <article class="article-card">
+              <div>
+                <h2>自分の香りを知るという、新しい自己表現</h2>
+                <p>香りは自分らしさを表現する方法のひとつです。香りの種類や自分に合う香水の見つけ方、オリジナル香水を作る体験について紹介します。</p>
+              </div>
+              <img src="image/Magazine_002.png" alt="香水瓶と花">
+            </article>
+          </a>
         </section>
       </div>
     </main>
