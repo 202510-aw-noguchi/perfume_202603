@@ -1625,6 +1625,14 @@ p {
     line-height: 1.8;
 }
 
+.side-sub a,
+.side-sub a:visited,
+.side-sub a:hover,
+.side-sub a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* Common mobile header / drawer */
 .sp-header {
     display: none;

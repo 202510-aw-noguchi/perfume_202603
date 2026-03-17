@@ -9,6 +9,7 @@
     if (page === "index") return /\/index\.html$/.test(path) || path.endsWith("/");
     if (page === "brands") return /\/brands\.html$/.test(path);
     if (page === "workshop") return /\/workshop\.html$/.test(path);
+    if (page === "mail") return /\/mail\.html$/.test(path);
     if (page === "magazine") return /\/magazine\.html$/.test(path) || /\/magazine\/\d+\.html$/.test(path);
     if (page === "about") return /\/about\.html$/.test(path);
     return false;
@@ -22,7 +23,7 @@
   var navHtml = [
     navItem("brands", "ブランド", root + "brands.html"),
     navItem("workshop", "ワークショップ", root + "workshop.html"),
-    "<li>ショッピング(工事中)</li>",
+    navItem("shopping", "ショッピング(準備中)"),
     navItem("magazine", "よみもの", root + "magazine.html"),
     navItem("about", "c-corpについて", root + "about.html")
   ].join("");
@@ -32,7 +33,7 @@
     sidebar.innerHTML =
       "<a class=\"logo\" href=\"" + root + "index.html\"><img src=\"" + root + "image/Logo_250_ol.png\" alt=\"ブランドロゴ\"></a>" +
       "<ul class=\"menu\">" + navHtml + "</ul>" +
-      "<div class=\"side-sub\"><div>メールマガジン登録</div><div>公式Instagram</div></div>";
+      "<div class=\"side-sub\"><div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div><div>公式Instagram</div></div>";
   }
 
   var spHeader = document.querySelector(".sp-header");
@@ -48,6 +49,6 @@
   if (spDrawer) {
     spDrawer.innerHTML =
       "<ul class=\"menu\">" + navHtml + "</ul>" +
-      "<div class=\"side-sub\"><div>メールマガジン登録</div><div>公式Instagram</div></div>";
+      "<div class=\"side-sub\"><div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div><div>公式Instagram</div></div>";
   }
 })();
