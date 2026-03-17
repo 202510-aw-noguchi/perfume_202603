@@ -10,13 +10,34 @@
     --placeholder: #cfcfcf;
 }
 
+html,
 body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
     background: var(--base-bg);
     color: var(--text);
     font-family: "Noto Sans JP", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
+}
+
+/* Common page layout */
+.page {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+.content {
+    padding-bottom: 48px;
 }
 
 /* Common typography (based on workshop/holiday.html) */
@@ -1659,6 +1680,15 @@ p {
 
 /* Common responsive layout */
 @media (min-width: 1281px) {
+    .page {
+        display: block;
+    }
+
+    .content {
+        width: min(1160px, calc(100vw - 280px));
+        margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+    }
+
     .sidebar {
         position: fixed;
         top: 0;
@@ -1672,6 +1702,16 @@ p {
 }
 
 @media (max-width: 1280px) {
+    .page {
+        display: block;
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+
     .sidebar {
         display: none;
     }
