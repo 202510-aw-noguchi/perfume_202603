@@ -78,6 +78,19 @@ p {
     line-height: 1.7;
 }
 
+/* Common button/hero font sizes */
+.btn {
+    font-size: 18px;
+}
+
+.card .btn {
+    font-size: 16px;
+}
+
+.hero {
+    font-size: 18px;
+}
+
 /* Common timeline components (workshop/casual, workshop/holiday) */
 .timeline-grid {
     display: grid;
