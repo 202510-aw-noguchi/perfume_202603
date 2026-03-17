@@ -432,47 +432,6 @@ p {
     text-align: left;
 }
 
-.pickup-review-item {
-    display: grid;
-    grid-template-columns: 296px 1fr auto;
-    grid-template-rows: 1fr;
-    gap: 18px;
-    align-items: center;
-    width: 782px;
-    min-height: 296px;
-    border: 1px solid #bdbdbd;
-    text-align: left;
-}
-
-.pickup-review-item img {
-    width: 296px;
-    height: 296px;
-    object-fit: cover;
-    display: block;
-}
-
-.pickup-review-item h3 {
-    margin: 0 0 10px;
-    text-align: left;
-    font-size: 18px;
-}
-
-.pickup-review-item p {
-    margin: 0;
-}
-
-.pickup-review-item .btn {
-    width: 186px;
-    min-width: 186px;
-    max-width: 186px;
-    height: 49px;
-    min-height: 49px;
-    max-height: 49px;
-    background: var(--point);
-    align-self: end;
-    justify-self: end;
-}
-
 /* Common user review components (workshop/casual, workshop/holiday) */
 .reviews {
     display: grid;
@@ -681,24 +640,6 @@ p {
     .scene-nav.prev::after {
         bottom: 1px;
         transform: rotate(44deg);
-    }
-
-    .pickup-review-item {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-    }
-
-    .pickup-review-item h3 {
-        text-align: center;
-    }
-
-    .pickup-review-item > div,
-    .pickup-review-item > p {
-        width: calc(100% - 40px);
-        max-width: calc(100% - 40px);
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .review-card .img-placeholder {
