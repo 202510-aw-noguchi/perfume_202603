@@ -1,0 +1,573 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ワークショップ予約ページ。2つのコースから選択し、体験日を指定して予約できます。" />
+    <title>Workshop Reservation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .reservation-wrap {
+            width: min(920px, calc(100% - 48px));
+            margin: 70px auto 96px;
+        }
+
+        .reservation-lead {
+            text-align: center;
+            margin: 0 auto 42px;
+        }
+
+        .reservation-form {
+            width: 100%;
+            max-width: 782px;
+            margin: 0 auto;
+        }
+
+        .reservation-step {
+            margin: 0 0 14px;
+            font-size: 22px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .price {
+            display: grid;
+            gap: 26px;
+            width: 100%;
+            max-width: 782px;
+            margin: 0 auto;
+        }
+
+        .price-list {
+            width: 100%;
+            border: 1px solid #bdbdbd;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: opacity 0.2s ease;
+        }
+
+        .price-list.is-dim {
+            opacity: 0.45;
+        }
+
+        .price-list>input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .price-list-pc {
+            display: grid;
+            grid-template-columns: minmax(220px, 296px) minmax(0, 1fr);
+            grid-template-rows: 1fr;
+            align-items: stretch;
+            min-height: 296px;
+        }
+
+        .price-list-sp {
+            display: none;
+        }
+
+        .price-list-pc img {
+            grid-row: 1;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .price-list-pc>div {
+            padding: 0 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 296px;
+        }
+
+        .price-list-pc p,
+        .price-list-sp p {
+            margin: 0 0 12px;
+            line-height: 1.4;
+        }
+
+        .price-list-pc p:last-child,
+        .price-list-sp p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reservation-date {
+            width: 100%;
+            max-width: 782px;
+            margin: 56px 0 0;
+            padding-top: 0;
+        }
+
+        .calendar-panel {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .calendar-month {
+            border: 1px solid #bdbdbd;
+            padding: 12px;
+        }
+
+        .calendar-title {
+            text-align: center;
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .calendar-weekdays,
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-weekdays span {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .calendar-day {
+            height: 34px;
+            border: 1px solid #d9d9d9;
+            background: #fff;
+            color: var(--text);
+            cursor: pointer;
+            font: inherit;
+            font-size: 14px;
+            padding: 0;
+        }
+
+        .calendar-day.is-empty {
+            border-color: transparent;
+            background: transparent;
+            cursor: default;
+        }
+
+        .calendar-day.is-selected {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .reservation-summary {
+            margin: 48px 0 14px;
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .reservation-summary span {
+            display: block;
+        }
+
+        .reservation-submit {
+            text-align: center;
+        }
+
+        .reservation-submit .btn {
+            width: 184px;
+            max-width: 184px;
+            min-width: 184px;
+            height: 49px;
+            font-size: 18px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid #8f8d8d;
+            margin-top: 0;
+        }
+
+        @media (max-width: 900px) {
+            .reservation-wrap {
+                width: min(760px, calc(100% - 40px));
+                margin: 56px auto 72px;
+            }
+
+            .price {
+                width: 100%;
+                max-width: 100%;
+                gap: 40px;
+            }
+
+            .price-list {
+                width: 100%;
+                max-width: 362px;
+                margin: 0 auto;
+            }
+
+            .price-list-pc {
+                display: none;
+            }
+
+            .price-list-sp {
+                display: block;
+                overflow: hidden;
+                padding-bottom: 16px;
+            }
+
+            .price-list-sp img {
+                width: 361px;
+                max-width: 361px;
+                min-width: 361px;
+                height: 241px;
+                min-height: 241px;
+                max-height: 241px;
+                object-fit: cover;
+                margin: 0;
+            }
+
+            .price-list-sp>div {
+                width: 100%;
+                max-width: 100%;
+                padding: 12px 12px 0;
+                box-sizing: border-box;
+            }
+
+            .price-list-sp .copy:last-child {
+                margin: 22px 0 0;
+                text-align: center;
+            }
+
+            .reservation-date {
+                max-width: 100%;
+                margin-top: 44px;
+            }
+
+            .calendar-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside class="sidebar"></aside>
+
+        <main class="content">
+            <div class="hero-wrap">
+                <div class="sp-header"></div>
+                <div class="sp-drawer" id="sp-drawer"></div>
+            </div>
+
+            <div class="container">
+                <section class="perfume-heading">
+                    <h1>Reservation</h1>
+                </section>
+                <section class="reservation-wrap">
+                    <p class="reservation-lead">参加コースを選択し、ご希望日をお選びください。<br>
+                        前日18時までご予約を受け付けています。</p>
+                    <form class="reservation-form" action="#" method="post">
+                        <p class="reservation-step">1. 参加コースを選択</p>
+                        <section class="price" aria-label="コース一覧">
+                            <article class="price-list" data-course="classic">
+                                <input type="radio" name="course" value="classic" checked>
+                                <div class="price-list-pc">
+                                    <img src="../image/EDT_5000.png" alt="ベーシックコース">
+                                    <div>
+                                        <p class="copy">Classic｜12種の香りから4種選ぶ、<br>
+                                            はじめての方にもお勧めのベーシックコース</p>
+                                        <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                            定員　　：20名まで　※1名様より催行<br>
+                                            所要時間：60分<br>
+                                            予約受付：前日18時まで</p>
+                                        <p class="copy">香水(オードトワレ)10ml　5000円(税込)</p>
+                                    </div>
+                                </div>
+                                <div class="price-list-sp">
+                                    <img src="../image/EDT_5000_sp.png" alt="ベーシックコース">
+                                    <div>
+                                        <p class="copy">Classic｜12種の香りから4種選ぶ、はじめての方にもお勧めのベーシックコース</p>
+                                        <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                            定員　　：20名まで　※1名様より催行<br>
+                                            所要時間：60分<br>
+                                            予約受付：前日18時まで</p>
+                                        <p class="copy">香水(オードトワレ)10ml<br>5000円(税込)</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="price-list" data-course="luxe">
+                                <input type="radio" name="course" value="luxe">
+                                <div class="price-list-pc">
+                                    <img src="../image/EDT_6000.png" alt="スペシャルコース">
+                                    <div>
+                                        <p class="copy">Luxe｜季節限定の香りなど20種の香りから<br>
+                                            4種選ぶ、スペシャルコース</p>
+                                        <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                            定員　　：20名まで　※1名様より催行<br>
+                                            所要時間：60分<br>
+                                            予約受付：前日18時まで</p>
+                                        <p class="copy">香水(オードトワレ)10ml　6000円(税込)</p>
+                                    </div>
+                                </div>
+                                <div class="price-list-sp">
+                                    <img src="../image/EDT_6000_sp.png" alt="スペシャルコース">
+                                    <div>
+                                        <p class="copy">Luxe｜季節限定の香りなど20種の香りから4種選ぶ、スペシャルコース</p>
+                                        <p>開催日時：土・日・祝日の10:00、14:00、16:00スタート<br>
+                                            定員　　：20名まで　※1名様より催行<br>
+                                            所要時間：60分<br>
+                                            予約受付：前日18時まで</p>
+                                        <p class="copy">香水(オードトワレ)10ml<br>6000円(税込)</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section class="reservation-date" aria-label="日付選択">
+                            <p class="reservation-step">2. ご希望日を選択</p>
+                            <div class="calendar-panel" id="calendar-panel" aria-label="カレンダー"></div>
+                            <input id="reserve-date" name="reserve_date" type="hidden">
+                            <p class="reservation-summary" id="reservation-summary">選択内容：コース未選択 / 日付未選択</p>
+                            <div class="reservation-submit">
+                                <button class="btn" type="submit">予約内容を確定する</button>
+                            </div>
+                        </section>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-pc">
+        <p>静かに、深く、香りと向き合う時間を。　© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+    <footer class="footer-sp">
+        <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../common-layout.js"></script>
+    <script>
+        (function () {
+            var menuBtn = document.querySelector(".sp-menu-btn");
+            var drawer = document.querySelector(".sp-drawer");
+            if (!menuBtn || !drawer) return;
+
+            menuBtn.addEventListener("click", function (event) {
+                event.stopPropagation();
+                var isOpen = drawer.classList.toggle("is-open");
+                menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!drawer.classList.contains("is-open")) return;
+                if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
+                drawer.classList.remove("is-open");
+                menuBtn.setAttribute("aria-expanded", "false");
+            });
+        })();
+
+        (function () {
+            var cards = document.querySelectorAll(".price-list");
+            var dateInput = document.getElementById("reserve-date");
+            var form = document.querySelector(".reservation-form");
+            var hasInteracted = false;
+            if (!cards.length) return;
+
+            function selectCard(card) {
+                cards.forEach(function (item) {
+                    var radio = item.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = false;
+                    if (hasInteracted) {
+                        item.classList.add("is-dim");
+                    } else {
+                        item.classList.remove("is-dim");
+                    }
+                });
+                var checked = card.querySelector('input[type="radio"]');
+                if (checked) checked.checked = true;
+                card.classList.remove("is-dim");
+                document.dispatchEvent(new CustomEvent("reservation:course-change", {
+                    detail: { course: checked ? checked.value : "" }
+                }));
+            }
+
+            cards.forEach(function (card) {
+                var radio = card.querySelector('input[type="radio"]');
+                card.addEventListener("click", function () {
+                    hasInteracted = true;
+                    selectCard(card);
+                });
+
+                if (radio) {
+                    radio.addEventListener("change", function () {
+                        hasInteracted = true;
+                        selectCard(card);
+                    });
+                }
+            });
+
+            if (form && dateInput) {
+                form.addEventListener("submit", function (event) {
+                    if (!dateInput.value) {
+                        event.preventDefault();
+                        alert("ご希望日を選択してください。");
+                    }
+                });
+            }
+
+            var initialChecked = document.querySelector('.price-list input[type="radio"]:checked');
+            document.dispatchEvent(new CustomEvent("reservation:course-change", {
+                detail: { course: initialChecked ? initialChecked.value : "" }
+            }));
+        })();
+
+        (function () {
+            var panel = document.getElementById("calendar-panel");
+            var hiddenInput = document.getElementById("reserve-date");
+            if (!panel || !hiddenInput) return;
+
+            var selectedDate = null;
+            var weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+            var today = new Date();
+            var baseYear = today.getFullYear();
+            var baseMonth = today.getMonth();
+
+            function formatDate(date) {
+                var y = date.getFullYear();
+                var m = String(date.getMonth() + 1).padStart(2, "0");
+                var d = String(date.getDate()).padStart(2, "0");
+                return y + "-" + m + "-" + d;
+            }
+
+            function updateSelected(date) {
+                selectedDate = date;
+                var value = formatDate(date);
+                hiddenInput.value = value;
+                document.dispatchEvent(new CustomEvent("reservation:date-change", {
+                    detail: { date: value }
+                }));
+            }
+
+            function renderMonth(year, month) {
+                var firstOfMonth = new Date(year, month, 1);
+                var displayYear = firstOfMonth.getFullYear();
+                var displayMonth = firstOfMonth.getMonth();
+                var monthWrap = document.createElement("section");
+                monthWrap.className = "calendar-month";
+
+                var title = document.createElement("p");
+                title.className = "calendar-title";
+                title.textContent = displayYear + "年" + (displayMonth + 1) + "月";
+                monthWrap.appendChild(title);
+
+                var weekdayRow = document.createElement("div");
+                weekdayRow.className = "calendar-weekdays";
+                weekdays.forEach(function (w) {
+                    var item = document.createElement("span");
+                    item.textContent = w;
+                    weekdayRow.appendChild(item);
+                });
+                monthWrap.appendChild(weekdayRow);
+
+                var dayGrid = document.createElement("div");
+                dayGrid.className = "calendar-days";
+
+                var firstDay = firstOfMonth.getDay();
+                var dayCount = new Date(displayYear, displayMonth + 1, 0).getDate();
+
+                for (var i = 0; i < firstDay; i += 1) {
+                    var empty = document.createElement("button");
+                    empty.type = "button";
+                    empty.className = "calendar-day is-empty";
+                    empty.disabled = true;
+                    dayGrid.appendChild(empty);
+                }
+
+                for (var d = 1; d <= dayCount; d += 1) {
+                    var btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "calendar-day";
+                    btn.textContent = String(d);
+
+                    var cellDate = new Date(displayYear, displayMonth, d);
+                    var value = formatDate(cellDate);
+                    btn.setAttribute("data-date", value);
+
+                    if (selectedDate && formatDate(selectedDate) === value) {
+                        btn.classList.add("is-selected");
+                    }
+
+                    btn.addEventListener("click", function (event) {
+                        var target = event.currentTarget;
+                        var picked = target.getAttribute("data-date");
+                        if (!picked) return;
+                        updateSelected(new Date(picked + "T00:00:00"));
+                        render();
+                    });
+
+                    dayGrid.appendChild(btn);
+                }
+
+                monthWrap.appendChild(dayGrid);
+                return monthWrap;
+            }
+
+            function render() {
+                panel.innerHTML = "";
+                panel.appendChild(renderMonth(baseYear, baseMonth));
+                panel.appendChild(renderMonth(baseYear, baseMonth + 1));
+            }
+
+            render();
+        })();
+
+        (function () {
+            var summary = document.getElementById("reservation-summary");
+            var dateInput = document.getElementById("reserve-date");
+            if (!summary) return;
+
+            var courseLabel = "未選択";
+            var dateLabel = dateInput && dateInput.value ? dateInput.value : "未選択";
+
+            function mapCourse(value) {
+                if (value === "classic") return "Classic";
+                if (value === "luxe") return "Luxe";
+                return "未選択";
+            }
+
+            function renderSummary() {
+                summary.innerHTML = "<span>選択内容</span><span>コース：" + courseLabel + "</span><span>日付：" + dateLabel + "</span>";
+            }
+
+            document.addEventListener("reservation:course-change", function (event) {
+                var value = event.detail && event.detail.course ? event.detail.course : "";
+                courseLabel = mapCourse(value);
+                renderSummary();
+            });
+
+            document.addEventListener("reservation:date-change", function (event) {
+                var value = event.detail && event.detail.date ? event.detail.date : "";
+                dateLabel = value || "未選択";
+                renderSummary();
+            });
+
+            var initialChecked = document.querySelector('.price-list input[type="radio"]:checked');
+            if (initialChecked) {
+                courseLabel = mapCourse(initialChecked.value);
+            }
+            renderSummary();
+        })();
+    </script>
+</body>
+
+</html>
