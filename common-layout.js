@@ -22,7 +22,7 @@
   var navHtml = [
     navItem("brands", "ブランド", root + "brands.html"),
     navItem("workshop", "ワークショップ", root + "workshop.html"),
-    "<li>ショッピング</li>",
+    "<li>ショッピング(工事中)</li>",
     navItem("magazine", "よみもの", root + "magazine.html"),
     navItem("about", "c-corpについて", root + "about.html")
   ].join("");
