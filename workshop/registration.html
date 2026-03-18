@@ -217,6 +217,94 @@
             opacity: 0.5;
         }
 
+        .time-slot-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .time-slot-status {
+            font-size: 13px;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .reservation-result {
+            margin: 16px 0 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 24px;
+        }
+
+        .reservation-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 30;
+        }
+
+        .reservation-modal.is-open {
+            display: flex;
+        }
+
+        .reservation-modal-dialog {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            padding: 24px 96px 24px 24px;
+            background: #f6f4f1;
+            color: #333333;
+        }
+
+        .reservation-modal-visual {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+        }
+
+        .reservation-modal-visual img {
+            width: 62px;
+            height: 62px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .reservation-modal-copy {
+            min-height: 62px;
+        }
+
+        .reservation-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            border: 0;
+            background: transparent;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .reservation-modal-title {
+            margin: 0 0 12px;
+            text-align: left;
+        }
+
+        .reservation-modal-text {
+            margin: 0;
+            text-align: left;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+
         .time-slot-note {
             margin: 10px 0 0;
             font-size: 14px;
@@ -326,6 +414,16 @@
             .calendar-panel {
                 grid-template-columns: 1fr;
             }
+
+            .reservation-modal-dialog {
+                max-width: min(520px, calc(100% - 24px));
+                padding: 20px 86px 20px 16px;
+            }
+
+            .reservation-modal-visual img {
+                width: 62px;
+                height: 62px;
+            }
         }
     </style>
 </head>
@@ -335,10 +433,8 @@
         <aside class="sidebar"></aside>
 
         <main class="content">
-            <div class="hero-wrap">
-                <div class="sp-header"></div>
-                <div class="sp-drawer" id="sp-drawer"></div>
-            </div>
+            <div class="sp-header"></div>
+            <div class="sp-drawer" id="sp-drawer"></div>
 
             <div class="container">
                 <section class="perfume-heading">
@@ -417,19 +513,28 @@
                                 <li>
                                     <label class="time-slot">
                                         <input type="radio" name="reserve_time" value="10:00-11:00" required>
-                                        <span>10:00～11:00　※集合時間9:50</span>
+                                        <span class="time-slot-content">
+                                            <span>10:00～11:00　※集合時間9:50</span>
+                                            <span class="time-slot-status">○ 即時予約可</span>
+                                        </span>
                                     </label>
                                 </li>
                                 <li>
                                     <label class="time-slot">
                                         <input type="radio" name="reserve_time" value="14:00-15:00" required>
-                                        <span>14:00～15:00　※集合時間13:50</span>
+                                        <span class="time-slot-content">
+                                            <span>14:00～15:00　※集合時間13:50</span>
+                                            <span class="time-slot-status">○ 即時予約可</span>
+                                        </span>
                                     </label>
                                 </li>
                                 <li>
                                     <label class="time-slot">
                                         <input type="radio" name="reserve_time" value="16:00-17:00" required>
-                                        <span>16:00～17:00　※集合時間15:50</span>
+                                        <span class="time-slot-content">
+                                            <span>16:00～17:00　※集合時間15:50</span>
+                                            <span class="time-slot-status">○ 即時予約可</span>
+                                        </span>
                                     </label>
                                 </li>
                             </ul>
@@ -440,7 +545,8 @@
                             <p class="reservation-step">4. 参加人数を入力</p>
                             <div class="people-field">
                                 <label for="participant-count">参加人数</label>
-                                <input id="participant-count" name="participant_count" type="number" min="1" max="20" required>
+                                <input id="participant-count" name="participant_count" type="number" min="1" max="20"
+                                    required>
                             </div>
                         </section>
 
@@ -451,8 +557,9 @@
                                 <input id="contact-name" name="contact_name" type="text" required>
                             </div>
                             <div class="contact-field">
-                                <label for="contact-phone">携帯電話番号</label>
-                                <input id="contact-phone" name="contact_phone" type="tel" required>
+                                <label for="contact-phone">携帯電話番号 -ハイフンなし、半角英数</label>
+                                <input id="contact-phone" name="contact_phone" type="tel" inputmode="numeric"
+                                    pattern="[0-9]{10,11}" maxlength="11" required>
                             </div>
                             <div class="contact-field">
                                 <label for="contact-email">メールアドレス</label>
@@ -463,6 +570,7 @@
                         <p class="reservation-summary" id="reservation-summary">選択内容：コース未選択 / 日付未選択</p>
                         <div class="reservation-submit">
                             <button class="btn" type="submit">予約内容を確定する</button>
+                            <p id="reservation-result" class="reservation-result" aria-live="polite"></p>
                         </div>
                     </form>
                 </section>
@@ -477,93 +585,88 @@
         <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
     </footer>
 
+    <div class="reservation-modal" id="reservation-modal" hidden>
+        <div class="reservation-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reservation-modal-title">
+            <button class="reservation-modal-close" id="reservation-modal-close" type="button"
+                aria-label="閉じる">×</button>
+            <div class="reservation-modal-visual">
+                <img id="reservation-modal-image" src="" alt="予約コース画像">
+            </div>
+            <div class="reservation-modal-copy">
+                <h3 class="reservation-modal-title" id="reservation-modal-title">予約が確定しました</h3>
+                <p class="reservation-modal-text" id="reservation-modal-text">ワークショップ当日は、こちらの画面キャプチャを提示してください。</p>
+            </div>
+        </div>
+    </div>
+
     <script src="../common-layout.js"></script>
     <script>
         (function () {
-            var menuBtn = document.querySelector(".sp-menu-btn");
-            var drawer = document.querySelector(".sp-drawer");
-            if (!menuBtn || !drawer) return;
-
-            menuBtn.addEventListener("click", function (event) {
-                event.stopPropagation();
-                var isOpen = drawer.classList.toggle("is-open");
-                menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-            });
-
-            document.addEventListener("click", function (event) {
-                if (!drawer.classList.contains("is-open")) return;
-                if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
-                drawer.classList.remove("is-open");
-                menuBtn.setAttribute("aria-expanded", "false");
-            });
-        })();
-
-        (function () {
-            var cards = document.querySelectorAll(".price-list");
-            var dateInput = document.getElementById("reserve-date");
-            var form = document.querySelector(".reservation-form");
-            var hasInteracted = false;
-            if (!cards.length) return;
-
-            function selectCard(card) {
-                cards.forEach(function (item) {
-                    var radio = item.querySelector('input[type="radio"]');
-                    if (radio) radio.checked = false;
-                    if (hasInteracted) {
-                        item.classList.add("is-dim");
-                    } else {
-                        item.classList.remove("is-dim");
-                    }
-                });
-                var checked = card.querySelector('input[type="radio"]');
-                if (checked) checked.checked = true;
-                card.classList.remove("is-dim");
-                document.dispatchEvent(new CustomEvent("reservation:course-change", {
-                    detail: { course: checked ? checked.value : "" }
-                }));
-            }
-
-            cards.forEach(function (card) {
-                var radio = card.querySelector('input[type="radio"]');
-                card.addEventListener("click", function () {
-                    hasInteracted = true;
-                    selectCard(card);
-                });
-
-                if (radio) {
-                    radio.addEventListener("change", function () {
-                        hasInteracted = true;
-                        selectCard(card);
-                    });
-                }
-            });
-
-            if (form && dateInput) {
-                form.addEventListener("submit", function (event) {
-                    if (!dateInput.value) {
-                        event.preventDefault();
-                        alert("ご希望日を選択してください。");
-                    }
-                });
-            }
-
-            var initialChecked = document.querySelector('.price-list input[type="radio"]:checked');
-            document.dispatchEvent(new CustomEvent("reservation:course-change", {
-                detail: { course: initialChecked ? initialChecked.value : "" }
-            }));
-        })();
-
-        (function () {
-            var panel = document.getElementById("calendar-panel");
-            var hiddenInput = document.getElementById("reserve-date");
-            if (!panel || !hiddenInput) return;
-
-            var selectedDate = null;
+            var API_BASE = window.location.protocol === "file:"
+                ? "http://localhost:8080/api"
+                : "/api";
+            var SLOTS = ["10:00-11:00", "14:00-15:00", "16:00-17:00"];
             var weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+            var cards = document.querySelectorAll(".price-list");
+            var panel = document.getElementById("calendar-panel");
+            var form = document.querySelector(".reservation-form");
+            var dateInput = document.getElementById("reserve-date");
+            var summary = document.getElementById("reservation-summary");
+            var result = document.getElementById("reservation-result");
+            var phoneInput = document.getElementById("contact-phone");
+            var reservationModal = document.getElementById("reservation-modal");
+            var reservationModalClose = document.getElementById("reservation-modal-close");
+            var reservationModalText = document.getElementById("reservation-modal-text");
+            var reservationModalImage = document.getElementById("reservation-modal-image");
+            var reservationModalDefaultText = reservationModalText ? reservationModalText.textContent : "";
+            var slotInputs = document.querySelectorAll('input[name="reserve_time"]');
+            var hasInteracted = false;
+            var selectedDate = null;
+            var availabilityMap = {};
             var today = new Date();
             var minSelectableDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
             var baseYear = today.getFullYear();
             var baseMonth = today.getMonth();
+
+            function getSelectedCourse() {
+                var checked = document.querySelector('input[name="course"]:checked');
+                return checked ? checked.value : "";
+            }
+
+            function mapCourse(value) {
+                if (value === "classic") return "Classic";
+                if (value === "luxe") return "Luxe";
+                return "未選択";
+            }
+
+            function getCourseImage(course) {
+                return "../image/Logo_250_ol.png";
+            }
+
+            function openReservationModal(payload, reservationNumber) {
+                if (!reservationModal || !reservationModalText || !reservationModalImage) return;
+                var courseLabel = payload.course === "classic" ? "Classic" : "Luxe";
+                reservationModalImage.src = getCourseImage(payload.course);
+                reservationModalText.textContent =
+                    (reservationModalDefaultText ? reservationModalDefaultText + "\n\n" : "")
+                    + "予約内容\n"
+                    + "予約番号: " + reservationNumber + "\n"
+                    + "コース: " + courseLabel + "\n"
+                    + "日付: " + payload.reserveDate + "\n"
+                    + "時間: " + payload.reserveTime + "\n"
+                    + "人数: " + payload.participantCount + "名\n"
+                    + "氏名: " + payload.contactName + "\n"
+                    + "携帯番号: " + payload.contactPhone + "\n"
+                    + "メール: " + payload.contactEmail;
+                reservationModal.hidden = false;
+                reservationModal.classList.add("is-open");
+            }
+
+            function closeReservationModal() {
+                if (!reservationModal) return;
+                reservationModal.classList.remove("is-open");
+                reservationModal.hidden = true;
+            }
 
             function formatDate(date) {
                 var y = date.getFullYear();
@@ -572,13 +675,53 @@
                 return y + "-" + m + "-" + d;
             }
 
-            function updateSelected(date) {
-                selectedDate = date;
-                var value = formatDate(date);
-                hiddenInput.value = value;
-                document.dispatchEvent(new CustomEvent("reservation:date-change", {
-                    detail: { date: value }
-                }));
+            function updateSummary() {
+                if (!summary) return;
+                var courseLabel = mapCourse(getSelectedCourse());
+                var dateLabel = dateInput && dateInput.value ? dateInput.value : "未選択";
+                var selectedTime = document.querySelector('input[name="reserve_time"]:checked');
+                var timeLabel = selectedTime ? selectedTime.value : "未選択";
+                var participantInput = document.getElementById("participant-count");
+                var peopleLabel = participantInput && participantInput.value ? participantInput.value + "名" : "未入力";
+                summary.innerHTML =
+                    "<span>選択内容</span>"
+                    + "<span>コース：" + courseLabel + "</span>"
+                    + "<span>日付：" + dateLabel + "</span>"
+                    + "<span>時間：" + timeLabel + "</span>"
+                    + "<span>人数：" + peopleLabel + "</span>";
+            }
+
+            function clearSelectedTime() {
+                slotInputs.forEach(function (input) {
+                    input.checked = false;
+                });
+            }
+
+            function setSlotStatus(dateText) {
+                slotInputs.forEach(function (input) {
+                    var label = input.closest(".time-slot");
+                    var statusNode = label ? label.querySelector(".time-slot-status") : null;
+                    var day = availabilityMap[dateText];
+                    var slot = day && day[input.value] ? day[input.value] : null;
+                    if (!slot || !slot.bookable) {
+                        input.disabled = true;
+                        if (statusNode) statusNode.textContent = "－ 受付対象外";
+                        if (label) label.classList.add("is-unavailable");
+                        if (input.checked) input.checked = false;
+                    } else {
+                        input.disabled = false;
+                        if (statusNode) statusNode.textContent = "○ 即時予約可（残り" + slot.remaining + "）";
+                        if (label) label.classList.remove("is-unavailable");
+                    }
+                });
+            }
+
+            function isDateBookable(dateText) {
+                var day = availabilityMap[dateText];
+                if (!day) return false;
+                return SLOTS.some(function (slot) {
+                    return day[slot] && day[slot].bookable;
+                });
             }
 
             function renderMonth(year, month) {
@@ -604,7 +747,6 @@
 
                 var dayGrid = document.createElement("div");
                 dayGrid.className = "calendar-days";
-
                 var firstDay = firstOfMonth.getDay();
                 var dayCount = new Date(displayYear, displayMonth + 1, 0).getDate();
 
@@ -621,27 +763,27 @@
                     btn.type = "button";
                     btn.className = "calendar-day";
                     btn.textContent = String(d);
-
                     var cellDate = new Date(displayYear, displayMonth, d);
                     var value = formatDate(cellDate);
                     btn.setAttribute("data-date", value);
-
-                    if (cellDate < minSelectableDate) {
+                    var isPastRange = cellDate < minSelectableDate;
+                    var isBookable = isDateBookable(value);
+                    if (isPastRange || !isBookable) {
                         btn.disabled = true;
                     }
-
                     if (selectedDate && formatDate(selectedDate) === value) {
                         btn.classList.add("is-selected");
                     }
-
                     btn.addEventListener("click", function (event) {
                         var target = event.currentTarget;
                         var picked = target.getAttribute("data-date");
                         if (!picked) return;
-                        updateSelected(new Date(picked + "T00:00:00"));
-                        render();
+                        selectedDate = new Date(picked + "T00:00:00");
+                        dateInput.value = picked;
+                        setSlotStatus(picked);
+                        updateSummary();
+                        renderCalendar();
                     });
-
                     dayGrid.appendChild(btn);
                 }
 
@@ -649,50 +791,213 @@
                 return monthWrap;
             }
 
-            function render() {
+            function renderCalendar() {
                 panel.innerHTML = "";
                 panel.appendChild(renderMonth(baseYear, baseMonth));
                 panel.appendChild(renderMonth(baseYear, baseMonth + 1));
             }
 
-            render();
-        })();
-
-        (function () {
-            var summary = document.getElementById("reservation-summary");
-            var dateInput = document.getElementById("reserve-date");
-            if (!summary) return;
-
-            var courseLabel = "未選択";
-            var dateLabel = dateInput && dateInput.value ? dateInput.value : "未選択";
-
-            function mapCourse(value) {
-                if (value === "classic") return "Classic";
-                if (value === "luxe") return "Luxe";
-                return "未選択";
+            function selectCard(card) {
+                cards.forEach(function (item) {
+                    var radio = item.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = false;
+                    if (hasInteracted) {
+                        item.classList.add("is-dim");
+                    } else {
+                        item.classList.remove("is-dim");
+                    }
+                });
+                var checked = card.querySelector('input[type="radio"]');
+                if (checked) checked.checked = true;
+                card.classList.remove("is-dim");
+                updateSummary();
+                loadAvailability(true);
             }
 
-            function renderSummary() {
-                summary.innerHTML = "<span>選択内容</span><span>コース：" + courseLabel + "</span><span>日付：" + dateLabel + "</span>";
+            function loadAvailability(clearResult) {
+                var course = getSelectedCourse();
+                if (!course) return;
+                var from = formatDate(minSelectableDate);
+                var to = formatDate(new Date(baseYear, baseMonth + 2, 0));
+                fetch(API_BASE + "/reservations/availability?course=" + encodeURIComponent(course) + "&from=" + from + "&to=" + to)
+                    .then(function (response) {
+                        if (!response.ok) throw new Error("空席情報の取得に失敗しました。");
+                        return response.json();
+                    })
+                    .then(function (payload) {
+                        availabilityMap = {};
+                        (payload.days || []).forEach(function (day) {
+                            var slotMap = {};
+                            (day.slots || []).forEach(function (slot) {
+                                slotMap[slot.time] = slot;
+                            });
+                            availabilityMap[day.date] = slotMap;
+                        });
+                        selectedDate = null;
+                        dateInput.value = "";
+                        clearSelectedTime();
+                        setSlotStatus("");
+                        renderCalendar();
+                        updateSummary();
+                        if (clearResult && result) result.textContent = "";
+                    })
+                    .catch(function (error) {
+                        alert(error.message + "\nバックエンド（http://localhost:8080）が起動しているか確認してください。");
+                    });
             }
 
-            document.addEventListener("reservation:course-change", function (event) {
-                var value = event.detail && event.detail.course ? event.detail.course : "";
-                courseLabel = mapCourse(value);
-                renderSummary();
+            cards.forEach(function (card) {
+                var radio = card.querySelector('input[type="radio"]');
+                card.addEventListener("click", function () {
+                    hasInteracted = true;
+                    selectCard(card);
+                });
+                if (radio) {
+                    radio.addEventListener("change", function () {
+                        hasInteracted = true;
+                        selectCard(card);
+                    });
+                }
             });
 
-            document.addEventListener("reservation:date-change", function (event) {
-                var value = event.detail && event.detail.date ? event.detail.date : "";
-                dateLabel = value || "未選択";
-                renderSummary();
+            slotInputs.forEach(function (input) {
+                input.addEventListener("change", updateSummary);
             });
 
-            var initialChecked = document.querySelector('.price-list input[type="radio"]:checked');
-            if (initialChecked) {
-                courseLabel = mapCourse(initialChecked.value);
+            var participantCountInput = document.getElementById("participant-count");
+            if (participantCountInput) {
+                participantCountInput.addEventListener("input", updateSummary);
             }
-            renderSummary();
+
+            if (phoneInput) {
+                var lastValidPhoneValue = "";
+
+                phoneInput.addEventListener("keydown", function (event) {
+                    if (event.ctrlKey || event.metaKey || event.altKey) return;
+                    var allowKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Home", "End"];
+                    if (allowKeys.indexOf(event.key) !== -1) return;
+                    if (!/^[0-9]$/.test(event.key)) {
+                        event.preventDefault();
+                    }
+                });
+
+                phoneInput.addEventListener("beforeinput", function (event) {
+                    if (event.inputType && event.inputType.indexOf("delete") === 0) return;
+                    if (!event.data) return;
+                    if (!/^[0-9]+$/.test(event.data)) {
+                        event.preventDefault();
+                    }
+                });
+
+                phoneInput.addEventListener("paste", function (event) {
+                    var text = (event.clipboardData || window.clipboardData).getData("text");
+                    if (!/^[0-9]+$/.test(text)) {
+                        event.preventDefault();
+                    }
+                });
+
+                phoneInput.addEventListener("input", function () {
+                    if (/^[0-9]{0,11}$/.test(phoneInput.value)) {
+                        lastValidPhoneValue = phoneInput.value;
+                        return;
+                    }
+                    phoneInput.value = lastValidPhoneValue;
+                });
+            }
+
+            if (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    if (!dateInput.value) {
+                        alert("ご希望日を選択してください。");
+                        return;
+                    }
+                    var selectedTime = document.querySelector('input[name="reserve_time"]:checked');
+                    if (!selectedTime || selectedTime.disabled) {
+                        alert("ご希望の時間を選択してください。");
+                        return;
+                    }
+                    var payload = {
+                        course: getSelectedCourse(),
+                        reserveDate: dateInput.value,
+                        reserveTime: selectedTime.value,
+                        participantCount: Number(document.getElementById("participant-count").value),
+                        contactName: document.getElementById("contact-name").value,
+                        contactPhone: document.getElementById("contact-phone").value,
+                        contactEmail: document.getElementById("contact-email").value
+                    };
+
+                    fetch(API_BASE + "/reservations", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    })
+                        .then(function (response) {
+                            if (!response.ok) {
+                                return response.text().then(function (text) {
+                                    if (response.status === 409) {
+                                        throw new Error("満席です。別の日程を選択してください。");
+                                    }
+                                    if (response.status === 400) {
+                                        throw new Error("入力内容を確認してください。");
+                                    }
+                                    if (text) {
+                                        throw new Error("予約登録に失敗しました。（" + response.status + "）");
+                                    }
+                                    throw new Error("予約登録に失敗しました。");
+                                });
+                            }
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            if (result) {
+                                result.textContent = "予約番号：" + data.reservationNumber;
+                            }
+                            openReservationModal(payload, data.reservationNumber);
+                            loadAvailability(false);
+                        })
+                        .catch(function (error) {
+                            alert(error.message);
+                        });
+                });
+            }
+
+            (function initMenu() {
+                var menuBtn = document.querySelector(".sp-menu-btn");
+                var drawer = document.querySelector(".sp-drawer");
+                if (!menuBtn || !drawer) return;
+                menuBtn.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    var isOpen = drawer.classList.toggle("is-open");
+                    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                });
+                document.addEventListener("click", function (event) {
+                    if (!drawer.classList.contains("is-open")) return;
+                    if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
+                    drawer.classList.remove("is-open");
+                    menuBtn.setAttribute("aria-expanded", "false");
+                });
+            })();
+
+            if (reservationModalClose) {
+                reservationModalClose.addEventListener("click", closeReservationModal);
+            }
+            if (reservationModal) {
+                reservationModal.addEventListener("click", function (event) {
+                    if (event.target === reservationModal) {
+                        closeReservationModal();
+                    }
+                });
+            }
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeReservationModal();
+                }
+            });
+
+            updateSummary();
+            setSlotStatus("");
+            loadAvailability(true);
         })();
     </script>
 </body>
