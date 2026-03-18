@@ -3,14 +3,16 @@
 
   var path = window.location.pathname.replace(/\\/g, "/").toLowerCase();
   var isNestedPage = /\/(magazine|workshop)\/[^/]+\.html$/.test(path);
+  var isWorkshopSection = /\/workshop\.html$/.test(path) || /\/workshop\/[^/]+\.html$/.test(path);
   var root = isNestedPage ? "../" : "";
 
   function isCurrent(page) {
     if (page === "index") return /\/index\.html$/.test(path) || path.endsWith("/");
     if (page === "brands") return /\/brands\.html$/.test(path);
-    if (page === "workshop") return /\/workshop\.html$/.test(path);
+    if (page === "workshop") return isWorkshopSection;
     if (page === "magazine") return /\/magazine\.html$/.test(path) || /\/magazine\/\d+\.html$/.test(path);
     if (page === "about") return /\/about\.html$/.test(path);
+    if (page === "press") return /\/press\.html$/.test(path);
     return false;
   }
 
@@ -19,12 +21,29 @@
     return "<li><a href=\"" + href + "\">" + label + "</a></li>";
   }
 
+  function workshopSubItem(pattern, label, href) {
+    if (pattern.test(path)) return "<li>" + label + "</li>";
+    return "<li><a href=\"" + href + "\">" + label + "</a></li>";
+  }
+
+  var workshopSubHtml = isWorkshopSection
+    ? "<ul class=\"menu-sub\">" +
+      workshopSubItem(/\/workshop\/casual\.html$/, "ショートセッション", root + "workshop/casual.html") +
+      workshopSubItem(/\/workshop\/holiday\.html$/, "フレグランス調香体験", root + "workshop/holiday.html") +
+      workshopSubItem(/\/workshop\/registration\.html$/, "フレグランス調香体験ご予約", root + "workshop/registration.html") +
+      "</ul>"
+    : "";
+
+  var workshopMenuHtml = isWorkshopSection
+    ? "<li>ワークショップ" + workshopSubHtml + "</li>"
+    : "<li><a href=\"" + root + "workshop.html\">ワークショップ</a></li>";
+
   var navHtml = [
     navItem("brands", "ブランド", root + "brands.html"),
-    navItem("workshop", "ワークショップ", root + "workshop.html"),
-    "<li>ショッピング(準備中)</li>",
+    workshopMenuHtml,
     navItem("magazine", "よみもの", root + "magazine.html"),
-    navItem("about", "c-corpについて", root + "about.html")
+    navItem("about", "c-corpについて", root + "about.html"),
+    navItem("press", "プレスリリース", root + "press.html")
   ].join("");
 
   var sidebar = document.querySelector(".sidebar");

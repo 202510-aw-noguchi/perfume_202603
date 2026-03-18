@@ -1,0 +1,561 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backoffice | 予約・メール</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --card: #ffffff;
+      --text: #1d2733;
+      --sub: #637083;
+      --line: #e5e9ef;
+      --accent: #2563eb;
+      --accent-2: #2f3f66;
+      --danger: #2f8f5b;
+      --shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 28px;
+      font-family: "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    h1 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .actions {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .session {
+      margin-left: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--sub);
+    }
+    button {
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    button:hover {
+      background: #f9fafb;
+      border-color: #d7dce3;
+    }
+    .tab-list {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+    }
+    .tab-btn {
+      min-width: 88px;
+    }
+    .tab-btn.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    #reload-btn {
+      margin-left: auto;
+    }
+    .tab-panel[hidden] {
+      display: none;
+    }
+    .summary-card,
+    .mail-summary-card,
+    .table-wrap,
+    .monthly-chart-wrap,
+    .mail-chart-wrap {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      box-shadow: var(--shadow);
+    }
+    .summary-card,
+    .mail-summary-card {
+      padding: 14px;
+      margin: 12px 0 18px;
+    }
+    .mail-current-count {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .summary-note {
+      margin: 0 0 10px;
+      font-size: 12px;
+      color: var(--sub);
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 18px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 980px;
+    }
+    th, td {
+      border-bottom: 1px solid #edf1f5;
+      padding: 11px 12px;
+      font-size: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    th {
+      background: #f8fafc;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      font-weight: 600;
+      color: #344054;
+    }
+    .summary-table {
+      min-width: 760px;
+    }
+    .monthly-chart-wrap,
+    .mail-chart-wrap {
+      padding: 12px;
+    }
+    .monthly-chart {
+      height: 220px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e8edf3;
+    }
+    .monthly-bar-item {
+      min-width: 28px;
+      text-align: center;
+      flex: 0 0 28px;
+    }
+    .monthly-bar {
+      width: 100%;
+      background: var(--accent-2);
+      border-radius: 0;
+      min-height: 2px;
+    }
+    .monthly-bar-count,
+    .mail-count {
+      font-size: 10px;
+      color: #495464;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .monthly-bar-date,
+    .mail-date {
+      margin-top: 6px;
+      font-size: 10px;
+      color: #6b7787;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .mail-chart {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      align-items: flex-start;
+      min-height: 236px;
+    }
+    .mail-chart-item {
+      width: 32px;
+      min-width: 32px;
+      display: grid;
+      grid-template-rows: 92px 1px 92px auto;
+      align-items: stretch;
+      text-align: center;
+    }
+    .mail-up-zone,
+    .mail-down-zone {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .mail-up-zone {
+      justify-content: flex-end;
+    }
+    .mail-down-zone {
+      justify-content: flex-start;
+    }
+    .mail-baseline {
+      background: #dbe2ea;
+      height: 1px;
+      width: 100%;
+    }
+    .mail-bar {
+      width: 100%;
+      border-radius: 0;
+    }
+    .mail-bar.up {
+      background: var(--accent-2);
+    }
+    .mail-bar.down {
+      background: var(--danger);
+      border-radius: 0;
+    }
+    @media (max-width: 900px) {
+      body {
+        padding: 16px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      .actions {
+        flex-wrap: wrap;
+      }
+      #reload-btn {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-head">
+    <h1>Backoffice</h1>
+    <div class="session">
+      <span id="login-user">ログイン中: -</span>
+      <button id="logout-btn" type="button">ログアウト</button>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="tab-list" role="tablist" aria-label="管理タブ">
+      <button class="tab-btn is-active" id="tab-reservation" type="button" role="tab" aria-selected="true" aria-controls="panel-reservation">予約確認</button>
+      <button class="tab-btn" id="tab-mail" type="button" role="tab" aria-selected="false" aria-controls="panel-mail">メルマガ</button>
+    </div>
+    <button id="reload-btn" type="button">再読み込み</button>
+  </div>
+  <div class="tab-panel" id="panel-reservation" role="tabpanel" aria-labelledby="tab-reservation">
+    <div class="summary-card">
+      <h3>今週の予約状況（件数）</h3>
+      <div class="table-wrap">
+        <table class="summary-table">
+          <thead id="weekly-summary-head"></thead>
+          <tbody id="weekly-summary-body"></tbody>
+        </table>
+      </div>
+      <h3>当月の予約受付数の推移</h3>
+      <div class="monthly-chart-wrap">
+        <div class="monthly-chart" id="monthly-trend-chart"></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>予約番号</th>
+            <th>コース</th>
+            <th>参加日</th>
+            <th>時間</th>
+            <th>人数</th>
+            <th>氏名</th>
+            <th>携帯番号</th>
+            <th>メール</th>
+            <th>登録日時</th>
+          </tr>
+        </thead>
+        <tbody id="reservation-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="panel-mail" role="tabpanel" aria-labelledby="tab-mail" hidden>
+    <p class="mail-current-count" id="mail-current-count">現在の登録者数: 読み込み中...</p>
+    <div class="mail-summary-card">
+      <h3>当月の登録/配信停止数の推移</h3>
+      <div class="mail-chart-wrap">
+        <div class="mail-chart" id="mail-monthly-chart"></div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>メールアドレス</th>
+            <th>状態</th>
+            <th>登録日時</th>
+            <th>更新日時</th>
+            <th>停止日時</th>
+          </tr>
+        </thead>
+        <tbody id="mail-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var reservationBody = document.getElementById("reservation-body");
+      var mailBody = document.getElementById("mail-body");
+      var reloadBtn = document.getElementById("reload-btn");
+      var tabReservation = document.getElementById("tab-reservation");
+      var tabMail = document.getElementById("tab-mail");
+      var panelReservation = document.getElementById("panel-reservation");
+      var panelMail = document.getElementById("panel-mail");
+      var loginUser = document.getElementById("login-user");
+      var logoutBtn = document.getElementById("logout-btn");
+      var weeklySummaryHead = document.getElementById("weekly-summary-head");
+      var weeklySummaryBody = document.getElementById("weekly-summary-body");
+      var monthlyTrendChart = document.getElementById("monthly-trend-chart");
+      var mailMonthlyChart = document.getElementById("mail-monthly-chart");
+      var mailCurrentCount = document.getElementById("mail-current-count");
+
+      function esc(value) {
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function loadReservations() {
+        return fetch("/api/admin/reservations")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (rows) {
+            if (!rows.length) {
+              reservationBody.innerHTML = "<tr><td colspan='9'>データがありません。</td></tr>";
+              return 0;
+            }
+            reservationBody.innerHTML = rows.map(function (r) {
+              return "<tr>"
+                + "<td>" + esc(r.reservationNumber) + "</td>"
+                + "<td>" + esc(r.course) + "</td>"
+                + "<td>" + esc(r.reserveDate) + "</td>"
+                + "<td>" + esc(r.reserveTime) + "</td>"
+                + "<td>" + esc(r.participantCount) + "</td>"
+                + "<td>" + esc(r.contactName) + "</td>"
+                + "<td>" + esc(r.contactPhone) + "</td>"
+                + "<td>" + esc(r.contactEmail) + "</td>"
+                + "<td>" + esc(r.createdAt) + "</td>"
+                + "</tr>";
+            }).join("");
+            return rows.length;
+          });
+      }
+
+      function loadLoginUser() {
+        return fetch("/api/admin/me")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (data) {
+            loginUser.textContent = "ログイン中: " + esc(data.username || "-");
+          });
+      }
+
+      function formatDateLabel(isoDate) {
+        var parts = String(isoDate || "").split("-");
+        if (parts.length !== 3) return isoDate;
+        return parts[1] + "/" + parts[2];
+      }
+
+      function loadReservationSummary() {
+        return fetch("/api/admin/reservation-summary")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (data) {
+            var dates = data.weeklyReservationStatus && data.weeklyReservationStatus.dates ? data.weeklyReservationStatus.dates : [];
+            var rows = data.weeklyReservationStatus && data.weeklyReservationStatus.rows ? data.weeklyReservationStatus.rows : [];
+            weeklySummaryHead.innerHTML = "<tr><th>時間帯</th>" + dates.map(function (d) {
+              return "<th>" + esc(formatDateLabel(d)) + "</th>";
+            }).join("") + "</tr>";
+            if (!rows.length) {
+              weeklySummaryBody.innerHTML = "<tr><td colspan='" + (dates.length + 1) + "'>データがありません。</td></tr>";
+            } else {
+              weeklySummaryBody.innerHTML = rows.map(function (row) {
+                var counts = row.counts || [];
+                return "<tr><td>" + esc(row.time) + "</td>"
+                  + counts.map(function (c) { return "<td>" + esc(c) + "</td>"; }).join("")
+                  + "</tr>";
+              }).join("");
+            }
+
+            var trend = data.monthlyReceivedTrend || [];
+            if (!trend.length) {
+              monthlyTrendChart.innerHTML = "<div>データがありません。</div>";
+            } else {
+              var maxCount = trend.reduce(function (max, point) {
+                return Math.max(max, Number(point.count) || 0);
+              }, 0);
+              var safeMax = maxCount > 0 ? maxCount : 1;
+              monthlyTrendChart.innerHTML = trend.map(function (point) {
+                var count = Number(point.count) || 0;
+                var height = Math.max(Math.round((count / safeMax) * 180), count > 0 ? 6 : 2);
+                var dateLabel = formatDateLabel(point.date);
+                return "<div class='monthly-bar-item'>"
+                  + "<div class='monthly-bar-count'>" + esc(count) + "</div>"
+                  + "<div class='monthly-bar' style='height:" + height + "px'></div>"
+                  + "<div class='monthly-bar-date'>" + esc(dateLabel) + "</div>"
+                  + "</div>";
+              }).join("");
+            }
+          });
+      }
+
+      function loadMailSubscriptions() {
+        return fetch("/api/admin/mail-subscriptions")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (rows) {
+            var activeCount = rows.filter(function (r) {
+              return r.status === "ACTIVE";
+            }).length;
+            mailCurrentCount.textContent = "現在の登録者数: " + activeCount + "名";
+            if (!rows.length) {
+              mailBody.innerHTML = "<tr><td colspan='5'>データがありません。</td></tr>";
+              return 0;
+            }
+            mailBody.innerHTML = rows.map(function (r) {
+              return "<tr>"
+                + "<td>" + esc(r.email) + "</td>"
+                + "<td>" + esc(r.status) + "</td>"
+                + "<td>" + esc(r.createdAt) + "</td>"
+                + "<td>" + esc(r.updatedAt) + "</td>"
+                + "<td>" + esc(r.unsubscribedAt) + "</td>"
+                + "</tr>";
+            }).join("");
+            return rows.length;
+          });
+      }
+
+      function loadMailSummary() {
+        return fetch("/api/admin/mail-summary")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (data) {
+            var trend = data.monthlyTrend || [];
+            if (!trend.length) {
+              mailMonthlyChart.innerHTML = "<div>データがありません。</div>";
+              return;
+            }
+            var maxCount = trend.reduce(function (max, point) {
+              var reg = Number(point.registeredCount) || 0;
+              var unsub = Number(point.unsubscribedCount) || 0;
+              return Math.max(max, reg, unsub);
+            }, 0);
+            var safeMax = maxCount > 0 ? maxCount : 1;
+            mailMonthlyChart.innerHTML = trend.map(function (point) {
+              var regCount = Number(point.registeredCount) || 0;
+              var unsubCount = Number(point.unsubscribedCount) || 0;
+              var regHeight = regCount > 0 ? Math.max(Math.round((regCount / safeMax) * 82), 6) : 0;
+              var unsubHeight = unsubCount > 0 ? Math.max(Math.round((unsubCount / safeMax) * 82), 6) : 0;
+              return "<div class='mail-chart-item'>"
+                + "<div class='mail-up-zone'>"
+                + "<div class='mail-count'>" + esc(regCount) + "</div>"
+                + "<div class='mail-bar up' style='height:" + regHeight + "px'></div>"
+                + "</div>"
+                + "<div class='mail-baseline'></div>"
+                + "<div class='mail-down-zone'>"
+                + "<div class='mail-bar down' style='height:" + unsubHeight + "px'></div>"
+                + "<div class='mail-count'>" + esc(unsubCount) + "</div>"
+                + "</div>"
+                + "<div class='mail-date'>" + esc(formatDateLabel(point.date)) + "</div>"
+                + "</div>";
+            }).join("");
+          });
+      }
+
+      function load() {
+        Promise.all([loadReservationSummary(), loadReservations(), loadMailSummary(), loadMailSubscriptions()])
+          .then(function () {})
+          .catch(function (error) {
+            if (!reservationBody.innerHTML) {
+              reservationBody.innerHTML = "<tr><td colspan='9'>読み込みに失敗しました。</td></tr>";
+            }
+            if (!mailBody.innerHTML) {
+              mailBody.innerHTML = "<tr><td colspan='5'>読み込みに失敗しました。</td></tr>";
+            }
+            console.error(error);
+          });
+      }
+
+      function activateTab(type) {
+        var reservationActive = type === "reservation";
+        tabReservation.classList.toggle("is-active", reservationActive);
+        tabMail.classList.toggle("is-active", !reservationActive);
+        tabReservation.setAttribute("aria-selected", reservationActive ? "true" : "false");
+        tabMail.setAttribute("aria-selected", reservationActive ? "false" : "true");
+        panelReservation.hidden = !reservationActive;
+        panelMail.hidden = reservationActive;
+      }
+
+      tabReservation.addEventListener("click", function () {
+        activateTab("reservation");
+      });
+      tabMail.addEventListener("click", function () {
+        activateTab("mail");
+      });
+
+      reloadBtn.addEventListener("click", load);
+      logoutBtn.addEventListener("click", function () {
+        fetch("/logout", { method: "POST" })
+          .then(function () {
+            window.location.href = "/login.html?logout";
+          })
+          .catch(function () {
+            window.location.href = "/login.html?logout";
+          });
+      });
+      activateTab("reservation");
+      loadLoginUser();
+      load();
+    })();
+  </script>
+</body>
+</html>

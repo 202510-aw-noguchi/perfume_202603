@@ -848,6 +848,7 @@
         <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
     </footer>
     <script src="../common-layout.js"></script>
+    <script src="../workshop-sliders.js"></script>
     <script>
         function ensureSliderDots(slider, slideCount, onSelect) {
             if (!slider || slideCount < 2) return null;
@@ -970,165 +971,27 @@
             updateSlider();
         })();
 
-        (function () {
-            var slider = document.querySelector(".review-slider");
-            var track = slider ? slider.querySelector(".review-track") : null;
-            var slides = track ? track.querySelectorAll(".review-card") : [];
-            var navGroup = slider ? slider.querySelector(".review-nav-group") : null;
-            var prev = slider ? slider.querySelector(".review-nav.prev") : null;
-            var next = slider ? slider.querySelector(".review-nav.next") : null;
-            var index = 0;
-            var dots = null;
-
-            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
-
-            dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
-                index = nextIndex;
-                updateSlider();
-            });
-
-            function isSp() {
-                return window.matchMedia("(max-width: 900px)").matches;
-            }
-
-            function updateSlider() {
-                if (!isSp()) {
-                    track.style.transform = "none";
-                    prev.style.display = "none";
-                    next.style.display = "none";
-                    navGroup.style.top = "0";
-                    updateSliderDots(dots, index, false);
-                    return;
-                }
-
-                var slideWidth = slider.clientWidth;
-                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-                prev.style.display = "block";
-                next.style.display = "block";
-
-                var currentSlide = slides[index];
-                var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
-                if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-                }
-
-                updateSliderDots(dots, index, true);
-            }
-
-            prev.addEventListener("click", function () {
-                index = index === 0 ? slides.length - 1 : index - 1;
-                updateSlider();
-            });
-
-            next.addEventListener("click", function () {
-                index = index === slides.length - 1 ? 0 : index + 1;
-                updateSlider();
-            });
-
-            var touchStartX = 0;
-            var touchEndX = 0;
-            slider.addEventListener("touchstart", function (e) {
-                touchStartX = e.changedTouches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener("touchend", function (e) {
-                touchEndX = e.changedTouches[0].clientX;
-                var diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 40) return;
-
-                if (diff > 0) {
-                    index = index === 0 ? slides.length - 1 : index - 1;
-                } else {
-                    index = index === slides.length - 1 ? 0 : index + 1;
-                }
-                updateSlider();
-            }, { passive: true });
-
-            window.addEventListener("resize", updateSlider);
-            window.addEventListener("load", updateSlider);
-            updateSlider();
-        })();
-
-        (function () {
-            var slider = document.querySelector(".timeline-slider");
-            var track = slider ? slider.querySelector(".timeline-grid") : null;
-            var slides = track ? track.querySelectorAll(".timeline-item") : [];
-            var navGroup = slider ? slider.querySelector(".timeline-nav-group") : null;
-            var prev = slider ? slider.querySelector(".timeline-nav.prev") : null;
-            var next = slider ? slider.querySelector(".timeline-nav.next") : null;
-            var index = 0;
-            var dots = null;
-
-            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
-
-            dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
-                index = nextIndex;
-                updateSlider();
-            });
-
-            function isSp() {
-                return window.matchMedia("(max-width: 900px)").matches;
-            }
-
-            function updateSlider() {
-                if (!isSp()) {
-                    track.style.transform = "none";
-                    prev.style.display = "none";
-                    next.style.display = "none";
-                    navGroup.style.top = "50%";
-                    updateSliderDots(dots, index, false);
-                    return;
-                }
-
-                var slideWidth = slider.clientWidth;
-                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-                prev.style.display = "block";
-                next.style.display = "block";
-
-                var currentSlide = slides[index];
-                var photo = currentSlide ? currentSlide.querySelector("img") : null;
-                if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-                }
-
-                updateSliderDots(dots, index, true);
-            }
-
-            prev.addEventListener("click", function () {
-                index = index === 0 ? slides.length - 1 : index - 1;
-                updateSlider();
-            });
-
-            next.addEventListener("click", function () {
-                index = index === slides.length - 1 ? 0 : index + 1;
-                updateSlider();
-            });
-
-            var touchStartX = 0;
-            var touchEndX = 0;
-            slider.addEventListener("touchstart", function (e) {
-                touchStartX = e.changedTouches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener("touchend", function (e) {
-                touchEndX = e.changedTouches[0].clientX;
-                var diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 40) return;
-
-                if (diff > 0) {
-                    index = index === 0 ? slides.length - 1 : index - 1;
-                } else {
-                    index = index === slides.length - 1 ? 0 : index + 1;
-                }
-                updateSlider();
-            }, { passive: true });
-
-            window.addEventListener("resize", updateSlider);
-            window.addEventListener("load", updateSlider);
-            updateSlider();
-        })();
-
-        (function () {
+                initWorkshopCardSlider({
+            sliderSelector: ".review-slider",
+            trackSelector: ".review-track",
+            slideSelector: ".review-card",
+            navGroupSelector: ".review-nav-group",
+            prevSelector: ".review-nav.prev",
+            nextSelector: ".review-nav.next",
+            photoSelector: ".img-placeholder",
+            desktopTop: "0"
+        });
+        initWorkshopCardSlider({
+            sliderSelector: ".timeline-slider",
+            trackSelector: ".timeline-grid",
+            slideSelector: ".timeline-item",
+            navGroupSelector: ".timeline-nav-group",
+            prevSelector: ".timeline-nav.prev",
+            nextSelector: ".timeline-nav.next",
+            photoSelector: "img",
+            desktopTop: "50%"
+        });
+(function () {
             var slider = document.querySelector(".perfume-course-slider");
             var track = slider ? slider.querySelector(".perfume-course-grid") : null;
             var slides = track ? track.querySelectorAll(".perfume-course-card") : [];
@@ -1207,240 +1070,37 @@
             updateSlider();
         })();
 
-        (function () {
-            var slider = document.querySelector(".scene-slider");
-            var track = slider ? slider.querySelector(".scene-grid") : null;
-            var slides = track ? track.querySelectorAll(".scene-slide") : [];
-            var navGroup = slider ? slider.querySelector(".scene-nav-group") : null;
-            var prev = slider ? slider.querySelector(".scene-nav.prev") : null;
-            var next = slider ? slider.querySelector(".scene-nav.next") : null;
-            var index = 0;
-            var dots = null;
+        initWorkshopCardSlider({
+            sliderSelector: ".scene-slider",
+            trackSelector: ".scene-grid",
+            slideSelector: ".scene-slide",
+            navGroupSelector: ".scene-nav-group",
+            prevSelector: ".scene-nav.prev",
+            nextSelector: ".scene-nav.next",
+            photoSelector: "img",
+            desktopTop: "50%"
+        });
 
-            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
+        initWorkshopSceneModal();
 
-            dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
-                index = nextIndex;
-                updateSlider();
-            });
-
-            function isSp() {
-                return window.matchMedia("(max-width: 900px)").matches;
-            }
-
-            function updateSlider() {
-                if (!isSp()) {
-                    track.style.transform = "none";
-                    prev.style.display = "none";
-                    next.style.display = "none";
-                    navGroup.style.top = "50%";
-                    updateSliderDots(dots, index, false);
-                    return;
-                }
-
-                var slideWidth = slider.clientWidth;
-                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-                prev.style.display = "block";
-                next.style.display = "block";
-
-                var currentSlide = slides[index];
-                var photo = currentSlide ? currentSlide.querySelector("img") : null;
-                if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-                }
-
-                updateSliderDots(dots, index, true);
-            }
-
-            prev.addEventListener("click", function () {
-                index = index === 0 ? slides.length - 1 : index - 1;
-                updateSlider();
-            });
-
-            next.addEventListener("click", function () {
-                index = index === slides.length - 1 ? 0 : index + 1;
-                updateSlider();
-            });
-
-            var touchStartX = 0;
-            var touchEndX = 0;
-            slider.addEventListener("touchstart", function (e) {
-                touchStartX = e.changedTouches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener("touchend", function (e) {
-                touchEndX = e.changedTouches[0].clientX;
-                var diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 40) return;
-
-                if (diff > 0) {
-                    index = index === 0 ? slides.length - 1 : index - 1;
-                } else {
-                    index = index === slides.length - 1 ? 0 : index + 1;
-                }
-                updateSlider();
-            }, { passive: true });
-
-            window.addEventListener("resize", updateSlider);
-            window.addEventListener("load", updateSlider);
-            updateSlider();
-        })();
-
-        (function () {
-            var slider = document.querySelector(".scene-slider");
-            var slides = slider ? slider.querySelectorAll(".scene-slide") : [];
-            var modal = document.getElementById("scene-modal");
-            var modalImage = modal ? modal.querySelector(".scene-modal-image") : null;
-            var modalTitle = modal ? modal.querySelector(".scene-modal-title") : null;
-            var modalText = modal ? modal.querySelector(".scene-modal-text") : null;
-            var modalClose = modal ? modal.querySelector(".scene-modal-close") : null;
-
-            if (!slider || !slides.length || !modal || !modalImage || !modalTitle || !modalText || !modalClose) return;
-
-            function isSp() {
-                return window.matchMedia("(max-width: 900px)").matches;
-            }
-
-            function closeModal() {
-                modal.classList.remove("is-open");
-                modal.hidden = true;
-                document.body.style.overflow = "";
-            }
-
-            function showDetail(slide) {
-                var title = slide.getAttribute("data-scene-title") || "";
-                var description = slide.getAttribute("data-scene-description") || "";
-
-                if (isSp()) {
-                    return;
-                }
-
-                var image = slide.querySelector("img");
-                modalImage.src = image ? image.getAttribute("src") : "";
-                modalImage.alt = title;
-                modalTitle.textContent = title;
-                modalText.textContent = description;
-                modal.hidden = false;
-                modal.classList.add("is-open");
-                document.body.style.overflow = "hidden";
-            }
-
-            slides.forEach(function (slide) {
-                var trigger = slide.querySelector(".scene-trigger");
-                var title = slide.getAttribute("data-scene-title") || "";
-                var description = slide.getAttribute("data-scene-description") || "";
-                var detail = slide.querySelector(".scene-slide-detail");
-
-                if (!detail) {
-                    detail = document.createElement("div");
-                    detail.className = "scene-slide-detail";
-                    detail.innerHTML = '<h3 class="scene-detail-title"></h3><p class="scene-detail-text"></p>';
-                    detail.querySelector(".scene-detail-title").textContent = title;
-                    detail.querySelector(".scene-detail-text").textContent = description;
-                    slide.appendChild(detail);
-                }
-
-                if (!trigger) return;
-
-                trigger.addEventListener("click", function () {
-                    showDetail(slide);
-                });
-            });
-
-            modalClose.addEventListener("click", closeModal);
-            modal.addEventListener("click", function (event) {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-
-            document.addEventListener("keydown", function (event) {
-                if (event.key === "Escape") {
-                    closeModal();
-                }
-            });
-        })();
-
-        (function () {
-            var slider = document.querySelector(".recommended-slider");
-            var track = slider ? slider.querySelector(".recommended-grid") : null;
-            var slides = track ? track.querySelectorAll(".recommended-card") : [];
-            var navGroup = slider ? slider.querySelector(".recommended-nav-group") : null;
-            var prev = slider ? slider.querySelector(".recommended-nav.prev") : null;
-            var next = slider ? slider.querySelector(".recommended-nav.next") : null;
-            var index = 0;
-            var dots = null;
-
-            if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
-
-            dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
-                index = nextIndex;
-                updateSlider();
-            });
-
-            function isSp() {
-                return window.matchMedia("(max-width: 900px)").matches;
-            }
-
-            function updateSlider() {
-                if (!isSp()) {
-                    track.style.transform = "none";
-                    prev.style.display = "none";
-                    next.style.display = "none";
-                    navGroup.style.top = "50%";
-                    updateSliderDots(dots, index, false);
-                    return;
-                }
-
-                var slideWidth = slider.clientWidth;
-                track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-                prev.style.display = "block";
-                next.style.display = "block";
-
-                var photo = slides[index] ? slides[index].querySelector("img") : null;
-                if (photo) {
-                    navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-                }
-
-                updateSliderDots(dots, index, true);
-            }
-
-            prev.addEventListener("click", function () {
-                index = index === 0 ? slides.length - 1 : index - 1;
-                updateSlider();
-            });
-
-            next.addEventListener("click", function () {
-                index = index === slides.length - 1 ? 0 : index + 1;
-                updateSlider();
-            });
-
-            var touchStartX = 0;
-            var touchEndX = 0;
-            slider.addEventListener("touchstart", function (e) {
-                touchStartX = e.changedTouches[0].clientX;
-            }, { passive: true });
-
-            slider.addEventListener("touchend", function (e) {
-                touchEndX = e.changedTouches[0].clientX;
-                var diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 40) return;
-
-                if (diff > 0) {
-                    index = index === 0 ? slides.length - 1 : index - 1;
-                } else {
-                    index = index === slides.length - 1 ? 0 : index + 1;
-                }
-                updateSlider();
-            }, { passive: true });
-
-            window.addEventListener("resize", updateSlider);
-            window.addEventListener("load", updateSlider);
-            updateSlider();
-        })();
-
-    </script>
+        initWorkshopCardSlider({
+            sliderSelector: ".recommended-slider",
+            trackSelector: ".recommended-grid",
+            slideSelector: ".recommended-card",
+            navGroupSelector: ".recommended-nav-group",
+            prevSelector: ".recommended-nav.prev",
+            nextSelector: ".recommended-nav.next",
+            photoSelector: "img",
+            desktopTop: "50%"
+        });
+</script>
 </body>
 
 </html>
+
+
+
+
+
+
 

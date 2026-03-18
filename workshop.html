@@ -1402,6 +1402,7 @@
     <p>静かに、深く、香りと向き合う時間を。<br>© 2026 c-corp. All Rights Reserved.</p>
   </footer>
   <script src="common-layout.js"></script>
+  <script src="workshop-sliders.js"></script>
   <script>
     function ensureSliderDots(slider, slideCount, onSelect) {
       if (!slider || slideCount < 2) return null;
@@ -1609,85 +1610,20 @@
       updateSlider();
     })();
 
-    (function () {
-      var slider = document.querySelector(".review-slider");
-      var track = slider ? slider.querySelector(".review-track") : null;
-      var slides = track ? track.querySelectorAll(".review-card") : [];
-      var navGroup = slider ? slider.querySelector(".review-nav-group") : null;
-      var prev = slider ? slider.querySelector(".review-nav.prev") : null;
-      var next = slider ? slider.querySelector(".review-nav.next") : null;
-      var index = 0;
-      var dots = null;
-
-      if (!slider || !track || !slides.length || !prev || !next || !navGroup) return;
-
-      dots = ensureSliderDots(slider, slides.length, function (nextIndex) {
-        index = nextIndex;
-        updateSlider();
-      });
-
-      function isSp() {
-        return window.matchMedia("(max-width: 900px)").matches;
-      }
-
-      function updateSlider() {
-        if (!isSp()) {
-          track.style.transform = "none";
-          prev.style.display = "none";
-          next.style.display = "none";
-          navGroup.style.top = "0";
-          updateSliderDots(dots, index, false);
-          return;
-        }
-
-        var slideWidth = slider.clientWidth;
-        track.style.transform = "translateX(" + (-slideWidth * index) + "px)";
-        prev.style.display = "block";
-        next.style.display = "block";
-
-        var currentSlide = slides[index];
-        var photo = currentSlide ? currentSlide.querySelector(".img-placeholder") : null;
-        if (photo) {
-          navGroup.style.top = (photo.offsetTop + (photo.offsetHeight / 2)) + "px";
-        }
-        updateSliderDots(dots, index, true);
-      }
-
-      prev.addEventListener("click", function () {
-        index = index === 0 ? slides.length - 1 : index - 1;
-        updateSlider();
-      });
-
-      next.addEventListener("click", function () {
-        index = index === slides.length - 1 ? 0 : index + 1;
-        updateSlider();
-      });
-
-      var touchStartX = 0;
-      var touchEndX = 0;
-      slider.addEventListener("touchstart", function (e) {
-        touchStartX = e.changedTouches[0].clientX;
-      }, { passive: true });
-
-      slider.addEventListener("touchend", function (e) {
-        touchEndX = e.changedTouches[0].clientX;
-        var diff = touchEndX - touchStartX;
-        if (Math.abs(diff) < 40) return;
-
-        if (diff > 0) {
-          index = index === 0 ? slides.length - 1 : index - 1;
-        } else {
-          index = index === slides.length - 1 ? 0 : index + 1;
-        }
-        updateSlider();
-      }, { passive: true });
-
-      window.addEventListener("resize", updateSlider);
-      window.addEventListener("load", updateSlider);
-      updateSlider();
-    })();
-
-  </script>
+        initWorkshopCardSlider({
+      sliderSelector: ".review-slider",
+      trackSelector: ".review-track",
+      slideSelector: ".review-card",
+      navGroupSelector: ".review-nav-group",
+      prevSelector: ".review-nav.prev",
+      nextSelector: ".review-nav.next",
+      photoSelector: ".img-placeholder",
+      desktopTop: "0"
+    });
+</script>
 </body>
 
 </html>
+
+
+
