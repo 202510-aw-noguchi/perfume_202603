@@ -962,23 +962,6 @@
                 });
             }
 
-            (function initMenu() {
-                var menuBtn = document.querySelector(".sp-menu-btn");
-                var drawer = document.querySelector(".sp-drawer");
-                if (!menuBtn || !drawer) return;
-                menuBtn.addEventListener("click", function (event) {
-                    event.stopPropagation();
-                    var isOpen = drawer.classList.toggle("is-open");
-                    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                });
-                document.addEventListener("click", function (event) {
-                    if (!drawer.classList.contains("is-open")) return;
-                    if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
-                    drawer.classList.remove("is-open");
-                    menuBtn.setAttribute("aria-expanded", "false");
-                });
-            })();
-
             if (reservationModalClose) {
                 reservationModalClose.addEventListener("click", closeReservationModal);
             }
@@ -1003,3 +986,4 @@
 </body>
 
 </html>
+

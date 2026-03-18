@@ -50,4 +50,35 @@
       "<ul class=\"menu\">" + navHtml + "</ul>" +
       "<div class=\"side-sub\"><div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div><div>公式Instagram</div></div>";
   }
+
+  var menuButton = document.querySelector(".sp-menu-btn");
+  if (menuButton && spDrawer) {
+    function isDrawerEnabled() {
+      return window.matchMedia("(max-width: 1280px)").matches;
+    }
+
+    function closeDrawer() {
+      spDrawer.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+
+    menuButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (!isDrawerEnabled()) return;
+      var willOpen = !spDrawer.classList.contains("is-open");
+      spDrawer.classList.toggle("is-open", willOpen);
+      menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!isDrawerEnabled()) return;
+      if (!spDrawer.classList.contains("is-open")) return;
+      if (spDrawer.contains(event.target) || menuButton.contains(event.target)) return;
+      closeDrawer();
+    });
+
+    window.addEventListener("resize", function () {
+      if (!isDrawerEnabled()) closeDrawer();
+    });
+  }
 })();

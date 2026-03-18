@@ -302,39 +302,6 @@
     <script src="common-layout.js"></script>
     <script>
         (function () {
-            var menuButton = document.querySelector(".sp-menu-btn");
-            var drawer = document.querySelector(".sp-drawer");
-            if (!menuButton || !drawer) return;
-
-            function isSp() {
-                return window.matchMedia("(max-width: 1280px)").matches;
-            }
-
-            function closeDrawer() {
-                drawer.classList.remove("is-open");
-                menuButton.setAttribute("aria-expanded", "false");
-            }
-
-            menuButton.addEventListener("click", function () {
-                if (!isSp()) return;
-                var willOpen = !drawer.classList.contains("is-open");
-                drawer.classList.toggle("is-open", willOpen);
-                menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
-            });
-
-            document.addEventListener("click", function (event) {
-                if (!isSp()) return;
-                if (!drawer.classList.contains("is-open")) return;
-                if (drawer.contains(event.target) || menuButton.contains(event.target)) return;
-                closeDrawer();
-            });
-
-            window.addEventListener("resize", function () {
-                if (!isSp()) closeDrawer();
-            });
-        })();
-
-        (function () {
             var toggle = document.querySelector(".policy-toggle");
             var panel = document.getElementById("mail-policy-box");
             if (!toggle || !panel) return;
