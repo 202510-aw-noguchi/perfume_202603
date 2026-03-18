@@ -9,7 +9,6 @@
     if (page === "index") return /\/index\.html$/.test(path) || path.endsWith("/");
     if (page === "brands") return /\/brands\.html$/.test(path);
     if (page === "workshop") return /\/workshop\.html$/.test(path);
-    if (page === "mail") return /\/mail\.html$/.test(path);
     if (page === "magazine") return /\/magazine\.html$/.test(path) || /\/magazine\/\d+\.html$/.test(path);
     if (page === "about") return /\/about\.html$/.test(path);
     return false;
@@ -23,7 +22,7 @@
   var navHtml = [
     navItem("brands", "ブランド", root + "brands.html"),
     navItem("workshop", "ワークショップ", root + "workshop.html"),
-    navItem("shopping", "ショッピング(準備中)"),
+    "<li>ショッピング(準備中)</li>",
     navItem("magazine", "よみもの", root + "magazine.html"),
     navItem("about", "c-corpについて", root + "about.html")
   ].join("");

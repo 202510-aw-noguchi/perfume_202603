@@ -1604,7 +1604,8 @@ p {
 }
 
 .menu li a:hover {
-    text-decoration: underline;
+    color: var(--accent);
+    text-decoration: none;
 }
 
 .button-row .btn-text-arrow {
