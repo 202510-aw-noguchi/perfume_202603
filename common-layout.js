@@ -2,7 +2,7 @@
   "use strict";
 
   var path = window.location.pathname.replace(/\\/g, "/").toLowerCase();
-  var isNestedPage = /\/(magazine|workshop)\/[^/]+\.html$/.test(path);
+  var isNestedPage = /\/(magazine|workshop|press)\/[^/]+\.html$/.test(path);
   var isWorkshopSection = /\/workshop\.html$/.test(path) || /\/workshop\/[^/]+\.html$/.test(path);
   var root = isNestedPage ? "../" : "";
 
@@ -12,18 +12,18 @@
     if (page === "workshop") return isWorkshopSection;
     if (page === "magazine") return /\/magazine\.html$/.test(path) || /\/magazine\/\d+\.html$/.test(path);
     if (page === "about") return /\/about\.html$/.test(path);
-    if (page === "press") return /\/press\.html$/.test(path);
+    if (page === "press") return /\/press\.html$/.test(path) || /\/press\/[^/]+\.html$/.test(path);
     return false;
   }
 
   function navItem(page, label, href) {
-    if (isCurrent(page)) return "<li>" + label + "</li>";
-    return "<li><a href=\"" + href + "\">" + label + "</a></li>";
+    var currentAttr = isCurrent(page) ? " aria-current=\"page\"" : "";
+    return "<li><a href=\"" + href + "\"" + currentAttr + ">" + label + "</a></li>";
   }
 
   function workshopSubItem(pattern, label, href) {
-    if (pattern.test(path)) return "<li>" + label + "</li>";
-    return "<li><a href=\"" + href + "\">" + label + "</a></li>";
+    var currentAttr = pattern.test(path) ? " aria-current=\"page\"" : "";
+    return "<li><a href=\"" + href + "\"" + currentAttr + ">" + label + "</a></li>";
   }
 
   var workshopSubHtml = isWorkshopSection
@@ -35,7 +35,7 @@
     : "";
 
   var workshopMenuHtml = isWorkshopSection
-    ? "<li>ワークショップ" + workshopSubHtml + "</li>"
+    ? "<li><a href=\"" + root + "workshop.html\" aria-current=\"page\">ワークショップ</a>" + workshopSubHtml + "</li>"
     : "<li><a href=\"" + root + "workshop.html\">ワークショップ</a></li>";
 
   var navHtml = [
