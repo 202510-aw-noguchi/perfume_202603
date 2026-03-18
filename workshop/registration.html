@@ -162,6 +162,11 @@
             cursor: default;
         }
 
+        .calendar-day:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
         .calendar-day.is-selected {
             background: var(--accent);
             color: #fff;
@@ -556,6 +561,7 @@
             var selectedDate = null;
             var weekdays = ["日", "月", "火", "水", "木", "金", "土"];
             var today = new Date();
+            var minSelectableDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
             var baseYear = today.getFullYear();
             var baseMonth = today.getMonth();
 
@@ -619,6 +625,10 @@
                     var cellDate = new Date(displayYear, displayMonth, d);
                     var value = formatDate(cellDate);
                     btn.setAttribute("data-date", value);
+
+                    if (cellDate < minSelectableDate) {
+                        btn.disabled = true;
+                    }
 
                     if (selectedDate && formatDate(selectedDate) === value) {
                         btn.classList.add("is-selected");
