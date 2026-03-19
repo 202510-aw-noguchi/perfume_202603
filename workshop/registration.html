@@ -616,9 +616,15 @@
     <script src="../js/common-layout.js"></script>
     <script>
         (function () {
-            var API_BASE = window.location.protocol === "file:"
-                ? "http://localhost:8080/api"
-                : "/api";
+            var API_BASE = (function () {
+                if (window.location.protocol === "file:") {
+                    return "http://localhost:8080/api";
+                }
+                if (window.location.hostname && window.location.hostname.indexOf("github.io") !== -1) {
+                    return "https://perfume-20260319.onrender.com/api";
+                }
+                return "/api";
+            })();
             var SLOTS = ["10:00-11:00", "14:00-15:00", "16:00-17:00"];
             var weekdays = ["日", "月", "火", "水", "木", "金", "土"];
             var cards = document.querySelectorAll(".price-list");
@@ -856,7 +862,7 @@
                         if (clearResult && result) result.textContent = "";
                     })
                     .catch(function (error) {
-                        alert(error.message + "\nバックエンド（http://localhost:8080）が起動しているか確認してください。");
+                        alert(error.message + "\nAPI接続先: " + API_BASE);
                     });
             }
 
