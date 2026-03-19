@@ -17,6 +17,7 @@ C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reserva
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\api\dto\SlotAvailabilityDto.java
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\api\MailSubscriptionController.java
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\api\ReservationController.java
+C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\config\RootRedirectController.java
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\config\SecurityConfig.java
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\config\WebConfig.java
 C:\academia\src\perfume_202603\reservation-app\src\main\java\com\example\reservation\model\MailSubscription.java

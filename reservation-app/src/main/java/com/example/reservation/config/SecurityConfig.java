@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/admin.html", "/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/reservations/**", "/api/mail/**", "/", "/index.html", "/login.html", "/h2-console/**", "/error").permitAll()
+                        .requestMatchers("/api/reservations/**", "/api/mail/**", "/", "/todo", "/index.html", "/login.html", "/h2-console/**", "/error").permitAll()
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
