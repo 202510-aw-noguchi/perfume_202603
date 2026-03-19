@@ -34,10 +34,6 @@
             box-sizing: border-box;
         }
 
-        .feature h3 {
-            line-height: 1.35;
-        }
-
         .wrap {
             max-width: 980px;
             margin: 0 auto;
@@ -53,56 +49,10 @@
             color: var(--text);
         }
 
-        .center-note,
-        .center-note-pc,
-        .center-note-sp {
-            text-align: center;
-            margin: 70px 0 33px;
-        }
-
-        .center-note-sp {
-            display: none;
-        }
-
         .h2-lead-area {
             max-width: none;
             margin: 0 auto 68px;
             text-align: center;
-        }
-
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-bottom: 42px;
-        }
-
-        .button-row .btn-text-arrow {
-            position: relative;
-            width: 230px;
-            height: auto;
-            min-width: 0;
-            padding: 0 30px 8px 8px;
-            border: none;
-            border-bottom: 1px solid #9aa1b2;
-            background: transparent;
-            color: var(--text);
-            line-height: 1.2;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .button-row .btn-text-arrow::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: -1px;
-            width: 0;
-            height: 0;
-            border-left: 14px solid #8c8c8c;
-            border-top: 14px solid transparent;
         }
 
         .btn {
@@ -123,17 +73,6 @@
             background: var(--accent);
             color: #fff;
             margin-top: 21px;
-        }
-
-        .feature {
-            max-width: 760px;
-            margin: 0 auto 52px;
-            text-align: center;
-        }
-
-        .feature .img-placeholder {
-            min-height: 300px;
-            margin-bottom: 12px;
         }
 
         .card {
@@ -267,7 +206,6 @@
             .lead-section-right-photo,
             .lead-section-right-text,
             .lead-section-left-text,
-            .special,
             .faq .faq-accordion,
             .access .img-placeholder,
             .reviews {
@@ -284,10 +222,6 @@
 
             .lead-section-left-text,
             .lead-section-right-text,
-            .center-note,
-            .center-note-pc,
-            .center-note-sp,
-            .special>p,
             .reviews>p,
             .review-card>p,
             .review-card>div:not(.img-placeholder),
@@ -308,31 +242,6 @@
             .review-card>div:not(.img-placeholder) {
                 padding-left: 0;
                 padding-right: 0;
-            }
-
-            .center-note-pc {
-                display: none;
-            }
-
-            .center-note-sp {
-                display: block;
-                margin: 75px 0 30px;
-            }
-
-            .h2-lead-area-pc {
-                display: none;
-            }
-
-            .h2-lead-area-sp {
-                display: block;
-                text-align: center;
-            }
-
-            .button-row {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
-                margin-bottom: 34px;
             }
 
             .slider-dots {
@@ -406,41 +315,6 @@
 
             body {
                 line-height: 1.65;
-            }
-
-            .perfume-intro,
-            .perfume-lead-pc,
-            .perfume-lead-sp,
-            .perfume-section-lead,
-            .h2-lead-area,
-            .h2-lead-area-pc,
-            .h2-lead-area-sp {
-                width: calc(100% - 40px);
-                max-width: calc(100% - 40px);
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .center-note,
-            .center-note-pc,
-            .center-note-sp {
-                margin: 75px 0 20px;
-            }
-
-            .center-note-sp {
-                margin: 75px 0 30px;
-            }
-
-            .button-row .btn-text-arrow {
-                width: 84%;
-                padding-right: 26px;
-            }
-
-            .pickup-review-item img,
-            .recommended-card img,
-            .perfume-course-card img {
-                width: 250px;
-                height: 250px;
             }
 
             .price {

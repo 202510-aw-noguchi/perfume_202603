@@ -1468,11 +1468,23 @@ p {
     .perfume-intro,
     .perfume-lead-pc,
     .perfume-lead-sp,
-    .perfume-section-lead {
+    .perfume-section-lead,
+    .h2-lead-area,
+    .h2-lead-area-pc,
+    .h2-lead-area-sp {
         width: calc(100% - 40px);
         max-width: calc(100% - 40px);
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .wrap .h2-lead-area-pc {
+        display: none;
+    }
+
+    .wrap .h2-lead-area-sp {
+        display: block;
+        text-align: center;
     }
 
     .btn-reserve {
