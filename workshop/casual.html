@@ -3,15 +3,25 @@
 
 <head>
     <meta charset="UTF-8" />
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon-180x180.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="../image/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="../image/android-chrome-512x512.png" />
-    <meta name="description" content="Fragrance Short Session" />
+    <meta name="description"
+        content="香りをもっと身近に感じていただくための、コンパクトな体験プログラムです。ファブリックミスト、オードトワレ、ディフューザーの3種から選び、日常に寄り添う香りをお作りいただけます。" />
     <meta name="title" content="Fragrance Short Session" />
+    <meta property="og:title" content="Fragrance Short Session" />
+    <meta property="og:description"
+        content="香りをもっと身近に感じていただくための、コンパクトな体験プログラムです。ファブリックミスト、オードトワレ、ディフューザーの3種から選び、日常に寄り添う香りをお作りいただけます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="../image/Main.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fragrance Short Session" />
+    <meta name="twitter:description"
+        content="香りをもっと身近に感じていただくための、コンパクトな体験プログラムです。ファブリックミスト、オードトワレ、ディフューザーの3種から選び、日常に寄り添う香りをお作りいただけます。" />
     <title>Fragrance Short Session</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +36,11 @@
 
         .feature h3 {
             line-height: 1.35;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
         }
 
         .img-placeholder {
@@ -47,6 +62,12 @@
 
         .center-note-sp {
             display: none;
+        }
+
+        .h2-lead-area {
+            max-width: none;
+            margin: 0 auto 68px;
+            text-align: center;
         }
 
         .button-row {
@@ -232,6 +253,11 @@
         }
 
         @media (max-width: 900px) {
+            .wrap {
+                max-width: 760px;
+                padding-top: 0;
+            }
+
             .lead-section {
                 width: 100%;
                 max-width: 888px;
@@ -434,11 +460,6 @@
                 min-height: 0;
             }
 
-            .hero {
-                height: 493px;
-                aspect-ratio: auto;
-            }
-
         }
     </style>
 </head>
@@ -448,27 +469,22 @@
         <aside class="sidebar"></aside>
 
         <main class="content">
-            <div class="hero-wrap">
-                <div class="sp-header"></div>
-                <div class="sp-drawer" id="sp-drawer"></div>
-                <section class="hero">
-                    <img src="../image/Casual_Top.png" alt="ワークショップのイメージ">
-                </section>
-            </div>
+            <div class="sp-header"></div>
+            <div class="sp-drawer" id="sp-drawer"></div>
 
-            <div class="container">
+            <div class="wrap">
                 <section class="perfume-heading">
                     <h1>Workshop</h1>
                     <p class="copy">香りのショートセッション</p>
                 </section>
 
-                <section class="perfume-lead-pc">
+                <section class="lead-area-pc">
                     <p>香りをもっと身近に感じていただくための、コンパクトな体験プログラムです。<br>
                         ファブリックミスト、オードトワレ、ディフューザーの3種から選び、<br>
                         日常に寄り添う香りをお作りいただけます。</p>
                     <p>はじめての調香体験にも、気軽な記念づくりにもおすすめです。</p>
                 </section>
-                <section class="perfume-lead-sp">
+                <section class="lead-area-sp">
                     <p>香りをもっと身近に感じていただくための、<br>
                         コンパクトな体験プログラムです。<br>
                         ファブリックミスト、オードトワレ、ディフューザーの3種から選び、<br>
@@ -1104,7 +1120,3 @@
 </body>
 
 </html>
-
-
-
-

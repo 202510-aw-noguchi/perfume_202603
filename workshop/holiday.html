@@ -3,15 +3,25 @@
 
 <head>
     <meta charset="UTF-8" />
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../image/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="../image/apple-touch-icon-180x180.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="../image/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="../image/android-chrome-512x512.png" />
-    <meta name="description" content="Fragrance Making Workshop" />
+    <meta name="description"
+        content="香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。香りづくりを気軽に体験したい方も、より自由に表現したい方も今の気分に合わせて選べる2つのコースをご用意しました。" />
     <meta name="title" content="Fragrance Making Workshop" />
+    <meta property="og:title" content="Fragrance Making Workshop" />
+    <meta property="og:description"
+        content="香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。香りづくりを気軽に体験したい方も、より自由に表現したい方も今の気分に合わせて選べる2つのコースをご用意しました。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="../image/Main.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fragrance Making Workshop" />
+    <meta name="twitter:description"
+        content="香りを重ねるたびに、印象がゆるやかに移ろう――その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。香りづくりを気軽に体験したい方も、より自由に表現したい方も今の気分に合わせて選べる2つのコースをご用意しました。" />
     <title>Fragrance Making Workshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +36,11 @@
 
         .feature h3 {
             line-height: 1.35;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
         }
 
         .img-placeholder {
@@ -47,6 +62,48 @@
 
         .center-note-sp {
             display: none;
+        }
+
+        .course-overview {
+            width: 100%;
+            max-width: 760px;
+            margin: 10px auto 54px;
+            text-align: left;
+        }
+
+        .course-overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        .course-overview-table th,
+        .course-overview-table td {
+            padding: 14px 10px;
+            vertical-align: top;
+        }
+
+        .course-overview-table th {
+            width: 230px;
+            white-space: nowrap;
+            font-weight: 500;
+            color: #2f3f66;
+        }
+
+        .perfume-lead-visual {
+            width: 782px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .perfume-lead-visual img {
+            width: 782px;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            object-fit: cover;
+            margin: 40px auto;
         }
 
         .button-row {
@@ -227,6 +284,35 @@
         }
 
         @media (max-width: 900px) {
+            .wrap {
+                max-width: 760px;
+                padding-top: 0;
+            }
+
+            .course-overview {
+                width: calc(100% - 40px);
+                max-width: calc(100% - 40px);
+                margin: 8px auto 42px;
+            }
+
+            .course-overview-table,
+            .course-overview-table tbody,
+            .course-overview-table tr,
+            .course-overview-table th,
+            .course-overview-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .course-overview-table th {
+                padding: 14px 10px 6px;
+                border-bottom: 0;
+            }
+
+            .course-overview-table td {
+                padding: 0 10px 14px;
+            }
+
             .lead-section {
                 width: 100%;
                 max-width: 888px;
@@ -429,11 +515,6 @@
                 min-height: 0;
             }
 
-            .hero {
-                height: 493px;
-                aspect-ratio: auto;
-            }
-
         }
     </style>
 </head>
@@ -443,35 +524,22 @@
         <aside class="sidebar"></aside>
 
         <main class="content">
-            <div class="hero-wrap">
-                <div class="sp-header"></div>
-                <div class="sp-drawer" id="sp-drawer"></div>
-                <section class="hero">
-                    <img src="../image/Holiday_Top.png" alt="ワークショップのイメージ">
-                </section>
-            </div>
+            <div class="sp-header"></div>
+            <div class="sp-drawer" id="sp-drawer"></div>
 
-            <div class="container">
+            <div class="wrap">
                 <section class="perfume-heading">
                     <h1>Workshop</h1>
                     <p class="copy">フレグランス調香体験</p>
                 </section>
 
-                <section class="perfume-lead-pc">
+                <section class="lead-area-pc">
                     <p>香りを重ねるたびに、印象がゆるやかに移ろう――<br>
                         その繊細な調和を楽しむ、オートクチュールフレグランス・ワークショップです。<br>
                         香りづくりを気軽に体験したい方も、より自由に表現したい方も<br>
                         今の気分に合わせて選べる2つのコースをご用意しました。</p>
-                    <p>Classic｜ベーシックコース<br>
-                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。<br>
-                        初めての方にも安心してご参加いただけます。</p>
-                    <p>
-                        Luxe｜スペシャルコース<br>
-                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。<br>
-                        およそ4,800通りにもおよぶ組み合わせの中から、<br>
-                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
                 </section>
-                <section class="perfume-lead-sp">
+                <section class="lead-area-sp">
                     <p>香りを重ねるたびに、<br>
                         印象がゆるやかに移ろう――<br>
                         その繊細な調和を楽しむ、<br>
@@ -481,17 +549,25 @@
                         より自由に表現したい方も<br>
                         今の気分に合わせて選べる<br>
                         2つのコースをご用意しました。</p>
-                    <p>Classic｜ベーシックコース<br>
-                        12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。
-                        初めての方にも安心してご参加いただけます。</p>
-                    <p>Luxe｜スペシャルコース<br>
-                        季節の香りを含む、厳選した20種類以上の香りから4種類を選択。
-                        およそ4,800通りにもおよぶ組み合わせの中から、
-                        より奥行きのある「あなただけの香り」をかたちにしていただけます。</p>
+                </section>
+                <section class="course-overview" aria-label="コース比較">
+                    <table class="course-overview-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Classic｜ベーシックコース</th>
+                                <td>12種類の香りから4種類を選び、心地よいバランスを探りながら一瓶を仕上げます。初めての方にも安心してご参加いただけます。</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Luxe｜スペシャルコース</th>
+                                <td>季節の香りを含む、厳選した20種類以上の香りから4種類を選択。およそ4,800通りにもおよぶ組み合わせの中から、より奥行きのある「あなただけの香り」をかたちにしていただけます。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <section class="perfume-lead-visual">
-                    <img src="../image/Perfume_Lead.png" alt="香水ワークショップのイメージ">
+                    <img src="../image/Holiday.png" alt="香水ワークショップのイメージ">
                     <p>店舗奥の階段からはじまる特別な調香体験を、ぜひこの機会にご体感ください。</p>
                 </section>
 
@@ -1104,7 +1180,3 @@
 </body>
 
 </html>
-
-
-
-

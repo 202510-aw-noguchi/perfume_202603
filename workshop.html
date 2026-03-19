@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="image/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="image/android-chrome-512x512.png" />
-    <meta name="description" content="Workshop" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="image/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="image/android-chrome-512x512.png" />
+  <meta name="description" content="Workshop" />
   <meta name="title" content="Workshop" />
   <meta property="og:title" content="Workshop" />
   <meta property="og:description"
@@ -40,6 +40,20 @@
     .lead-slider {
       width: 888px;
       margin: 0 auto 26px;
+    }
+
+    .hero-after-lead {
+      width: 100%;
+      max-width: 890px;
+      margin: 24px auto 56px;
+    }
+
+    .hero-after-lead img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
     .lead-track {
@@ -476,6 +490,10 @@
     }
 
     @media (max-width: 900px) {
+      .wrap {
+        padding-top: 0;
+      }
+
       .lead-section {
         width: 100%;
         max-width: 888px;
@@ -492,11 +510,11 @@
         width: 100%;
       }
 
-      .lead-area-pc {
+      .wrap .lead-area-pc {
         display: none;
       }
 
-      .lead-area-sp {
+      .wrap .lead-area-sp {
         display: block;
         margin-bottom: 70px;
       }
@@ -1125,11 +1143,6 @@
         height: 190px;
       }
 
-      .hero {
-        height: 493px;
-        aspect-ratio: auto;
-      }
-
       .lead-nav-group {
         left: calc(50% - 50vw + 20px);
         right: calc(50% - 50vw + 20px);
@@ -1146,19 +1159,14 @@
 <body>
   <div class="page">
     <aside class="sidebar"></aside>
-
     <main class="content">
-      <div class="hero-wrap">
-        <div class="sp-header"></div>
-        <div class="sp-drawer" id="sp-drawer"></div>
+      <div class="sp-header"></div>
+      <div class="sp-drawer" id="sp-drawer"></div>
 
-        <section class="hero">
-          <img src="image/Main.png" alt="香水のイメージショット">
+      <div class="wrap">
+        <section>
+          <h1>Workshop</h1>
         </section>
-      </div>
-
-      <div class="container">
-        <h1>Workshop</h1>
         <section class="lead-area-pc">
           <p>賑やかな表通りから一本入った、静けさに包まれる空間で<br>
             あなただけの香りを作りませんか。</p>
@@ -1176,6 +1184,9 @@
             丁寧に導き出します。</p>
           <p>日常を上質に彩る「世界にひとつ」の香りを、<br>
             特別な時間とともにお持ち帰りください。</p>
+        </section>
+        <section class="hero-after-lead">
+          <img src="image/Main.png" alt="香水のイメージショット">
         </section>
 
         <section class="lead-slider" aria-label="ワークショップ特徴スライダー">
@@ -1640,5 +1651,3 @@
 </body>
 
 </html>
-
-
