@@ -99,6 +99,14 @@ p {
     line-height: 1.7;
 }
 
+/* Body copy alignment (limited scope to avoid UI/card regressions) */
+.article-body p,
+.faq .faq-accordion .body p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    hyphens: auto;
+}
+
 /* Common lead-area blocks (about/brands) */
 .wrap .lead-area,
 .wrap .lead-area-pc,
