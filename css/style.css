@@ -1763,18 +1763,19 @@ p {
 /* Common responsive layout */
 @media (min-width: 1281px) {
     .page {
-        display: block;
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
     }
 
     .content {
-        width: min(1160px, calc(100vw - 280px));
-        margin-left: max(280px, calc((100vw - 1440px) / 2 + 280px));
+        width: auto;
+        margin-left: 0;
+        min-width: 0;
     }
 
     .sidebar {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: max(0px, calc((100vw - 1440px) / 2));
         width: 280px;
         height: 100vh;
         overflow: auto;
