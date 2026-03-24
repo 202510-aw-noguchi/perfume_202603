@@ -41,6 +41,15 @@
             margin: 0 auto 42px;
         }
 
+        .reservation-note {
+            display: block;
+            margin-top: 6px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
         .reservation-form {
             width: 100%;
             max-width: 782px;
@@ -456,7 +465,7 @@
                 </section>
                 <section class="reservation-wrap">
                     <p class="reservation-lead">参加コースを選択し、ご希望日をお選びください。<br>
-                        前日18時までご予約を受け付けています。</p>
+                        前日18時までご予約を受け付けています。<span class="reservation-note">※3か月先までご予約いただけます。</span></p>
                     <form class="reservation-form" action="#" method="post">
                         <p class="reservation-step">1. 参加コースを選択</p>
                         <section class="price" aria-label="コース一覧">
@@ -695,6 +704,91 @@
                 return y + "-" + m + "-" + d;
             }
 
+            function nthWeekdayOfMonth(year, month, weekday, nth) {
+                var first = new Date(year, month, 1).getDay();
+                var day = 1 + ((7 + weekday - first) % 7) + (nth - 1) * 7;
+                return new Date(year, month, day);
+            }
+
+            function calcVernalEquinoxDay(year) {
+                return Math.floor(20.8431 + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+            }
+
+            function calcAutumnalEquinoxDay(year) {
+                return Math.floor(23.2488 + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+            }
+
+            function addHoliday(set, year, month, day) {
+                set.add(formatDate(new Date(year, month, day)));
+            }
+
+            function buildJapaneseHolidaySet(year) {
+                var holidays = new Set();
+
+                addHoliday(holidays, year, 0, 1); // 元日
+                holidays.add(formatDate(nthWeekdayOfMonth(year, 0, 1, 2))); // 成人の日
+                addHoliday(holidays, year, 1, 11); // 建国記念の日
+                addHoliday(holidays, year, 1, 23); // 天皇誕生日
+                addHoliday(holidays, year, 2, calcVernalEquinoxDay(year)); // 春分の日
+                addHoliday(holidays, year, 3, 29); // 昭和の日
+                addHoliday(holidays, year, 4, 3); // 憲法記念日
+                addHoliday(holidays, year, 4, 4); // みどりの日
+                addHoliday(holidays, year, 4, 5); // こどもの日
+                holidays.add(formatDate(nthWeekdayOfMonth(year, 6, 1, 3))); // 海の日
+                addHoliday(holidays, year, 7, 11); // 山の日
+                holidays.add(formatDate(nthWeekdayOfMonth(year, 8, 1, 3))); // 敬老の日
+                addHoliday(holidays, year, 8, calcAutumnalEquinoxDay(year)); // 秋分の日
+                holidays.add(formatDate(nthWeekdayOfMonth(year, 9, 1, 2))); // スポーツの日
+                addHoliday(holidays, year, 10, 3); // 文化の日
+                addHoliday(holidays, year, 10, 23); // 勤労感謝の日
+
+                // 国民の休日（前日と翌日が祝日の平日）
+                for (var month = 0; month < 12; month += 1) {
+                    var daysInMonth = new Date(year, month + 1, 0).getDate();
+                    for (var day = 2; day < daysInMonth; day += 1) {
+                        var date = new Date(year, month, day);
+                        if (date.getDay() === 0) continue;
+                        var key = formatDate(date);
+                        if (holidays.has(key)) continue;
+                        var prev = formatDate(new Date(year, month, day - 1));
+                        var next = formatDate(new Date(year, month, day + 1));
+                        if (holidays.has(prev) && holidays.has(next)) {
+                            holidays.add(key);
+                        }
+                    }
+                }
+
+                // 振替休日（祝日が日曜の場合、直後の最初の平日）
+                var baseHolidays = Array.from(holidays).sort();
+                baseHolidays.forEach(function (key) {
+                    var parts = key.split("-");
+                    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+                    if (date.getDay() !== 0) return;
+                    var substitute = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+                    while (holidays.has(formatDate(substitute))) {
+                        substitute = new Date(substitute.getFullYear(), substitute.getMonth(), substitute.getDate() + 1);
+                    }
+                    holidays.add(formatDate(substitute));
+                });
+
+                return holidays;
+            }
+
+            var holidayCache = {};
+
+            function isJapaneseHoliday(date) {
+                var year = date.getFullYear();
+                if (!holidayCache[year]) {
+                    holidayCache[year] = buildJapaneseHolidaySet(year);
+                }
+                return holidayCache[year].has(formatDate(date));
+            }
+
+            function isAllowedWorkshopDate(date) {
+                var day = date.getDay();
+                return day === 0 || day === 6 || isJapaneseHoliday(date);
+            }
+
             function updateSummary() {
                 if (!summary) return;
                 var courseLabel = mapCourse(getSelectedCourse());
@@ -787,8 +881,9 @@
                     var value = formatDate(cellDate);
                     btn.setAttribute("data-date", value);
                     var isPastRange = cellDate < minSelectableDate;
+                    var isAllowedDate = isAllowedWorkshopDate(cellDate);
                     var isBookable = isDateBookable(value);
-                    if (isPastRange || !isBookable) {
+                    if (isPastRange || !isAllowedDate || !isBookable) {
                         btn.disabled = true;
                     }
                     if (selectedDate && formatDate(selectedDate) === value) {
@@ -813,8 +908,9 @@
 
             function renderCalendar() {
                 panel.innerHTML = "";
-                panel.appendChild(renderMonth(baseYear, baseMonth));
-                panel.appendChild(renderMonth(baseYear, baseMonth + 1));
+                for (var offset = 0; offset <= 3; offset += 1) {
+                    panel.appendChild(renderMonth(baseYear, baseMonth + offset));
+                }
             }
 
             function selectCard(card) {
@@ -838,7 +934,7 @@
                 var course = getSelectedCourse();
                 if (!course) return;
                 var from = formatDate(minSelectableDate);
-                var to = formatDate(new Date(baseYear, baseMonth + 2, 0));
+                var to = formatDate(new Date(baseYear, baseMonth + 4, 0));
                 fetch(API_BASE + "/reservations/availability?course=" + encodeURIComponent(course) + "&from=" + from + "&to=" + to)
                     .then(function (response) {
                         if (!response.ok) throw new Error("空席情報の取得に失敗しました。");
@@ -930,6 +1026,12 @@
                     event.preventDefault();
                     if (!dateInput.value) {
                         alert("ご希望日を選択してください。");
+                        return;
+                    }
+                    var picked = dateInput.value.split("-");
+                    var pickedDate = new Date(Number(picked[0]), Number(picked[1]) - 1, Number(picked[2]));
+                    if (!isAllowedWorkshopDate(pickedDate)) {
+                        alert("開催日は土日祝日のみ選択できます。");
                         return;
                     }
                     var selectedTime = document.querySelector('input[name="reserve_time"]:checked');
