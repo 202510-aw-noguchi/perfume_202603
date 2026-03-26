@@ -544,7 +544,18 @@
 
       reloadBtn.addEventListener("click", load);
       logoutBtn.addEventListener("click", function () {
-        fetch("/logout", { method: "POST" })
+        fetch("/api/csrf-token")
+          .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+          })
+          .then(function (csrf) {
+            var headers = {};
+            if (csrf && csrf.headerName && csrf.token) {
+              headers[csrf.headerName] = csrf.token;
+            }
+            return fetch("/logout", { method: "POST", headers: headers });
+          })
           .then(function () {
             window.location.href = "/login.html?logout";
           })

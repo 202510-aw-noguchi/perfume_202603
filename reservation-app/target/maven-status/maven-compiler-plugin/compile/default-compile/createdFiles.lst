@@ -17,7 +17,6 @@ com\example\reservation\api\dto\AdminWeeklySlotRowDto.class
 com\example\reservation\service\MailSubscriptionService.class
 com\example\reservation\model\MailSubscription.class
 com\example\reservation\api\dto\MailSubscriptionRequest.class
-com\example\reservation\config\SecurityConfig.class
 com\example\reservation\api\AdminController.class
 com\example\reservation\api\dto\AdminMeDto.class
 com\example\reservation\api\dto\SlotAvailabilityDto.class

@@ -1,4 +1,4 @@
-﻿package com.example.reservation.config;
+package com.example.reservation.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -11,18 +11,30 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        HttpSessionCsrfTokenRepository csrfTokenRepository = new HttpSessionCsrfTokenRepository();
+
         http
                 .cors(Customizer.withDefaults())
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf
+                        .csrfTokenRepository(csrfTokenRepository)
+                        .ignoringRequestMatchers(
+                                new AntPathRequestMatcher("/api/reservations/**"),
+                                new AntPathRequestMatcher("/api/mail/**"),
+                                new AntPathRequestMatcher("/login"),
+                                new AntPathRequestMatcher("/h2-console/**")
+                        )
+                )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/admin.html", "/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/reservations/**", "/api/mail/**", "/", "/index.html", "/login.html", "/h2-console/**", "/error").permitAll()
+                        .requestMatchers("/api/reservations/**", "/api/mail/**", "/api/csrf-token", "/", "/index.html", "/login.html", "/h2-console/**", "/error").permitAll()
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form

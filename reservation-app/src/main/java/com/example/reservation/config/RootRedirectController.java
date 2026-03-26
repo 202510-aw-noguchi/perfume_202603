@@ -1,4 +1,4 @@
-﻿package com.example.reservation.config;
+package com.example.reservation.config;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
