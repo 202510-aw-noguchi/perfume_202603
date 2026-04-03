@@ -35,6 +35,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-y: scroll;
+        }
+
         .content {
             padding-bottom: 0;
         }
@@ -133,6 +137,28 @@
             .hero-overlay {
                 left: 9%;
                 bottom: 36%;
+            }
+        }
+
+        @media (min-width: 1281px) and (max-width: 1599px) {
+            .content {
+                padding-inline: 0;
+            }
+
+            .hero {
+                width: calc(100% + ((100vw - 1440px) / 2));
+                margin-right: calc((100vw - 1440px) / -2);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .content {
+                padding-inline: 0;
+            }
+
+            .hero {
+                width: calc(100% + ((100vw - 1720px) / 2));
+                margin-right: calc((100vw - 1720px) / -2);
             }
         }
 

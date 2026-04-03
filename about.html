@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="image/android-chrome-192x192.png" />
@@ -25,6 +25,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,600;1,600&family=Noto+Sans+JP:wght@400;500&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
         * {
@@ -85,6 +86,116 @@
             text-align: left;
         }
 
+        .access .access-details {
+            max-width: 760px;
+            margin: 26px auto 0;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .access {
+            border-top: 1px solid #c9c9c9;
+            padding-top: 56px;
+        }
+
+        .access .access-details dl {
+            margin: 0;
+        }
+
+        .access .access-details .access-row {
+            margin: 0 0 10px;
+            line-height: 1.9;
+        }
+
+        .access .access-details .access-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .access .access-details dt,
+        .access .access-details dd {
+            margin: 0;
+            display: inline;
+        }
+
+        .access .access-details dt {
+            font-weight: 500;
+        }
+
+        .access .contact-box {
+            margin-top: 22px;
+            padding: 14px 16px;
+            border: 1px solid #c9c9c9;
+            background: #fafafa;
+        }
+
+        .access .contact-title {
+            margin: 0 0 8px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.1em;
+            line-height: 1.4;
+            letter-spacing: 0.03em;
+        }
+
+        .access .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 20px;
+        }
+
+        .access .contact-meta {
+            margin: 0 0 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.9;
+            font-family: "Noto Sans JP", sans-serif;
+        }
+
+        .access .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.9;
+            font-family: "Noto Sans JP", sans-serif;
+        }
+
+        .access .contact-icon {
+            font-family: "Material Symbols Outlined";
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.15em;
+            line-height: 1;
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: normal;
+            text-transform: none;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+
+        .access .access-details a {
+            color: inherit;
+        }
+
+        .access .access-details .mail-link {
+            text-decoration: none;
+        }
+
+        .access .access-details .phone-link {
+            text-decoration: none;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .access .img-placeholder {
+            max-width: 760px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -99,6 +210,35 @@
             .wrap .feature>div {
                 padding-left: 0;
                 padding-right: 0;
+            }
+
+            .access .access-details {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .access {
+                padding-top: 42px;
+            }
+
+            .access .img-placeholder {
+                max-width: 760px;
+                aspect-ratio: 16 / 9;
+                height: auto;
+            }
+
+            .access .access-details .phone-link {
+                text-decoration: none;
+                pointer-events: auto;
+                cursor: pointer;
+            }
+
+            .access .contact-box {
+                padding: 12px 14px;
+            }
+
+            .access .contact-list {
+                gap: 6px 14px;
             }
 
             h2 {
@@ -200,6 +340,38 @@
                         </article>
                     </section>
                 </section>
+
+                <section class="access" id="access-contact">
+                    <h2>Access</h2>
+                    <section class="h2-lead-area">ご来店前に、店舗までのアクセス方法をご確認ください。<br>
+                        JR/東京メトロ 上野駅から徒歩5分ほどの距離にあります。</section>
+                    <div class="img-placeholder">
+                        <iframe
+                            src="https://www.google.com/maps?q=%E3%80%92110-0015%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%9D%B1%E4%B8%8A%E9%87%8E%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%20%E6%9B%BD%E6%88%91%E3%83%93%E3%83%AB&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map">
+                        </iframe>
+                    </div>
+                    <div class="access-details">
+                        <div>
+                            <div class="access-row">
+                                〒110-0015 東京都台東区東上野3丁目15−5 曽我ビル
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <p class="contact-title">Contact Information</p>
+                            <p class="contact-meta"><span class="contact-icon"
+                                    aria-hidden="true">schedule</span><span>営業時間 10:00〜19:00（不定休）</span></p>
+                            <div class="contact-list">
+                                <span class="contact-item"><span class="contact-icon" aria-hidden="true">call</span><a
+                                        class="phone-link" href="tel:0312345678"
+                                        aria-label="電話番号 03-1234-5678">03-1234-5678</a></span>
+                                <span class="contact-item"><span class="contact-icon" aria-hidden="true">mail</span><a
+                                        class="mail-link" href="mailto:info@perfume.com">info@perfume.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
     </div>
@@ -213,5 +385,3 @@
 </body>
 
 </html>
-
-

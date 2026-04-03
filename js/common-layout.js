@@ -46,13 +46,21 @@
     navItem("press", "プレスリリース", root + "press.html")
   ].join("");
 
+  var sideSubHtml =
+    "<div class=\"side-sub\">" +
+    "<div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div>" +
+    "<div>公式Instagram</div>" +
+    "<div class=\"side-sub-access\"><a href=\"" + root + "about.html#access-contact\">アクセス・お問い合わせ</a></div>" +
+    "</div>";
+
   var sidebar = document.querySelector(".sidebar");
   if (sidebar) {
     sidebar.innerHTML =
       "<a class=\"logo\" href=\"" + root + "index.html\"><img src=\"" + root + "image/Logo_250_ol.png\" alt=\"ブランドロゴ\"></a>" +
       "<ul class=\"menu\">" + navHtml + "</ul>" +
-      "<div class=\"side-sub\"><div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div><div>公式Instagram</div></div>";
+      sideSubHtml;
   }
+
 
   var spHeader = document.querySelector(".sp-header");
   if (spHeader) {
@@ -67,7 +75,7 @@
   if (spDrawer) {
     spDrawer.innerHTML =
       "<ul class=\"menu\">" + navHtml + "</ul>" +
-      "<div class=\"side-sub\"><div><a href=\"" + root + "mail.html\">メールマガジン登録</a></div><div>公式Instagram</div></div>";
+      sideSubHtml;
   }
 
   var menuButton = document.querySelector(".sp-menu-btn");

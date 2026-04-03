@@ -99,6 +99,14 @@ p {
     line-height: 1.7;
 }
 
+a:not(.btn):not([class*="btn"]),
+a:not(.btn):not([class*="btn"]):visited,
+a:not(.btn):not([class*="btn"]):hover,
+a:not(.btn):not([class*="btn"]):active {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* Body copy alignment (limited scope to avoid UI/card regressions) */
 .article-body p,
 .faq .faq-accordion .body p {
@@ -1698,6 +1706,10 @@ p {
     text-decoration: none;
 }
 
+.side-sub .side-sub-access {
+    margin-top: 16px;
+}
+
 /* Common mobile header / drawer */
 .sp-header {
     display: none;
@@ -1768,18 +1780,20 @@ p {
     }
 
     .content {
+        grid-column: 2;
         width: auto;
         margin-left: 0;
         min-width: 0;
     }
 
     .sidebar {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: max(0px, calc(50% - 720px));
         width: 280px;
         height: 100vh;
-        overflow: auto;
-        z-index: 1;
+        overflow: hidden;
+        z-index: 2;
         background: var(--base-bg);
     }
 }
@@ -1792,6 +1806,10 @@ p {
 
     .content {
         padding-inline: clamp(28px, 2.2vw, 56px);
+    }
+
+    .sidebar {
+        left: max(0px, calc(50% - 860px));
     }
 }
 
