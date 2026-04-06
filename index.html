@@ -146,8 +146,9 @@
             }
 
             .hero {
-                width: calc(100% + ((100vw - 1440px) / 2));
-                margin-right: calc((100vw - 1440px) / -2);
+                --hero-extend: clamp(0px, calc((100vw - 1440px) / 2), 100px);
+                width: calc(100% + var(--hero-extend));
+                margin-right: calc(var(--hero-extend) * -1);
             }
         }
 
@@ -157,8 +158,9 @@
             }
 
             .hero {
-                width: calc(100% + ((100vw - 1720px) / 2));
-                margin-right: calc((100vw - 1720px) / -2);
+                --hero-extend: clamp(0px, calc((100vw - 1720px) / 2), 100px);
+                width: calc(100% + var(--hero-extend));
+                margin-right: calc(var(--hero-extend) * -1);
             }
         }
 
